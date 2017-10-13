@@ -10,5 +10,3 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 89c2214255e9d4880bb03d4d1d68a5fb59e3d3dc
-   # app_name: "Jeu de mots"
-   # app_developpers: "A.Carmora, M.Pyz, J.Ramos, A.Garcia"
