@@ -11,9 +11,9 @@ class JdmController extends Controller
 {
 
 
-    public function goindex()
+    public function redirectAction()
     {
-        return $this->redirectToRoute('garad_jdm_index');
+        return $this->redirectToRoute('garad_jdm_home');
     }
 
 

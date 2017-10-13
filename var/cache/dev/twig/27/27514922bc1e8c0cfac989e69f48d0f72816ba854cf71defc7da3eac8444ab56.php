@@ -15,11 +15,11 @@ class __TwigTemplate_742cd1ce71015ea92a5fb8ea1620665f107a81426a568409f36f1bd2851
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_bc2f25f248988a158bbed6600397b164d9bd1c9a405f7be0e6e15e0f093a6402 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_bc2f25f248988a158bbed6600397b164d9bd1c9a405f7be0e6e15e0f093a6402->enter($__internal_bc2f25f248988a158bbed6600397b164d9bd1c9a405f7be0e6e15e0f093a6402_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "GaradPlatformBundle:Jdm:index.html.twig"));
+        $__internal_e8facd3e6c3a38d69d5218cf11b11c6ce82b16f2f33b81186cb975b047758a3c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e8facd3e6c3a38d69d5218cf11b11c6ce82b16f2f33b81186cb975b047758a3c->enter($__internal_e8facd3e6c3a38d69d5218cf11b11c6ce82b16f2f33b81186cb975b047758a3c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "GaradPlatformBundle:Jdm:index.html.twig"));
 
-        $__internal_70144c8c37b4ebbba2626e6b0d86fb0328a361cfd5de7393e7d0ec58877db69b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_70144c8c37b4ebbba2626e6b0d86fb0328a361cfd5de7393e7d0ec58877db69b->enter($__internal_70144c8c37b4ebbba2626e6b0d86fb0328a361cfd5de7393e7d0ec58877db69b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "GaradPlatformBundle:Jdm:index.html.twig"));
+        $__internal_11c426db83e0c12a76c555a2399d84526b55da9cc1ca0c26aa1a6964064bb423 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_11c426db83e0c12a76c555a2399d84526b55da9cc1ca0c26aa1a6964064bb423->enter($__internal_11c426db83e0c12a76c555a2399d84526b55da9cc1ca0c26aa1a6964064bb423_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "GaradPlatformBundle:Jdm:index.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -57,7 +57,9 @@ and open the template in the editor.
     </style>
 </head>
 <body>
-<form action=\"jdm\" method=\"post\">
+<!--action doit etre vide pour refaire appel a la meme page <form action=\"jdm\" method=\"post\">-->
+
+<form action=\"\" method=\"post\">
     <input type=\"text\" name=\"search\" placeholder=\"Entrez le mot à rechercher\" id=\"search\"/>
     <input type=\"submit\" value=\"Rechercher\"/>
 </form>
@@ -69,10 +71,10 @@ and open the template in the editor.
 </body>
 </html>";
         
-        $__internal_bc2f25f248988a158bbed6600397b164d9bd1c9a405f7be0e6e15e0f093a6402->leave($__internal_bc2f25f248988a158bbed6600397b164d9bd1c9a405f7be0e6e15e0f093a6402_prof);
+        $__internal_e8facd3e6c3a38d69d5218cf11b11c6ce82b16f2f33b81186cb975b047758a3c->leave($__internal_e8facd3e6c3a38d69d5218cf11b11c6ce82b16f2f33b81186cb975b047758a3c_prof);
 
         
-        $__internal_70144c8c37b4ebbba2626e6b0d86fb0328a361cfd5de7393e7d0ec58877db69b->leave($__internal_70144c8c37b4ebbba2626e6b0d86fb0328a361cfd5de7393e7d0ec58877db69b_prof);
+        $__internal_11c426db83e0c12a76c555a2399d84526b55da9cc1ca0c26aa1a6964064bb423->leave($__internal_11c426db83e0c12a76c555a2399d84526b55da9cc1ca0c26aa1a6964064bb423_prof);
 
     }
 
@@ -131,7 +133,9 @@ and open the template in the editor.
     </style>
 </head>
 <body>
-<form action=\"jdm\" method=\"post\">
+<!--action doit etre vide pour refaire appel a la meme page <form action=\"jdm\" method=\"post\">-->
+
+<form action=\"\" method=\"post\">
     <input type=\"text\" name=\"search\" placeholder=\"Entrez le mot à rechercher\" id=\"search\"/>
     <input type=\"submit\" value=\"Rechercher\"/>
 </form>
@@ -141,6 +145,6 @@ and open the template in the editor.
 
 
 </body>
-</html>", "GaradPlatformBundle:Jdm:index.html.twig", "/Users/adamgarcia/Sites/Symfony/src/Garad/PlatformBundle/Resources/views/Jdm/index.html.twig");
+</html>", "GaradPlatformBundle:Jdm:index.html.twig", "/Users/adamgarcia/Sites/jaam/src/Garad/PlatformBundle/Resources/views/Jdm/index.html.twig");
     }
 }

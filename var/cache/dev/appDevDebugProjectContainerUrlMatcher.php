@@ -113,29 +113,23 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // hello_the_world
-        if ('/hello-world' === $pathinfo) {
-            return array (  '_controller' => 'GaradPlatformBundle:Advert:index',  '_route' => 'hello_the_world',);
-        }
+        // garad_jdm_redirect
+        if ('' === $trimmedPathinfo) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'garad_jdm_redirect');
+            }
 
-        // bye_the_world
-        if ('/bye' === $pathinfo) {
-            return array (  '_controller' => 'GaradPlatformBundle:Advert:exit',  '_route' => 'bye_the_world',);
+            return array (  '_controller' => 'Garad\\PlatformBundle\\Controller\\JdmController::redirectAction',  '_route' => 'garad_jdm_redirect',);
         }
 
         if (0 === strpos($pathinfo, '/jdm')) {
             // garad_jdm_home
-            if ('/jdm' === $pathinfo) {
-                return array (  '_controller' => 'Garad\\PlatformBundle\\Controller\\JdmController::indexAction',  '_route' => 'garad_jdm_home',);
-            }
-
-            // garad_jdm_home2
             if ('/jdm' === $trimmedPathinfo) {
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'garad_jdm_home2');
+                    return $this->redirect($pathinfo.'/', 'garad_jdm_home');
                 }
 
-                return array (  '_controller' => 'Garad\\PlatformBundle\\Controller\\JdmController::goindexAction',  '_route' => 'garad_jdm_home2',);
+                return array (  '_controller' => 'Garad\\PlatformBundle\\Controller\\JdmController::indexAction',  '_route' => 'garad_jdm_home',);
             }
 
             // garad_jdm_search
