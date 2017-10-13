@@ -1,0 +1,2218 @@
+
+// DUMP pour le terme 'latitude' (eid=76552)
+
+
+
+
+
+// les types de noeuds (Nodes Types) : nt;ntid;'ntname'
+
+nt;1;'n_term'
+nt;2;'n_form'
+nt;4;'n_pos'
+nt;6;'n_flpot'
+nt;8;'n_chunk'
+nt;9;'n_question'
+nt;18;'n_data'
+nt;36;'n_data_pot'
+nt;444;'n_link'
+nt;666;'n_AKI'
+nt;777;'n_wikipedia'
+
+// les noeuds/termes (Entries) : e;eid;'name';type;w;'formated name' 
+
+e;76552;'latitude';1;86
+e;153253;'Astronomie';1;130
+e;141272;'Géographie';1;256
+e;3888666;'dbnary:fra:__ws_1_latitude__nom__1';444;0
+e;3904357;'dbnary:fra:__ws_4_latitude__nom__1';444;0
+e;4100736;'dbnary:fra:__ws_2_latitude__nom__1';444;0
+e;4198858;'dbnary:fra:__ws_3_latitude__nom__1';444;0
+e;254878;'_POL-NEG_PC';36;50
+e;361041;'latitude réduite';1;50
+e;361038;'latitude écliptique';1;50
+e;361039;'latitude conforme';1;50
+e;361034;'latitude croissante';1;50
+e;361035;'latitude galactique';1;50
+e;361040;'latitude isométrique';1;50
+e;361037;'latitude moyenne';1;50
+e;139892;'Terre';1;1172
+e;14141;'Équateur';1;72
+e;145607;'équateur';1;78
+e;115484;'astronomique';1;76
+e;50300;'phi';1;76
+e;430814;'longitudes';1;50
+e;435229;'Phi';1;50
+e;1784420;'Altitude';1;0
+e;1857669;'grades';1;0
+e;391929;'projections cartographiques';1;50
+e;131978;'altitude';1;176
+e;5629466;'Latitude';1;0
+e;5629465;'Longitude';1;0
+e;5558031;'Grade';1;0
+e;58170;'hauteur';1;450
+e;223172;'_POL-NEG';36;50
+e;152842;'_FL:25';6;50
+e;7804;'pouvoir';1;572
+e;60361;'loisirs';1;298
+e;124518;'météorologie';1;498
+e;28453;'bonheur';1;2058
+e;14330;'satisfaction';1;494
+e;103405;'indifférence';1;438
+e;219865;'faculté>4827';1;52;'faculté>permission'
+e;53314;'jeu';1;4870
+e;146191;'marge';1;84
+e;3576104;'Morpho:nospace';18;50
+e;47360;'longitude';1;88
+e;3228593;'wiki:@';444;0
+e;16644;'astronomie';1;1398
+e;254877;'_POL-NEUTRE_PC';36;50
+e;3575927;'Morpho:min';18;50
+e;2308;'climat';1;612
+e;102256;'climatologie';1;72
+e;3724486;'bn:00050179n';444;0
+e;87409;'choix';1;508
+e;48104;'situation';1;298
+e;91691;'surprise';1;1004
+e;9894;'géographie';1;1604
+e;361036;'latitude géographique';1;50
+e;15558;'repère';1;86
+e;40531;'température';1;1307
+e;276096;'_INFO-WIKI-YES';36;50
+e;321989;'parallèle>9894';1;50;'parallèle>géographie'
+e;220877;'latitude>88662';1;50;'latitude>liberté'
+e;3396091;'Langage:orthophonie';18;50
+e;46879;'sud';1;1068
+e;88662;'liberté';1;1404
+e;220876;'latitude>2308';1;50;'latitude>climat'
+e;220878;'latitude>16644';1;50;'latitude>astronomie'
+e;1290;'possibilité';1;193
+e;2586628;'Gender:Fem';4;0
+e;2586629;'Number:Sing';4;0
+e;217817;'_INFO-POLYSEMIC';36;50
+e;220875;'latitude>9894';1;2;'latitude>géographie'
+e;49318;'loisir';1;704
+e;69826;'facilité';1;246
+e;4827;'permission';1;152
+e;1763383;'avoir toute latitude';1;2
+e;104113;'faculté';1;754
+e;64265;'largeur';1;168
+e;135261;'nautique';1;54
+e;35722;'GPS';1;142
+e;88969;'angulaire';1;80
+e;146881;'Nom:Fem+SG';4;50
+e;2585996;'_INFO-CNRTL-YES';36;50
+e;2929183;'globe>139892';1;2;'globe>Terre'
+e;29378;'parallèle';1;106
+e;7486;'pôle';1;274
+e;5524090;'donner toute latitude';1;2
+e;171870;'Nom:';4;50
+e;268980;'méridien>9894';1;52;'méridien>géographie'
+e;93861;'sextant';1;60
+e;121359;'degré';1;318
+e;7637;'extension';1;72
+e;151553;'_FL:0';6;50
+e;254876;'_POL-POS_PC';36;50
+e;57791;'position';1;364
+e;241794;'_POL-NEUTRE';36;50
+e;110794;'méridien';1;82
+e;346927;'degré de latitude';1;50
+e;389028;'à une certaine latitude';1;50
+e;356616;'grande latitude';1;50
+e;152011;'_FL:20';6;50
+e;152012;'_FL:21';6;50
+e;122345;'avoir la latitude';1;50
+e;223173;'_POL-POS';36;50
+e;2983124;'_SW';36;50
+e;239128;'_COM';36;50
+e;92212;'d';1;2156
+e;93514;'astrolabe';1;52
+e;27136;'tropique';1;98
+e;84199;'Everest';1;94
+e;129307;'oekoumène';1;50
+e;160996;'41°43'55''N 49°56'45''W';1;50
+e;102345;'plaisir';1;3080
+e;78045;'caouane';1;62
+e;3699;'neige';1;2898
+e;120130;'ensoleillement';1;98
+e;10835;'biome';1;88
+e;36940;'étoile';1;1972
+e;105028;'Angleterre';1;1016
+e;99418;'marée';1;188
+e;29760;'Montréal';1;100
+e;135737;'Tunisie';1;230
+e;16566;'Wellington';1;50
+e;22966;'Saint-Pétersbourg';1;66
+e;88543;'jour';1;4266
+e;146632;'forêt';1;4182
+e;96256;'bois';1;4570
+e;3461;'vent';1;1592
+e;71981;'missile';1;246
+e;281133;'mont Everest';777;4
+e;143267;'Californie';1;242
+e;155754;'La Réunion';1;96
+e;115386;'fusée';1;1090
+e;74978;'étoiles';1;546
+e;123829;'Belgrade';1;54
+e;140629;'Étoile';1;50
+e;56308;'force de Coriolis';1;54
+e;254005;'effet Coriolis';1;50
+e;146642;'Alpes';1;302
+e;272141;'République tunisienne';777;50
+e;272142;'Régence de Tunis';777;50
+e;272215;'données observées';777;50
+e;272216;'caractéristiques physiques';777;50
+e;142353;'Rotation';1;50
+e;144333;'Soleil';1;260
+e;160088;'courant marin';1;96
+e;272230;'courants de surface';777;50
+e;272231;'courants de profondeur';777;50
+e;272236;'circulation thermohaline';777;50
+e;138321;'tropique du Cancer';1;50
+e;272434;'champ de pesanteur';777;50
+e;45105;'pesanteur';1;60
+e;84466;'gravité';1;92
+e;61919;'géodésique';1;52
+e;35114;'Grèce';1;1046
+e;272661;'République hellénique';777;50
+e;58485;'Tunis';1;88
+e;139682;'cyclone';1;174
+e;272811;'circulation cyclonique';777;50
+e;76490;'Nevada';1;70
+e;272724;'Surnom';777;50
+e;272854;'Battle Born State';777;50
+e;272855;'L'État Né de la Guerre';777;50
+e;272725;'Devise';777;50
+e;174725;'Astrolabe';1;50
+e;154206;'neige artificielle';1;58
+e;160998;'gps';1;62
+e;273195;'îles éparses';777;50
+e;273196;'îles Éparses de l'océan Indien';777;50
+e;39192;'nuit';1;2862
+e;107741;'Zimbabwe';1;82
+e;273596;'République du Zimbabwe';777;50
+e;179773;'zimbabwéen';1;18
+e;107384;'Haute-Normandie';1;60
+e;122628;'glaciation';1;88
+e;2589;'période glaciaire';1;52
+e;274154;'Pétrograd';777;50
+e;173208;'Léningrad';1;10
+e;260377;'Terre Adélie';1;14
+e;87439;'glacier';1;390
+e;161070;'été indien';1;66
+e;182354;'été des Indiens';1;50
+e;274349;'Été de la Saint-Martin';777;50
+e;213167;'Recul des glaciers depuis 1850';1;50
+e;74718;'journée';1;1740
+e;127999;'guerre de Corée';1;52
+e;94508;'tropiques';1;66
+e;94208;'Alaska';1;64
+e;109752;'Philippines';1;60
+e;274784;'République des Philippines';777;50
+e;257117;'géoréférencement';1;10
+e;29506;'Belém';1;54
+e;274962;'mer de Barents';1;52
+e;274965;'mer de Norvège';1;50
+e;93396;'boqueteau';1;50
+e;78140;'bosquet';1;108
+e;141936;'Ciel';1;52
+e;25833;'cirrus';1;114
+e;7585;'tropical';1;126
+e;275462;'architecture bioclimatique';777;50
+e;275461;'habitat bioclimatique';1;50
+e;137338;'Vent';1;50
+e;235775;'temps solaire';1;50
+e;276382;'temps vrai';777;50
+e;202401;'jour solaire';1;50
+e;251;'philippin';1;58
+e;276829;'palmae';777;50
+e;10210;'palmiers';1;50
+e;47265;'palmacées';1;50
+e;276830;'arécacées';777;50
+e;167808;'sphère céleste';1;58
+e;1988;'voûte céleste';1;58
+e;3303;'Tietê';1;50
+e;5290;'angle';1;384
+e;277989;'angle orienté';777;2
+e;143627;'karst';1;50
+e;5385;'Karst';1;50
+e;5862;'araucaria';1;56
+e;6014;'Santos';1;50
+e;129517;'géographique';1;66
+e;278355;'pôle Nord géographique terrestre';777;50
+e;7178;'pôle Nord';1;90
+e;7814;'Petrograd';1;50
+e;7929;'cadran solaire';1;60
+e;7933;'courant-jet';1;50
+e;272186;'En danger';777;50
+e;279266;'Caretta caretta';777;50
+e;10123;'caouanne';1;50
+e;279267;'tortue caouanne';777;50
+e;138412;'Shetland';1;50
+e;10700;'Juiz de Fora';1;50
+e;14254;'Cameroun';1;74
+e;279588;'République du Cameroun';777;50
+e;20220;'camerounais';1;68
+e;20287;'Orcades';1;50
+e;20417;'culmination';1;50
+e;279709;'culmination supérieure';777;50
+e;279710;'culmination inférieure';777;50
+e;171632;'par définition';1;50
+e;55692;'guidage';1;60
+e;59530;'autodirecteur';1;50
+e;69051;'écoumène';1;50
+e;29285;'vallée';1;178
+e;20793;'vallées';1;50
+e;279901;'Formica Leo';777;50
+e;279945;'maladies émergentes';777;50
+e;279944;'maladie émergente';1;8
+e;244924;'étoile polaire';1;2
+e;256133;'Étoile polaire';1;50
+e;280158;'navigation astronomique';1;50
+e;280159;'point crépusculaire';777;50
+e;280160;'point à midi';777;50
+e;194883;'tétras du Canada';1;50
+e;107283;'Anchorage';1;50
+e;280966;'Municipalité d'Anchorage';777;50
+e;26573;'Nuages de Magellan';1;52
+e;129132;'orthodromie';1;50
+e;145064;'plaque';1;316
+e;205651;'plaque nord-américaine';1;50
+e;281131;'Chomolungma';777;50
+e;281132;'Sagarmatha';777;50
+e;241549;'toit du monde';1;50
+e;209023;'théorème de Thalès';1;50
+e;281291;'théorème d'intersection';777;50
+e;85401;'sphère armillaire';1;50
+e;281676;'héliographe de Campbell-Stokes';777;50
+e;187952;'héliographe de Campbell';1;50
+e;208690;'système de coordonnées';1;50
+e;226417;'Apollo 11';1;18
+e;282042;'ondes inertielles';777;50
+e;214395;'onde inertielle';1;50
+e;89248;'Leningrad';1;50
+e;282265;'faune de l'Édiacarien';777;50
+e;141429;'faune d'Ediacara';1;50
+e;181057;'bâton de Jacob';1;50
+e;74407;'arbalestrille';1;50
+e;85891;'arbalète';1;98
+e;282281;'rayon astronomique';777;50
+e;181919;'croix géométrique';1;50
+e;152363;'climat tropical';1;70
+e;282305;'régime tropical';777;50
+e;13610;'éclipse';1;228
+e;143724;'Éclipse';1;50
+e;282309;'clipse';777;50
+e;50403;'Nagaland';1;50
+e;237418;'climat montagnard';1;2
+e;197653;'climat de montagne';1;50
+e;62273;'tourbière';1;58
+e;40901;'tourbage';1;50
+e;201107;'force centrifuge';1;50
+e;283133;'effet centrifuge';777;50
+e;73967;'Agra';1;52
+e;61947;'zonation';1;50
+e;30426;'courants marins';1;52
+e;93471;'falconidés';1;50
+e;219939;'lever de soleil';1;52
+e;124781;'lever du soleil';1;70
+e;249560;'macroécosystème';1;8
+e;249561;'aire biotique';1;8
+e;249562;'écozone';1;10
+e;267255;'milieu de vie';1;4
+e;267800;'coordonnées géographiques';1;50
+e;284428;'repères géographiques';777;50
+e;268703;'Saint Petersbourg';1;2
+e;205647;'plaque eurasiatique';1;50
+e;284681;'plaque eurasienne';1;50
+e;50396;'Minneapolis';1;54
+e;20072;'Miami';1;54
+e;84093;'Floride';1;66
+e;110236;'tabac';1;1244
+e;51073;'tabagie';1;96
+e;106981;'précipitation';1;140
+e;52908;'précipitations';1;92
+e;107156;'crépuscule';1;202
+e;45375;'équinoxe';1;80
+e;161290;'énergie solaire';1;106
+e;249769;'tunisienne';1;8
+e;46237;'centrifuge';1;62
+e;114902;'chronomètre';1;162
+e;46956;'chrono';1;60
+e;286404;'Île intense';777;50
+e;286403;'mascareigne';777;50
+e;142903;'Bourbon';1;76
+e;286414;'instruments de bord';777;50
+e;286628;'Géographie des États-Unis d'Amérique';777;50
+e;286629;'géographie des États-Unis';777;50
+e;77735;'Europe';1;816
+e;53267;'écologie';1;1058
+e;30589;'écologue';1;50
+e;199642;'équilibre écologique';1;50
+e;287169;'pôle géographique';777;50
+e;287242;'navigation inertielle';777;50
+e;231751;'guidage inertiel';1;50
+e;64163;'navigation';1;472
+e;152384;'Navigation';1;54
+e;287448;'champ de gravité';777;50
+e;127228;'Colombie-Britannique';1;50
+e;191989;'albatros hurleur';1;50
+e;73892;'foudre';1;334
+e;218165;'Foudre';1;50
+e;288758;'océanique dégradé';777;50
+e;43146;'climat océanique';1;64
+e;74004;'Vanini';1;50
+e;236671;'Grande Ourse';1;50
+e;19638;'Kilauea';1;54
+e;116572;'enneigement';1;62
+e;289484;'module solaire photovoltaïque';777;50
+e;289485;'panneau solaire photovoltaïque';777;50
+e;166979;'panneau photovoltaïque';1;60
+e;189988;'fruit tropical';1;20
+e;229912;'éclipse totale';1;14
+e;13211;'Açores';1;60
+e;23001;'troposphère';1;52
+e;95144;'grand albatros';1;50
+e;193106;'grand Albatros';1;50
+e;245999;'grande ourse';1;52
+e;145500;'allure';1;166
+e;205451;'petit largue';1;50
+e;81043;'carte du ciel';1;52
+e;33142;'horoscope';1;476
+e;253497;'champ magnétique terrestre';1;50
+e;76746;'lac de Garde';1;50
+e;152471;'canard colvert';1;52
+e;290614;'Anas platyrhynchos';777;50
+e;290615;'canard mallard';777;50
+e;208035;'secteur angulaire';1;50
+e;58821;'attraction terrestre';1;50
+e;125069;'géomagnétisme';1;50
+e;201554;'grande marée';1;54
+e;156195;'tropique du cancer';1;56
+e;173354;'pôle Sud';1;4
+e;153832;'pôle sud';1;82
+e;215111;'JOUR';1;50
+e;237827;'grandes marées';1;50
+e;89116;'cap Nord';1;50
+e;73367;'Funchal';1;50
+e;231322;'fusée spatiale';1;52
+e;191649;'marée haute';1;14
+e;97200;'éclipses';1;50
+e;292672;'clipses';777;50
+e;191648;'marée basse';1;18
+e;187986;'pendule de Foucault';1;52
+e;162723;'mille marin';1;50
+e;293034;'mille marin international';777;50
+e;293035;'mille nautique';777;50
+e;183345;'navigation par satellite';1;50
+e;221953;'angle plat';1;50
+e;224916;'tabac à rouler';1;88
+e;158653;'horloge solaire';1;52
+e;193804;'mouette tridactyle';1;50
+e;153831;'pole nord';1;50
+e;170936;'La Rochelle';1;16
+e;229875;'rayonnement ionisant';1;52
+e;17721;'falconidé';1;50
+e;18214;'long cours';1;50
+e;18225;'Paulo Afonso';1;50
+e;26032;'avant-midi';1;56
+e;27365;'Troyes';1;52
+e;28139;'boisé';1;64
+e;28323;'Nivelles';1;50
+e;29600;'relief karstique';1;50
+e;32745;'Tropique du Cancer';1;56
+e;33727;'jours';1;482
+e;36651;'gnomon';1;58
+e;39293;'Mulhouse';1;50
+e;41915;'tourbières';1;54
+e;296607;'Arecaceae';777;50
+e;43602;'palmacée';1;50
+e;44518;'jet-stream';1;50
+e;297074;'inclinaison de l'axe';777;54
+e;54353;'obliquité';1;54
+e;55698;'coordonnée';1;50
+e;56669;'thème astral';1;60
+e;57073;'européen';1;312
+e;57865;'marée montante';1;58
+e;60660;'Patos';1;50
+e;61889;'équinoxes';1;60
+e;297812;'quinoxes';777;50
+e;93064;'Claude Ptolémée';1;50
+e;140069;'Ptolémée';1;64
+e;62711;'ptolémée';1;50
+e;62998;'climatique';1;80
+e;65088;'Terceira';1;50
+e;65859;'plaque sud-américaine';1;50
+e;66858;'zoogéographie';1;50
+e;272753;'Zoogéographie';777;50
+e;199653;'équinoxe de printemps';1;52
+e;71789;'îles Lofoten';1;58
+e;233633;'Tubuai';1;2
+e;298891;'tupua'i';777;50
+e;298892;'tubua';777;50
+e;74773;'Edmund Gunter';1;50
+e;28153;'toiles';1;60
+e;76379;'bioclimatique';1;50
+e;77166;'Edmond Halley';1;50
+e;299161;'Edmundus Haleius';777;50
+e;81340;'projection de Mercator';1;52
+e;299469;'conserve les angles';777;50
+e;299470;'déformations sur les distances';777;50
+e;299524;'Bølling';777;50
+e;81922;'Bölling';1;50
+e;83527;'zonal';1;50
+e;88966;'Stockholm';1;70
+e;89365;'Alpes scandinaves';1;50
+e;300133;'scandes';777;50
+e;196362;'aurore polaire';1;66
+e;90407;'aurore boréale';1;66
+e;172961;'aurore australe';1;14
+e;300335;'parc national de Yellowstone';777;50
+e;91028;'Yellowstone';1;54
+e;92761;'magnétisme terrestre';1;50
+e;95627;'circumpolaire';1;52
+e;182972;'lever héliaque';1;50
+e;96166;'héliaque';1;50
+e;300774;'cosmodrome de Plessetsk';777;50
+e;96890;'Plesetsk';1;50
+e;98595;'Saint Petersburg';1;50
+e;99047;'Schefferville';1;50
+e;99539;'héliographe';1;50
+e;101482;'mont Erebus';1;50
+e;153833;'pôle nord';1;224
+e;104063;'crépusculaire';1;50
+e;104404;'Lanzarote';1;50
+e;301410;'Lancerotte';777;50
+e;104851;'Corumbá';1;50
+e;106776;'Aruba';1;50
+e;302157;'hiers-brouage';777;50
+e;114064;'Czestochowa';1;50
+e;114616;'Humber';1;50
+e;152680;'ecologie';1;50
+e;152867;'système de guidage';1;54
+e;153117;'européenne';1;166
+e;153224;'Ecologie';1;50
+e;117747;'Petrópolis';1;50
+e;154005;'tête chercheuse';1;56
+e;119419;'écologique';1;92
+e;302879;'cologique';777;50
+e;303201;'couleur de la peau humaine';777;50
+e;8787;'teint';1;134
+e;37500;'complexion';1;50
+e;155996;'couleur de peau';1;52
+e;303321;'Ville de Belgrade';777;50
+e;191036;'Asuncion';1;50
+e;144357;'Assomption';1;54
+e;123989;'Asunción';1;50
+e;303329;'La Muy Noble y Leal Ciudad de Nuestra Señora Santa María de la Asunción';777;50
+e;143818;'mer d'Aral';1;50
+e;125796;'karstique';1;50
+e;166457;'tropique du Capricorne';1;50
+e;125832;'Tropique du Capricorne';1;52
+e;128632;'Lofoten';1;50
+e;130621;'Milles';1;50
+e;131864;'Olinda';1;50
+e;132493;'Stavanger';1;50
+e;251840;'trochilidés';666;50
+e;17250;'colibris';1;50
+e;304180;'oiseaux-mouches';777;50
+e;133178;'trochilidé';1;50
+e;133719;'taïga';1;56
+e;304239;'forêt boréale';777;50
+e;70405;'migration';1;94
+e;133766;'migrateur';1;86
+e;136441;'oiseau-mouche';1;54
+e;138467;'Neige';1;50
+e;142964;'Jour';1;50
+e;158718;'tabacs';1;58
+e;305065;'forêt intérieure';777;50
+e;305066;'coeur de forêt';777;50
+e;156798;'forêt profonde';1;52
+e;166966;'module photovoltaïque';1;50
+e;305475;'cercle Arctique';777;50
+e;167563;'cercle polaire arctique';1;50
+e;174375;'precipitation';1;50
+e;171039;'étoile circumpolaire';1;50
+e;172385;'Reykjavik';1;2
+e;175912;'pygargue à tête blanche';1;52
+e;188806;'Edmund Halley';1;50
+e;306557;'harmoniques sphériques';777;50
+e;187709;'harmonique sphérique';1;50
+e;306923;'traînées de condensation';777;50
+e;306924;'traînées de vapeur';777;50
+e;306925;'traînées blanches';777;50
+e;306926;'contrail';777;50
+e;133185;'con';1;320
+e;38152;'trail';1;50
+e;195264;'continent européen';1;56
+e;158502;'tropicale';1;96
+e;162700;'nordicité';1;50
+e;205641;'plaque africaine';1;50
+e;307672;'jour polaire';777;50
+e;208276;'soleil de minuit';1;50
+e;204528;'nuit polaire';1;50
+e;208869;'temps solaire moyen';1;50
+e;205642;'plaque antarctique';1;50
+e;211855;'seconde d'angle';1;50
+e;307773;'Sous-unités du degré';777;50
+e;307841;'anomalie gravimétrique de Bouguer';777;50
+e;214377;'anomalie de Bouguer';1;50
+e;214386;'équations primitives atmosphériques';1;50
+e;308239;'météorologie de l'espace';777;50
+e;183223;'météorologie spatiale';1;14
+e;142225;'à vol d'oiseau';1;52
+e;173020;'Camerounais';1;50
+e;229969;'grande tache rouge';1;50
+e;182728;'hiver nucléaire';1;50
+e;195662;'accélération de la pesanteur';1;50
+e;241037;'région tropicale';1;52
+e;183099;'manchot Adélie';1;50
+e;309155;'Pygoscelis adeliae';777;50
+e;197297;'carte marine';1;50
+e;261981;'zone tropicale';1;54
+e;263899;'près serré';1;2
+e;194374;'pygargue blagre';1;50
+e;310002;'aigle pêcheur à poitrine blanche';777;50
+e;310003;'aigle pêcheur d'Asie';777;50
+e;197837;'compas de proportion';1;50
+e;209660;'vent debout';1;54
+e;201528;'grand largue';1;52
+e;210754;'équinoxe d'automne';1;52
+e;310145;'pôles célestes';777;50
+e;205837;'pôle céleste';1;50
+e;218046;'radiation ionisante';1;50
+e;211254;'minute d'angle';1;50
+e;216438;'fôret';1;50
+e;228729;'Invincible Armada';666;4
+e;224464;'Surtsey';1;50
+e;233197;'Vieux Continent';1;50
+e;234585;'loup gris commun';1;50
+e;310815;'loup eurasien';777;50
+e;310816;'loup européen';777;50
+e;310817;'loup des Carpates';777;50
+e;234922;'minute d'arc';1;50
+e;234923;'seconde d'arc';1;50
+e;208870;'temps solaire vrai';1;50
+e;212276;'île de La Réunion';1;22
+e;256266;'zone climatique';1;50
+e;259475;'carte nautique';1;50
+e;265919;'migratrice';1;50
+e;265907;'migrateurs';1;50
+e;315886;'courants-jets polaires';777;50
+e;315887;'courants-jets subtropicaux';777;50
+e;315885;'jet stream';1;50
+e;317299;'programme spatial russe';777;50
+e;317298;'programme spatial soviétique';1;50
+e;318621;'imp';777;50
+e;318622;'APXS';777;50
+e;318623;'ASI/MET';777;50
+e;324868;'trace au sol';1;50
+e;325075;'centre spatial guyanais';1;50
+e;391897;'projection conique conforme de Lambert';777;50
+e;391896;'projection de Lambert';1;50
+e;391899;'projection cartographique';777;50
+e;391898;'projection conforme';1;50
+e;391900;'projection de Bonne';1;50
+e;392076;'Les Açores';1;58
+e;392114;'face visible de la Lune';1;50
+e;275633;'liste des';777;50
+e;397586;'Nom';1;50
+e;48333;'utilisation';1;128
+e;415723;'Commentaires';1;50
+e;45467;'mise en service';1;50
+e;286885;'Liste des Internet TLD';777;50
+e;74203;'colvert';1;190
+e;411056;'Palmiers';1;50
+e;139952;'Palmacées';1;50
+e;136405;'Arécacées';1;56
+e;307456;'plan méridien';777;50
+e;465269;'trigonométrie sphérique';777;50
+e;314412;'triangle sphérique';1;50
+e;465322;'Géographie de l'Irlande';777;50
+e;318620;'Mars Pathfinder';1;50
+e;348060;'domaine forestier';1;50
+e;363552;'massif forestier';1;50
+e;344788;'courant océanique';1;50
+e;342412;'cercle arctique';1;50
+e;336135;'arc capable';1;52
+e;336141;'arc de méridien';1;50
+e;333895;'activité stellaire';1;50
+e;333893;'activité solaire';1;50
+e;390133;'équilibre naturel';1;50
+e;349564;'déséquilibre écologique';1;50
+e;357752;'heure solaire';1;50
+e;359489;'instrument de bord';1;50
+e;360303;'jour franc';1;50
+e;360305;'jour moyen';1;50
+e;362007;'localisation géographique';1;50
+e;363480;'marée terrestre';1;50
+e;365388;'mouvement écologique';1;50
+e;369434;'peau blanche';1;52
+e;371372;'point astronomique';1;50
+e;373711;'projection orthographique';1;50
+e;382353;'système de guidage inertiel';1;50
+e;397267;'Nuit';1;50
+e;398969;'polaires';1;50
+e;402030;'Vallée';1;50
+e;402261;'tropicales';1;50
+e;49289;'constellation';1;438
+e;402977;'Constellation';1;50
+e;405985;'écologiques';1;50
+e;410257;'Tabac';1;52
+e;413537;'Crépuscule';1;50
+e;421298;'nautiques';1;50
+e;424176;'Osório';1;50
+e;426791;'Tropique';1;50
+e;429796;'Bastos';1;50
+e;431011;'Tikopia';1;50
+e;431323;'Belet';1;50
+e;432860;'Marée';1;50
+e;461248;'capteur solaire photovoltaïque';777;50
+e;575200;'falconidae';777;50
+e;7987;'Teresina';1;50
+e;578670;'astronomie chinoise';1;0
+e;131003;'Amerigo Vespucci';1;66
+e;575301;'Americo Vespucci';777;52
+e;579626;'base de lancement de Kourou';1;0
+e;60390;'orthodromique';1;50
+e;130859;'constellations';1;52
+e;584748;'climat alpin';1;0
+e;586086;'Edmundus Halleius';777;0
+e;586090;'Alexander von Humboldt';777;0
+e;586091;'Alexandre de Humboldt';777;0
+e;197448;'champ gravitationnel';1;60
+e;197445;'champ de gravitation';1;50
+e;592419;'thème astrologique';777;0
+e;588612;'ligne de équinoxe';777;0
+e;593321;'La terre-Adélie';777;0
+e;54574;'vent arrière';1;54
+e;1486088;'zone intertropicale';1;0
+e;374153;'préoccupation mineure';1;50
+e;183014;'ligne équinoxiale';1;50
+e;267805;'géocodage';1;50
+e;89867;'clair de lune';1;122
+e;342411;'cercle antarctique';1;50
+e;369459;'peau noire';1;52
+e;268632;'coordonnées personnelles';1;50
+e;81450;'coordonnées';1;60
+e;1251207;'ligne d'équinoxe';777;0
+e;126389;'hémisphère nord';1;62
+e;303569;'hémisphère boréal';777;50
+e;1381573;'géographie de la Russie';1;0
+e;184057;'renard véloce';1;50
+e;306385;'Vulpes velox';777;50
+e;212412;'ligne de changement de date';1;50
+e;567073;'hémisphère est';777;50
+e;358278;'hémisphère oriental';1;50
+e;573637;'British Columbia';777;50
+e;417584;'réunionnaise';1;50
+e;236635;'manteau neigeux';1;50
+e;590381;'manteau nival';777;0
+e;1270584;'couverture neigeuse';777;0
+e;1906;'palmier';1;184
+e;406428;'Araucaria';1;50
+e;104582;'Améric Vespuce';1;50
+e;303934;'étage nival';777;50
+e;303935;'étage des neiges éternelles';777;50
+e;307655;'système de coordonnées équatoriales';777;50
+e;171033;'ascension droite';1;52
+e;93600;'déclinaison';1;98
+e;229911;'éclipse partielle';1;22
+e;1646811;'éclipse vraie';777;0
+e;389319;'éclipse apparente';1;50
+e;1470;'immersion';1;72
+e;252;'émersion';1;50
+e;1654173;'acronyque';1;0
+e;1656305;'couleur de la peau';1;0
+e;203626;'méridien céleste';1;50
+e;97985;'hémisphère sud';1;52
+e;229281;'hémisphère austral';666;50
+e;164335;'neige éternelle';1;62
+e;1693294;'Caouanne';1;0
+e;1704436;'région subarctique';777;0
+e;271453;'grand cercle';1;50
+e;1732092;'Puncak Jaya';1;0
+e;1732093;'pyramide Carstensz';777;0
+e;1764349;'syndromes émergents';777;0
+e;1765182;'dépendance de Ross';1;0
+e;35397;'boisement';1;50
+e;1781143;'méridiens';1;0
+e;1793689;'cartes marines';1;0
+e;1814584;'île sub-antarctique';777;0
+e;1813669;'îles sub-antarctiques';1;0
+e;1813649;'îlot Solitaire';1;0
+e;1813845;'îles Campbell';1;0
+e;1814077;'île de Bathurst';1;0
+e;1814823;'île Bathurst';777;0
+e;1814869;'île Wiese';777;0
+e;1814098;'île d'Ellesmere';1;0
+e;1814982;'Terre d'Ellesmere';777;0
+e;1814363;'île Europa';1;0
+e;1814452;'île Amund Ringnes';1;0
+e;116788;'subarctique';1;50
+e;1965843;'précession Lense-Thirring';777;0
+e;1965775;'effet Lense-Thirring';1;0
+e;1921775;'Falconidae';1;0
+e;1937724;'bon plein';1;0
+e;1952675;'forêt hudsonienne';777;0
+e;315687;'Côte d'Erin';777;50
+e;2321679;'coordonnées galactiques';777;0
+e;2321680;'système de coordonnées galactiques';777;0
+e;362223;'longitude galactique';1;50
+e;2324440;'terre-Adélie';1;0
+e;98664;'hellénique';1;50
+e;2352335;'langouste rouge';1;0
+e;2352336;'langouste commune';777;0
+e;2352337;'Palinurus elephas';777;0
+e;2358247;'yottatesla';1;0
+e;145771;'tesla';1;50
+e;2359407;'microtesla';1;0
+e;2362485;'hectotesla';1;0
+e;2365570;'pétatesla';1;0
+e;2372269;'cyclone extratropical';1;0
+e;2372272;'cyclone des latitudes moyennes';777;0
+e;2375516;'exatesla';1;0
+e;2385083;'Puynormand';1;0
+e;2388779;'tératesla';1;0
+e;2391684;'millitesla';1;0
+e;2392519;'géonavigateur';1;0
+e;2395019;'Boubers-lès-Hesmond';1;0
+e;2397357;'Caudebec-lès-Elbeuf';1;0
+e;2397919;'karstification';1;0
+e;2400145;'microformat';1;0
+e;2406264;'zeptotesla';1;0
+e;2437021;'magnétotaxie';1;0
+e;2406922;'magnétotactisme';1;0
+e;116078;'Phobos';1;52
+e;2409797;'Mars I';1;0
+e;2411985;'Grande Tache rouge';1;0
+e;2458242;'Zimbabwé';1;0
+e;2413043;'Zimbabwéenne';1;0
+e;2413786;'zettatesla';1;0
+e;2420118;'gigatesla';1;0
+e;2420805;'équinoxe vernal';1;0
+e;2424205;'cyclone extra-tropical';1;0
+e;2429031;'hémisphère ouest';1;0
+e;2445331;'Échenoz-le-Sec';1;0
+e;2431042;'yoctotesla';1;0
+e;2433351;'La Grande-Fosse';1;0
+e;2437235;'Douville';1;0
+e;2439743;'Pennabilli';1;0
+e;2443904;'Hiers-Brouage';1;0
+e;2453106;'coucher héliaque';1;0
+e;2461967;'colatitude';1;0
+e;2471375;'aigle chauve';1;0
+e;2476605;'acronique';1;0
+e;2477357;'arécacée';1;0
+e;2002614;'camerounaise';2;0
+e;2484663;'mégatesla';1;0
+e;2490074;'Colombie-Anglaise';1;0
+e;2736024;'L'Europe est également à l'origine de plusieurs bouleversements historiques majeurs';777;0
+e;2497627;'Donville-les-Bains';1;0
+e;2499883;'Veyrines-de-Vergt';1;0
+e;2499533;'Saturne VI';1;0
+e;144407;'Titan';1;68
+e;85986;'hellène';1;50
+e;2507447;'Cantabrie';1;0
+e;2507553;'Rohrbach-lès-Bitche';1;0
+e;2510440;'Britanno-Colombien';1;0
+e;2511467;'picotesla';1;0
+e;2513589;'missile à tête chercheuse';1;0
+e;2931525;'cercle Antarctique';777;0
+e;2932867;'La Terre-Adélie';777;0
+e;1732714;'trophée Jules-Verne';1;0
+e;2937040;'Falconidés';777;0
+e;2951745;'aurores boréales';777;0
+e;2225810;'milles';2;0
+e;2872080;'Préoccupation mineure';777;0
+e;2956754;'Feliz';1;0
+e;2957330;'Laurentino';1;0
+e;2959466;'Ernestina';1;0
+e;3046125;'karstiques';1;0
+e;3158069;'milieu tropical';1;0
+e;3160283;'Grand Albatros';777;0
+e;3167913;'Aigle pêcheur à poitrine blanche';777;0
+e;3167914;'Aigle pêcheur d'Asie';777;0
+e;3170441;'sous-unités du degré';777;0
+e;244649;'zone boisée';1;50
+e;3175780;'géopositionnement par satellite';1;0
+e;3178435;'Canard mallard';777;0
+e;2601675;'Quasi menacé';777;0
+e;419945;'Bouclier';1;50
+e;1890172;'Écu de Sobieski';1;0
+e;284271;'phase lunaire';777;50
+e;3232612;'lune nouvelle';777;0
+e;3232613;'premier croissant';777;0
+e;206089;'premier quartier';1;50
+e;3232614;'gibbeuse croissante';777;0
+e;3293219;'Selk';1;0
+e;101467;'CSG';1;64
+e;2606629;'Lages';1;0
+e;14401;'Encelade';1;50
+e;27310;'portulan';1;52
+e;3323648;'carte-portulan';777;0
+e;3332672;'distance à vol d'oiseau';777;0
+e;2528866;'arara';1;0
+e;166471;'vitamine D';1;62
+e;2540882;'Arraute-Charritte';1;0
+e;56734;'chronométrie';1;50
+e;129423;'Bastogne';1;50
+e;105714;'poisson-pilote';1;50
+e;3426112;'Naucrates ductor';777;0
+e;3541734;'Muy Noble y Leal Ciudad de Nuestra Señora Santa María de la Asunción';777;0
+e;3552256;'avellano';777;0
+e;3552257;'noisetier chilien';777;0
+e;3552258;'gevuín';777;0
+e;2645535;'Gevuina avellana';1;0
+e;267788;'système d'information géographique';1;10
+e;267787;'SIG';1;32
+e;2608106;'En danger critique d'extinction';777;0
+e;3560053;'Squatina oculata';777;0
+e;3560487;'Ange de mer ocellé';777;0
+e;1814114;'île aux Ours';1;0
+e;3573285;'Île Vize';777;0
+e;2600544;'Saint-Seurin-sur-l'Isle';1;0
+e;3319604;'IMP';1;0
+e;272323;'nouveau plan';777;50
+e;4314625;'système de positionnement par satellites';777;0
+e;4314626;'gnss';777;0
+e;4323103;'couleur de la peau chez l'être humain';777;0
+e;60437;'méridienne';1;56
+e;33344;'Mzab';1;50
+e;4907544;'Balsas';1;0
+e;4933819;'projection Mercator';777;0
+e;4933820;'déformations sur les distances et les aires';777;0
+e;4262109;'bouclier terrestre';1;0
+e;4950215;'Americo Vespuce';777;0
+e;5056347;'Chat de Biet';777;0
+e;222795;'Vendée Globe';1;56
+e;5522419;'plaque de Bismarck Nord';777;0
+e;5522420;'plaque de Bismarck Sud';777;0
+e;5536009;'Falkirk';1;0
+e;5534759;'ton neutre';777;0
+e;5538060;'plaque australienne';777;0
+e;5553687;'théorème d'unicité de Stokes';777;0
+e;5554339;'théorème de la boule chevelue';777;0
+e;143228;'Mora';1;50
+e;5559226;'Mora moro';777;0
+e;5563952;'Sangão';777;0
+e;45989;'surface';1;242
+e;5565123;'élément de surface';777;0
+e;5574226;'tracker solaire';777;0
+e;5574227;'traqueur solaire';777;0
+e;5574229;'suiveur de Soleil';777;0
+e;5599014;'Acul';777;0
+e;134169;'Iran';1;138
+e;139062;'Perse';1;122
+e;220883;'République islamique d'Iran';1;56
+e;5624315;'eau agricole';777;0
+e;5671124;'Michel Coignet';777;0
+e;5671125;'Quignet';777;0
+e;2468515;'Cognet';1;0
+e;5671126;'Connette';777;0
+e;17138;'variété';1;208
+e;5629625;'Atalanta';1;0
+e;37166;'événement';1;246
+e;140343;'Geo';1;50
+e;5721817;'Pinheiro';1;0
+e;5795403;'Robert de Chester';777;0
+e;5797931;'Mars Exploration Rover';777;0
+e;5619396;'MER';1;0
+e;5797933;'MER-A';777;0
+e;5797935;'MER-B';777;0
+e;5806902;'barrage de mines de la mer du Nord';777;0
+e;5812098;'déviation vers l'est';777;0
+e;371437;'point équinoxial';1;50
+e;5815280;'rotation différentielle';777;0
+e;5815337;'1 852 mètres';777;0
+e;5836112;'Nabta Playa';777;0
+e;5836129;'global positioning system';777;0
+e;5836130;'Navstar';777;0
+e;5855308;'équateur terrestre';777;0
+e;5855314;'rayon de la Terre';777;0
+e;5855339;'plaque eurasie';777;0
+e;5855342;'plaque arabique';777;0
+e;5855343;'plaque caraïbe';777;0
+e;5855344;'plaque de Nazca';777;0
+e;5855346;'plaque Scotia';777;0
+e;5855347;'plaque écossaise';777;0
+e;5855348;'plaque de Cocos';777;0
+e;13861;'temps';1;3736
+e;5855371;'vents d'ouest';777;0
+e;2157822;'contre-alizés';2;0
+e;5855372;'vents d'ouest dominants';777;0
+e;159081;'nouvelle lune';1;56
+e;154339;'pleine lune';1;240
+e;5855428;'face cachée de la Lune';777;0
+e;179181;'écorégion';1;6
+e;5855648;'plaque somalienne';777;0
+e;40001;'genres';1;58
+e;135538;'espèces';1;92
+e;5853960;'Trochilidae';1;0
+e;5872437;'Haliaeetus leucocephalus';777;0
+e;5873012;'Rissa tridactyla';777;0
+e;5669946;'Linnaeus 1758';777;0
+e;5873409;'Diomedea exulans';777;0
+e;5873851;'Falcipennis canadensis';777;0
+e;5874381;'Haliaeetus leucogaster';777;0
+e;5892485;'Felis bieti';777;0
+e;5892486;'Felis silvestris bieti';777;0
+e;5892643;'Canis lupus lupus';777;0
+e;364201;'migration animale';1;50
+e;3426115;'Naucrates';1;0
+e;181423;'cercle de réflexion';1;50
+e;5940369;'Les Enfants du capitaine Grant';777;0
+e;5940750;'Arroio dos Ratos';777;0
+e;5940751;'Butiá';777;0
+e;5941092;'fossiles de Mazon Creek';777;0
+e;5942203;'fosse no 7 - 7 bis';777;0
+e;5942450;'Longitude Act';777;0
+e;2407131;'solide de Platon';1;0
+e;5980035;'climat aux États-Unis';777;0
+e;5980293;'nombre d'onde';777;0
+e;366509;'nombre d'ondes';1;50
+e;5980295;'répétence';777;0
+e;88274;'circulaire';1;156
+e;1834426;'fréquence spatiale';1;0
+e;51209;'spectroscopique';1;50
+e;5983908;'détecteur de foudre';777;0
+e;5984694;'histoire de l'écologie';777;0
+e;5986829;'ondes de Rossby';777;0
+e;5992360;'anneau équinoxial';777;0
+e;5992361;'anneau universel';777;0
+e;6000225;'détermination orbitale';777;0
+e;6000252;'centre de lancement d'Alcântara';777;0
+e;6000414;'NMEA 0183';777;0
+e;6000571;'Shuttle Radar Topography Mission';777;0
+e;6000755;'coordonnées sélénographiques';777;0
+e;6000809;'Vanguard 1';777;0
+e;6000811;'Vanguard SLV-4';777;0
+e;6001306;'Mars 3';777;0
+e;6001829;'Lune des moissons';777;0
+e;6002918;'VINASAT-1';777;0
+e;6003004;'Assisted GPS';777;0
+e;6003005;'A-GPS';777;0
+e;1890173;'Éridan';1;0
+e;6003241;'observation des satellites artificiels';777;0
+e;6003274;'cosmodrome Vostotchny';777;0
+e;409871;'Phénix';1;50
+e;1890189;'Sextant';1;0
+e;77306;'ciel';1;2542
+e;6003966;'Base de lancement de Wenchang';777;0
+e;6004229;'cadran équatorial';777;0
+e;6004255;'disque de Nebra';777;0
+e;6004280;'cadran solaire horizontal';777;0
+e;6004653;'vinasat-2';777;0
+e;6006671;'repérage des constellations';777;0
+e;6006674;'Nevil Maskelyne';777;0
+e;6006793;'mise en station';777;0
+e;6006798;'méthode de Bigourdan';777;0
+e;6007008;'référentiel d'altitude et de coordonnées géographiques';777;0
+e;82942;'Capella';1;50
+e;2588137;'Aurigae';1;0
+e;6007421;'Aur';777;0
+e;6007424;'Alpha Aurigae';777;0
+e;6007426;'Alpha Aur';777;0
+e;6008603;'catalogue Abell des riches amas de galaxies';777;0
+e;6012023;'univers fini de Friedmann';777;0
+e;6012105;'De Stella Nova in Pede Serpentarii';777;0
+e;6012107;'De Stella Nova';777;0
+e;6012664;'atmosphère d'Uranus';777;0
+e;6012670;'Afekan';777;0
+e;6012677;'atmosphère de Ganymède';777;0
+e;2536534;'Trans-en-Provence';1;0
+e;5996241;'Princesa';1;0
+e;4266290;'Hautes Fagnes';1;0
+e;6069222;'liste des îles de l'océan Antarctique';777;0
+e;6069403;'cap Wrath';777;0
+e;2959748;'Graciosa';1;0
+e;6070118;'Système d'identification automatique';777;0
+e;6070119;'automatic identification system';777;0
+e;6015233;'GNSS';1;0
+e;8571113;'Vulnérable';777;0
+e;56095;'comment';1;88
+e;8902717;'Floriano Peixoto';777;0
+e;148869;'latitudes';1;50
+e;212982;'glaciation Varanger';1;52
+e;83457;'chèque en blanc';1;60
+e;217533;'::>14:136786>29:37193>16';9;50;'Avec quoi pourrait-on localiser une ville ?'
+e;327011;'::>14:136786>29:37193';8;50;'localiser [objet] ville'
+e;125290;'Greenwich';1;56
+e;240079;'géolocalisation';1;4
+e;230833;'hauteur angulaire';1;50
+e;167818;'quarantièmes rugissants';1;62
+
+// les types de relations (Relation Types) : rt;rtid;'trname';'trgpname';'rthelp' 
+
+rt;0;'r_associated';'idée associée';Il est demandé d'énumérer les termes les plus étroitement associés au mot cible... Ce mot vous fait penser à quoi ?
+rt;1;'r_raff_sem';'raffinement sémantique';Raffinement sémantique vers un usage particulier du terme source
+rt;3;'r_domain';'domaine';Il est demandé de fournir des domaines relatifs au mot cible. Par exemple, pour 'corner', on pourra donner les domaines 'football' ou 'sport'.
+rt;4;'r_pos';'POS';Partie du discours (Nom, Verbe, Adjectif, Adverbe, etc.)
+rt;5;'r_syn';'synonyme';Il est demandé d'énumérer les synonymes ou quasi-synonymes de ce terme.
+rt;6;'r_isa';'générique';Il est demandé d'énumérer les GENERIQUES/hyperonymes du terme. Par exemple, 'animal' et 'mammifère' sont des génériques de 'chat'.
+rt;7;'r_anto';'contraire';Il est demandé d'énumérer des contraires du terme. Par exemple, 'chaud' est le contraire de 'froid'.
+rt;8;'r_hypo';'spécifique';Il est demandé d'énumérer des SPECIFIQUES/hyponymes du terme. Par exemple, 'mouche', 'abeille', 'guêpe' pour 'insecte'.
+rt;11;'r_locution';'locution';A partir d'un terme, il est demandé d'énumérer les locutions, expression ou mots composés en rapport avec ce terme. Par exemple, pour 'moulin', ou pourra avoir 'moulin à vent', 'moulin à eau', 'moulin à café'. Pour 'vendre', on pourra avoir 'vendre la peau de l'ours avant de l'avoir tué', 'vendre à perte', etc..
+rt;12;'r_flpot';' 	r_flpot';(relation interne) potentiel de relation
+rt;16;'r_instr';'action>instrument';L'instrument est l'objet avec lequel on fait l'action. Dans - Il mange sa salade avec une fourchette -, fourchette est l'instrument. Des instruments typiques de 'tuer' peuvent être 'arme', 'pistolet', 'poison', ...
+rt;18;'r_data';'r_data';Informations diverses (plutôt d'ordre lexicales)
+rt;19;'r_lemma';'r_lemma';Le lemme (par exemple 'mangent a pour lemme  'manger' ; 'avions' a pour lemme 'avion' ou 'avoir').
+rt;27;'r_domain-1';'domaine-1';inverse de r_domain : à un domaine, on associe des termes
+rt;32;'r_sentiment';'sentiment';Pour un terme donné, évoquer des mots liés à des SENTIMENTS ou des EMOTIONS que vous pourriez associer à ce terme. Par exemple, la joie, le plaisir, le dégoût, la peur, la haine, l'amour, l'indifférence, l'envie, avoir peur, horrible, etc.
+rt;35;'r_meaning';'sens/signification';Quels SENS/SIGNIFICATIONS pouvez vous donner au terme proposé. Il s'agira de termes évoquant chacun des sens possibles, par exemple : 'forces de l'ordre', 'contrat d'assurance', 'police typographique', ... pour 'police'.
+rt;36;'r_infopot';'information potentielle';Information sémantique potentielle
+rt;115;'r_sentiment-1';'sentiment-1';Pour un SENTIMENT ou EMOTION donné, il est demandé dénumérer les termes que vous pourriez associer. Par exemple, pour 'joie', on aurait 'cadeau', 'naissance', 'bonne nouvelle', etc.
+rt;444;'r_link';'r_link';Lien vers une ressource externe (WordNet, RadLex, UMLS, Wikipedia, etc...)
+rt;555;'r_cooccurrence';'r_cooccurrence';
+rt;666;'r_aki';'r_aki';(TOTAKI) equivalent pour TOTAKI de l'association libre
+rt;777;'r_wiki';'r_wiki';Associations issues de wikipedia...
+
+// les relations sortantes : r;rid;node1;node2;type;w 
+
+r;15662757;76552;153253;3;-20
+r;15675789;76552;141272;3;-20
+r;94276830;76552;3888666;444;1
+r;94290849;76552;3904357;444;1
+r;94466799;76552;4100736;444;1
+r;94555468;76552;4198858;444;1
+r;76260133;76552;254878;36;4
+r;33782729;76552;361041;0;6
+r;33782880;76552;361038;0;6
+r;33782894;76552;361039;0;6
+r;33782924;76552;361034;0;6
+r;33783144;76552;361035;0;6
+r;33783149;76552;361040;0;6
+r;33783104;76552;361037;0;7
+r;6477286;76552;139892;777;10
+r;6477288;76552;14141;777;10
+r;6477289;76552;145607;777;10
+r;6477292;76552;115484;777;10
+r;6477295;76552;50300;777;10
+r;18643762;76552;430814;777;10
+r;18643763;76552;435229;777;10
+r;31724253;76552;1784420;777;10
+r;31724254;76552;1857669;777;10
+r;31724255;76552;361034;777;10
+r;31724256;76552;391929;777;10
+r;77843724;76552;131978;777;10
+r;111179333;76552;5629466;777;10
+r;111179334;76552;5629465;777;10
+r;111179335;76552;5558031;777;10
+r;97138617;76552;58170;0;15
+r;31724248;76552;223172;36;17
+r;1975046;76552;152842;12;21
+r;54855646;76552;7804;0;22
+r;86017521;76552;60361;0;22
+r;97138627;76552;124518;3;23
+r;33586482;76552;28453;32;24
+r;33628934;76552;14330;32;24
+r;33152606;76552;103405;32;26
+r;98274342;76552;219865;0;26
+r;12351731;76552;53314;0;27
+r;12355881;76552;146191;0;27
+r;15724608;76552;141272;0;27
+r;90878410;76552;3576104;18;27
+r;1727254;76552;47360;7;28
+r;33603145;76552;361040;8;28
+r;33603457;76552;361038;8;28
+r;33603471;76552;361039;8;28
+r;78004470;76552;3228593;444;28
+r;97138626;76552;124518;0;28
+r;490716;76552;16644;3;29
+r;3101452;76552;254877;36;29
+r;15720060;76552;153253;0;29
+r;90012501;76552;3575927;18;29
+r;97138622;76552;2308;3;29
+r;97138625;76552;102256;3;29
+r;108219138;76552;3724486;444;29
+r;1317420;76552;87409;0;30
+r;1317422;76552;48104;0;30
+r;33628933;76552;91691;32;30
+r;486972;76552;9894;3;31
+r;14045749;76552;361036;8;31
+r;97138620;76552;15558;0;31
+r;12199996;76552;53314;5;32
+r;33603140;76552;361035;8;32
+r;33603153;76552;361034;8;32
+r;97138623;76552;40531;0;32
+r;97138624;76552;102256;0;32
+r;118975870;76552;276096;36;34
+r;9084547;76552;321989;0;34
+r;1638042;76552;220877;1;35
+r;85787399;76552;60361;5;35
+r;87928227;76552;3396091;18;35
+r;97138618;76552;145607;0;35
+r;97138621;76552;46879;0;35
+r;97138619;76552;139892;0;36
+r;28539511;76552;88662;35;37
+r;33603100;76552;361037;8;39
+r;33603505;76552;361041;8;40
+r;1638038;76552;220876;1;44
+r;1638046;76552;220878;1;44
+r;916491;76552;1290;0;45
+r;54026468;76552;2586628;4;45
+r;54056910;76552;2586629;4;45
+r;1646334;76552;217817;36;46
+r;28539510;76552;2308;35;47
+r;1638034;76552;220875;1;48
+r;28539512;76552;16644;35;48
+r;54855644;76552;49318;0;49
+r;54807021;76552;49318;5;51
+r;54853209;76552;69826;5;51
+r;54853210;76552;7804;5;51
+r;312743;76552;76552;19;52
+r;916490;76552;4827;0;52
+r;28539509;76552;9894;35;52
+r;28976878;76552;1763383;11;52
+r;12234530;76552;104113;0;53
+r;1317423;76552;64265;0;54
+r;15386365;76552;16644;0;54
+r;108349163;76552;1763383;0;54
+r;108349219;76552;135261;0;54
+r;158704;76552;35722;0;55
+r;108349218;76552;88969;0;55
+r;33947;76552;146881;4;56
+r;54853208;76552;2585996;36;56
+r;88950548;76552;2308;0;56
+r;916492;76552;69826;0;57
+r;108349211;76552;2929183;0;58
+r;165220;76552;29378;0;59
+r;14060728;76552;361036;0;59
+r;108349222;76552;7486;0;59
+r;109357693;76552;5524090;11;59
+r;1408730;76552;171870;4;60
+r;115670925;76552;268980;0;60
+r;108349165;76552;93861;0;61
+r;115670927;76552;5524090;0;61
+r;53734428;76552;4827;5;67
+r;108349217;76552;121359;0;67
+r;1317421;76552;88662;0;68
+r;108349214;76552;7637;0;69
+r;158703;76552;9894;0;70
+r;158702;76552;151553;12;71
+r;9154302;76552;254876;36;75
+r;158705;76552;57791;0;76
+r;12188913;76552;146191;5;78
+r;705423;76552;88662;5;79
+r;3097754;76552;241794;36;79
+r;705422;76552;104113;5;82
+r;165222;76552;110794;0;85
+r;158706;76552;47360;0;90
+r;12658611;76552;361037;11;101
+r;12658595;76552;361041;11;103
+r;12658607;76552;361038;11;105
+r;12658623;76552;361034;11;105
+r;12715739;76552;346927;11;105
+r;12658619;76552;361035;11;106
+r;12545793;76552;389028;11;108
+r;12658599;76552;361040;11;108
+r;12658615;76552;361036;11;108
+r;12658603;76552;361039;11;109
+r;12676557;76552;356616;11;110
+r;90980;76552;152011;12;120
+r;90981;76552;152012;12;120
+r;8612188;76552;122345;11;163
+r;9136777;76552;223173;36;293
+r;74029055;76552;2983124;555;14676
+r;23931882;76552;239128;0;1000000
+
+// les relations entrantes : r;rid;node1;node2;type;w 
+
+r;1531253;92212;76552;666;1
+r;1779599;93514;76552;666;1
+r;1782324;27136;76552;666;1
+r;4617270;84199;76552;777;1
+r;13467138;129307;76552;777;1
+r;13951956;160996;76552;666;1
+r;34566052;102345;76552;115;1
+r;10658462;78045;76552;777;2
+r;34566053;28453;76552;115;3
+r;34566054;91691;76552;115;3
+r;34566055;14330;76552;115;3
+r;3524434;3699;76552;777;4
+r;8293843;120130;76552;0;4
+r;3108275;10835;76552;0;5
+r;3244038;36940;76552;777;5
+r;3381702;105028;76552;777;7
+r;6439087;99418;76552;777;7
+r;3990995;29760;76552;777;8
+r;3314857;135737;76552;777;9
+r;3624682;16566;76552;777;9
+r;3712374;22966;76552;777;9
+r;3802014;88543;76552;777;9
+r;3921164;146632;76552;777;9
+r;3921166;96256;76552;777;9
+r;3964342;3461;76552;777;9
+r;4450842;71981;76552;777;9
+r;4617273;281133;76552;777;9
+r;5068431;143267;76552;777;9
+r;5377510;155754;76552;777;9
+r;6533294;115386;76552;777;9
+r;7174075;74978;76552;777;9
+r;7642258;123829;76552;777;9
+r;3244040;140629;76552;777;10
+r;3246331;2308;76552;777;10
+r;3299944;56308;76552;777;10
+r;3299945;254005;76552;777;10
+r;3307582;146642;76552;777;10
+r;3314862;272141;76552;777;10
+r;3314866;272142;76552;777;10
+r;3348963;272215;76552;777;10
+r;3348964;272216;76552;777;10
+r;3348965;142353;76552;777;10
+r;3348966;144333;76552;777;10
+r;3354818;160088;76552;777;10
+r;3354819;272230;76552;777;10
+r;3354820;272231;76552;777;10
+r;3355198;272236;76552;777;10
+r;3385185;138321;76552;777;10
+r;3410086;272434;76552;777;10
+r;3410125;45105;76552;777;10
+r;3410159;84466;76552;777;10
+r;3437075;61919;76552;777;10
+r;3452515;35114;76552;777;10
+r;3452575;272661;76552;777;10
+r;3478683;58485;76552;777;10
+r;3485734;139682;76552;777;10
+r;3485735;272811;76552;777;10
+r;3501482;76490;76552;777;10
+r;3501498;272724;76552;777;10
+r;3501514;272854;76552;777;10
+r;3501528;272855;76552;777;10
+r;3501538;272725;76552;777;10
+r;3523176;93514;76552;777;10
+r;3523178;174725;76552;777;10
+r;3524436;154206;76552;777;10
+r;3533841;160998;76552;777;10
+r;3556854;273195;76552;777;10
+r;3557036;273196;76552;777;10
+r;3572201;39192;76552;777;10
+r;3624331;107741;76552;777;10
+r;3624333;273596;76552;777;10
+r;3624334;179773;76552;777;10
+r;3628349;107384;76552;777;10
+r;3649711;122628;76552;777;10
+r;3649713;2589;76552;777;10
+r;3712424;274154;76552;777;10
+r;3712457;173208;76552;777;10
+r;3749057;260377;76552;777;10
+r;3755752;87439;76552;777;10
+r;3763366;161070;76552;777;10
+r;3763368;182354;76552;777;10
+r;3763370;274349;76552;777;10
+r;3792697;213167;76552;777;10
+r;3802015;74718;76552;777;10
+r;3802342;127999;76552;777;10
+r;3823119;94508;76552;777;10
+r;3823231;27136;76552;777;10
+r;3840477;94208;76552;777;10
+r;3848178;109752;76552;777;10
+r;3848246;274784;76552;777;10
+r;3857582;257117;76552;777;10
+r;3867807;29506;76552;777;10
+r;3874348;274962;76552;777;10
+r;3874740;274965;76552;777;10
+r;3921170;93396;76552;777;10
+r;3921174;78140;76552;777;10
+r;3926412;141936;76552;777;10
+r;3927435;25833;76552;777;10
+r;3939026;7585;76552;777;10
+r;3943505;275462;76552;777;10
+r;3943513;275461;76552;777;10
+r;3964343;137338;76552;777;10
+r;4060950;235775;76552;777;10
+r;4060951;276382;76552;777;10
+r;4060952;202401;76552;777;10
+r;4075718;251;76552;777;10
+r;4115211;276829;76552;777;10
+r;4115212;10210;76552;777;10
+r;4115213;47265;76552;777;10
+r;4115214;276830;76552;777;10
+r;4117201;167808;76552;777;10
+r;4117202;1988;76552;777;10
+r;4139988;3303;76552;777;10
+r;4220605;5290;76552;777;10
+r;4220606;277989;76552;777;10
+r;4222270;143627;76552;777;10
+r;4222271;5385;76552;777;10
+r;4234289;5862;76552;777;10
+r;4242134;6014;76552;777;10
+r;4265094;129517;76552;777;10
+r;4265095;278355;76552;777;10
+r;4265096;7178;76552;777;10
+r;4283329;7814;76552;777;10
+r;4285472;7929;76552;777;10
+r;4285530;7933;76552;777;10
+r;4382200;272186;76552;777;10
+r;4382201;279266;76552;777;10
+r;4382202;10123;76552;777;10
+r;4382203;279267;76552;777;10
+r;4391963;138412;76552;777;10
+r;4408693;10700;76552;777;10
+r;4426046;14254;76552;777;10
+r;4426047;279588;76552;777;10
+r;4426048;20220;76552;777;10
+r;4428990;20287;76552;777;10
+r;4440027;20417;76552;777;10
+r;4440030;279709;76552;777;10
+r;4440031;279710;76552;777;10
+r;4440032;171632;76552;777;10
+r;4450841;55692;76552;777;10
+r;4450843;59530;76552;777;10
+r;4454116;69051;76552;777;10
+r;4461482;29285;76552;777;10
+r;4461484;20793;76552;777;10
+r;4463164;279901;76552;777;10
+r;4469400;279945;76552;777;10
+r;4469404;279944;76552;777;10
+r;4494822;244924;76552;777;10
+r;4494826;256133;76552;777;10
+r;4495811;280158;76552;777;10
+r;4495822;280159;76552;777;10
+r;4495823;280160;76552;777;10
+r;4562357;194883;76552;777;10
+r;4596180;107283;76552;777;10
+r;4596184;280966;76552;777;10
+r;4602318;26573;76552;777;10
+r;4612070;129132;76552;777;10
+r;4616023;145064;76552;777;10
+r;4616024;205651;76552;777;10
+r;4617271;281131;76552;777;10
+r;4617272;281132;76552;777;10
+r;4617274;241549;76552;777;10
+r;4637563;209023;76552;777;10
+r;4637564;281291;76552;777;10
+r;4660830;85401;76552;777;10
+r;4688329;281676;76552;777;10
+r;4688333;187952;76552;777;10
+r;4712008;208690;76552;777;10
+r;4727636;226417;76552;777;10
+r;4731593;282042;76552;777;10
+r;4731595;214395;76552;777;10
+r;4732038;89248;76552;777;10
+r;4759652;282265;76552;777;10
+r;4759653;141429;76552;777;10
+r;4760216;181057;76552;777;10
+r;4760217;74407;76552;777;10
+r;4760218;85891;76552;777;10
+r;4760219;282281;76552;777;10
+r;4760220;181919;76552;777;10
+r;4762524;152363;76552;777;10
+r;4762525;282305;76552;777;10
+r;4763261;13610;76552;777;10
+r;4763262;143724;76552;777;10
+r;4763263;282309;76552;777;10
+r;4793390;50403;76552;777;10
+r;4824167;237418;76552;777;10
+r;4824168;197653;76552;777;10
+r;4825468;62273;76552;777;10
+r;4825469;40901;76552;777;10
+r;4866364;201107;76552;777;10
+r;4866365;283133;76552;777;10
+r;4891377;73967;76552;777;10
+r;4912456;61947;76552;777;10
+r;4990372;30426;76552;777;10
+r;5017861;93471;76552;777;10
+r;5027152;219939;76552;777;10
+r;5027153;124781;76552;777;10
+r;5034253;249560;76552;777;10
+r;5034254;249561;76552;777;10
+r;5034255;249562;76552;777;10
+r;5034256;267255;76552;777;10
+r;5038878;267800;76552;777;10
+r;5038879;284428;76552;777;10
+r;5047032;268703;76552;777;10
+r;5074398;205647;76552;777;10
+r;5074401;284681;76552;777;10
+r;5098081;50396;76552;777;10
+r;5108143;20072;76552;777;10
+r;5108498;84093;76552;777;10
+r;5124767;110236;76552;777;10
+r;5124768;51073;76552;777;10
+r;5161877;106981;76552;777;10
+r;5161878;52908;76552;777;10
+r;5190233;107156;76552;777;10
+r;5191301;45375;76552;777;10
+r;5198076;161290;76552;777;10
+r;5204403;249769;76552;777;10
+r;5219923;46237;76552;777;10
+r;5242107;114902;76552;777;10
+r;5242108;46956;76552;777;10
+r;5377514;286404;76552;777;10
+r;5377512;286403;76552;777;10
+r;5377513;142903;76552;777;10
+r;5378950;286414;76552;777;10
+r;5448038;286628;76552;777;10
+r;5448040;286629;76552;777;10
+r;5610775;77735;76552;777;10
+r;5624328;53267;76552;777;10
+r;5624331;30589;76552;777;10
+r;5624333;199642;76552;777;10
+r;5624742;287169;76552;777;10
+r;5637011;287242;76552;777;10
+r;5637012;231751;76552;777;10
+r;5714493;64163;76552;777;10
+r;5714494;152384;76552;777;10
+r;5723551;287448;76552;777;10
+r;5920647;127228;76552;777;10
+r;5947157;191989;76552;777;10
+r;6137234;73892;76552;777;10
+r;6137235;218165;76552;777;10
+r;6143427;288758;76552;777;10
+r;6143428;43146;76552;777;10
+r;6143731;74004;76552;777;10
+r;6151659;236671;76552;777;10
+r;6179617;19638;76552;777;10
+r;6195029;116572;76552;777;10
+r;6214416;289484;76552;777;10
+r;6214417;289485;76552;777;10
+r;6214418;166979;76552;777;10
+r;6216834;189988;76552;777;10
+r;6243330;229912;76552;777;10
+r;6245812;13211;76552;777;10
+r;6305848;23001;76552;777;10
+r;6313962;95144;76552;777;10
+r;6313963;193106;76552;777;10
+r;6317032;245999;76552;777;10
+r;6324010;145500;76552;777;10
+r;6324011;205451;76552;777;10
+r;6325680;81043;76552;777;10
+r;6325681;33142;76552;777;10
+r;6336858;253497;76552;777;10
+r;6337196;76746;76552;777;10
+r;6340003;152471;76552;777;10
+r;6340004;290614;76552;777;10
+r;6340005;290615;76552;777;10
+r;6372325;208035;76552;777;10
+r;6377605;58821;76552;777;10
+r;6379829;125069;76552;777;10
+r;6439088;201554;76552;777;10
+r;6463630;156195;76552;777;10
+r;6464464;173354;76552;777;10
+r;6464465;153832;76552;777;10
+r;6479599;215111;76552;777;10
+r;6488347;237827;76552;777;10
+r;6509888;89116;76552;777;10
+r;6516064;73367;76552;777;10
+r;6533295;231322;76552;777;10
+r;6535009;191649;76552;777;10
+r;6551667;97200;76552;777;10
+r;6551668;292672;76552;777;10
+r;6580332;191648;76552;777;10
+r;6583741;187986;76552;777;10
+r;6585898;162723;76552;777;10
+r;6585899;293034;76552;777;10
+r;6585900;293035;76552;777;10
+r;6585901;135261;76552;777;10
+r;6588830;183345;76552;777;10
+r;6593073;221953;76552;777;10
+r;6607714;224916;76552;777;10
+r;6615669;158653;76552;777;10
+r;6624888;193804;76552;777;10
+r;6631308;153831;76552;777;10
+r;6692729;170936;76552;777;10
+r;6702804;229875;76552;777;10
+r;6703475;17721;76552;777;10
+r;6709585;18214;76552;777;10
+r;6709676;18225;76552;777;10
+r;6770013;26032;76552;777;10
+r;6783400;27365;76552;777;10
+r;6792732;28139;76552;777;10
+r;6794500;28323;76552;777;10
+r;6809886;29600;76552;777;10
+r;6834505;32745;76552;777;10
+r;6844334;33727;76552;777;10
+r;6870283;36651;76552;777;10
+r;6894028;39293;76552;777;10
+r;6920908;41915;76552;777;10
+r;6934918;296607;76552;777;10
+r;6934919;43602;76552;777;10
+r;6944678;44518;76552;777;10
+r;6951943;47360;76552;777;10
+r;6981778;297074;76552;777;10
+r;6981779;54353;76552;777;10
+r;6995775;55698;76552;777;10
+r;7004380;56669;76552;777;10
+r;7008160;57073;76552;777;10
+r;7017080;57865;76552;777;10
+r;7042304;60660;76552;777;10
+r;7054641;61889;76552;777;10
+r;7054642;297812;76552;777;10
+r;7062176;93064;76552;777;10
+r;7062177;140069;76552;777;10
+r;7062178;62711;76552;777;10
+r;7064684;62998;76552;777;10
+r;7083872;65088;76552;777;10
+r;7092266;65859;76552;777;10
+r;7098966;66858;76552;777;10
+r;7098967;272753;76552;777;10
+r;7118656;199653;76552;777;10
+r;7144943;71789;76552;777;10
+r;7168725;233633;76552;777;10
+r;7168726;298891;76552;777;10
+r;7168727;298892;76552;777;10
+r;7172414;74773;76552;777;10
+r;7174076;28153;76552;777;10
+r;7186325;76379;76552;777;10
+r;7196125;77166;76552;777;10
+r;7196126;299161;76552;777;10
+r;7229436;81340;76552;777;10
+r;7229437;299469;76552;777;10
+r;7229438;299470;76552;777;10
+r;7236344;299524;76552;777;10
+r;7236345;81922;76552;777;10
+r;7249591;83527;76552;777;10
+r;7298152;88966;76552;777;10
+r;7299587;89365;76552;777;10
+r;7299588;300133;76552;777;10
+r;7308578;196362;76552;777;10
+r;7308579;90407;76552;777;10
+r;7308580;172961;76552;777;10
+r;7319356;300335;76552;777;10
+r;7319357;91028;76552;777;10
+r;7329543;92761;76552;777;10
+r;7354923;95627;76552;777;10
+r;7358766;182972;76552;777;10
+r;7358767;96166;76552;777;10
+r;7366512;300774;76552;777;10
+r;7366513;96890;76552;777;10
+r;7379339;98595;76552;777;10
+r;7384961;99047;76552;777;10
+r;7387688;99539;76552;777;10
+r;7402457;101482;76552;777;10
+r;7416293;153833;76552;777;10
+r;7426185;104063;76552;777;10
+r;7427361;104404;76552;777;10
+r;7427362;301410;76552;777;10
+r;7431326;104851;76552;777;10
+r;7448915;106776;76552;777;10
+r;7507608;302157;76552;777;10
+r;7517358;114064;76552;777;10
+r;7525419;114616;76552;777;10
+r;7549911;152680;76552;777;10
+r;7554096;152867;76552;777;10
+r;7559905;153117;76552;777;10
+r;7563034;153224;76552;777;10
+r;7566344;117747;76552;777;10
+r;7580423;154005;76552;777;10
+r;7587006;119419;76552;777;10
+r;7587007;302879;76552;777;10
+r;7627789;303201;76552;777;10
+r;7627790;8787;76552;777;10
+r;7627791;37500;76552;777;10
+r;7627792;155996;76552;777;10
+r;7642259;303321;76552;777;10
+r;7643292;191036;76552;777;10
+r;7643293;144357;76552;777;10
+r;7643294;123989;76552;777;10
+r;7643295;303329;76552;777;10
+r;7652276;143818;76552;777;10
+r;7658801;125796;76552;777;10
+r;7661538;166457;76552;777;10
+r;7661539;125832;76552;777;10
+r;7683044;128632;76552;777;10
+r;7703374;130621;76552;777;10
+r;7720924;131864;76552;777;10
+r;7725588;132493;76552;777;10
+r;7730823;251840;76552;777;10
+r;7730824;17250;76552;777;10
+r;7730825;304180;76552;777;10
+r;7730826;133178;76552;777;10
+r;7736151;133719;76552;777;10
+r;7736152;304239;76552;777;10
+r;7736476;70405;76552;777;10
+r;7736477;133766;76552;777;10
+r;7786928;136441;76552;777;10
+r;7796446;138467;76552;777;10
+r;7833879;142964;76552;777;10
+r;7847841;158718;76552;777;10
+r;7860089;305065;76552;777;10
+r;7860090;305066;76552;777;10
+r;7860091;156798;76552;777;10
+r;7867438;166966;76552;777;10
+r;7889118;305475;76552;777;10
+r;7889120;167563;76552;777;10
+r;7910780;174375;76552;777;10
+r;7911859;171039;76552;777;10
+r;7915728;172385;76552;777;10
+r;7916168;175912;76552;777;10
+r;7965171;188806;76552;777;10
+r;7977441;306557;76552;777;10
+r;7977442;187709;76552;777;10
+r;8009896;306923;76552;777;10
+r;8009897;306924;76552;777;10
+r;8009899;306925;76552;777;10
+r;8009900;306926;76552;777;10
+r;8009901;133185;76552;777;10
+r;8009902;38152;76552;777;10
+r;8020541;195264;76552;777;10
+r;8058279;158502;76552;777;10
+r;8060693;162700;76552;777;10
+r;8061066;205641;76552;777;10
+r;8070470;307672;76552;777;10
+r;8070471;208276;76552;777;10
+r;8071101;204528;76552;777;10
+r;8073030;208869;76552;777;10
+r;8074888;205642;76552;777;10
+r;8081008;211855;76552;777;10
+r;8081009;307773;76552;777;10
+r;8089344;307841;76552;777;10
+r;8089345;214377;76552;777;10
+r;8089400;214386;76552;777;10
+r;8124229;308239;76552;777;10
+r;8124231;183223;76552;777;10
+r;8136054;142225;76552;777;10
+r;8139946;173020;76552;777;10
+r;8149758;229969;76552;777;10
+r;8153571;182728;76552;777;10
+r;8171425;195662;76552;777;10
+r;8196903;241037;76552;777;10
+r;8212944;183099;76552;777;10
+r;8212945;309155;76552;777;10
+r;8247691;197297;76552;777;10
+r;8280392;261981;76552;777;10
+r;8286690;263899;76552;777;10
+r;8310381;194374;76552;777;10
+r;8310382;310002;76552;777;10
+r;8310383;310003;76552;777;10
+r;8311299;197837;76552;777;10
+r;8320133;209660;76552;777;10
+r;8321393;201528;76552;777;10
+r;8321727;210754;76552;777;10
+r;8325933;310145;76552;777;10
+r;8325942;205837;76552;777;10
+r;8329370;218046;76552;777;10
+r;8340812;211254;76552;777;10
+r;8349457;216438;76552;777;10
+r;8360957;228729;76552;777;10
+r;8375456;224464;76552;777;10
+r;8394568;233197;76552;777;10
+r;8398253;234585;76552;777;10
+r;8398254;310815;76552;777;10
+r;8398255;310816;76552;777;10
+r;8398256;310817;76552;777;10
+r;8399572;234922;76552;777;10
+r;8409057;234923;76552;777;10
+r;8424046;208870;76552;777;10
+r;8424802;212276;76552;777;10
+r;8450630;256266;76552;777;10
+r;8482512;259475;76552;777;10
+r;8504139;265919;76552;777;10
+r;8510661;265907;76552;777;10
+r;8852569;315886;76552;777;10
+r;8852570;315887;76552;777;10
+r;8852571;315885;76552;777;10
+r;8915665;317299;76552;777;10
+r;8915666;317298;76552;777;10
+r;9004628;318621;76552;777;10
+r;9004629;318622;76552;777;10
+r;9004630;318623;76552;777;10
+r;9372626;324868;76552;777;10
+r;10522280;325075;76552;777;10
+r;13084671;391897;76552;777;10
+r;13084672;391896;76552;777;10
+r;13084696;391899;76552;777;10
+r;13084697;391898;76552;777;10
+r;13084727;391900;76552;777;10
+r;13094524;392076;76552;777;10
+r;13142650;392114;76552;777;10
+r;16174105;275633;76552;777;10
+r;16174106;397586;76552;777;10
+r;16174107;48333;76552;777;10
+r;16174108;415723;76552;777;10
+r;16174109;45467;76552;777;10
+r;16174110;286885;76552;777;10
+r;16202634;74203;76552;777;10
+r;16247593;411056;76552;777;10
+r;16247594;139952;76552;777;10
+r;16247595;136405;76552;777;10
+r;16318419;307456;76552;777;10
+r;16389096;465269;76552;777;10
+r;16389097;314412;76552;777;10
+r;16393853;465322;76552;777;10
+r;16412566;318620;76552;777;10
+r;16981612;348060;76552;777;10
+r;16981611;363552;76552;777;10
+r;16966831;344788;76552;777;10
+r;16952953;342412;76552;777;10
+r;16919749;336135;76552;777;10
+r;16919555;336141;76552;777;10
+r;16905829;333895;76552;777;10
+r;16905517;333893;76552;777;10
+r;17218230;391929;76552;777;10
+r;17209584;390133;76552;777;10
+r;16989612;349564;76552;777;10
+r;17039799;357752;76552;777;10
+r;17050480;359489;76552;777;10
+r;17054938;360303;76552;777;10
+r;17055324;360305;76552;777;10
+r;17063600;362007;76552;777;10
+r;17071245;363480;76552;777;10
+r;17081760;365388;76552;777;10
+r;17104680;369434;76552;777;10
+r;17117922;371372;76552;777;10
+r;17129377;373711;76552;777;10
+r;17173246;382353;76552;777;10
+r;17247778;397267;76552;777;10
+r;17268946;398969;76552;777;10
+r;17294632;402030;76552;777;10
+r;17297880;402261;76552;777;10
+r;17305256;49289;76552;777;10
+r;17305257;402977;76552;777;10
+r;17343939;405985;76552;777;10
+r;17398900;410257;76552;777;10
+r;17441394;413537;76552;777;10
+r;17533718;421298;76552;777;10
+r;17563740;424176;76552;777;10
+r;17588966;426791;76552;777;10
+r;17623346;429796;76552;777;10
+r;17632902;431011;76552;777;10
+r;17636449;431323;76552;777;10
+r;17651927;432860;76552;777;10
+r;17712081;461248;76552;777;10
+r;17810371;575200;76552;777;10
+r;17856236;7987;76552;777;10
+r;17939947;578670;76552;777;10
+r;17946360;131003;76552;777;10
+r;17946361;575301;76552;777;10
+r;18094938;579626;76552;777;10
+r;18201282;60390;76552;777;10
+r;18311907;130859;76552;777;10
+r;18344756;584748;76552;777;10
+r;18380849;586086;76552;777;10
+r;18382076;586090;76552;777;10
+r;18382077;586091;76552;777;10
+r;18396105;197448;76552;777;10
+r;18396106;197445;76552;777;10
+r;18586965;592419;76552;777;10
+r;18602168;588612;76552;777;10
+r;18612450;593321;76552;777;10
+r;18791264;54574;76552;777;10
+r;24593214;1486088;76552;777;10
+r;19555623;374153;76552;777;10
+r;19612501;183014;76552;777;10
+r;20881002;267805;76552;777;10
+r;20940832;89867;76552;777;10
+r;21485079;342411;76552;777;10
+r;21565061;369459;76552;777;10
+r;22022383;268632;76552;777;10
+r;22022384;81450;76552;777;10
+r;22634978;1251207;76552;777;10
+r;22829603;126389;76552;777;10
+r;22829604;303569;76552;777;10
+r;22948899;110794;76552;777;10
+r;23417914;1381573;76552;777;10
+r;23509954;184057;76552;777;10
+r;23509955;306385;76552;777;10
+r;23777387;212412;76552;777;10
+r;24427782;567073;76552;777;10
+r;24427783;358278;76552;777;10
+r;24652791;573637;76552;777;10
+r;24659321;417584;76552;777;10
+r;25023552;236635;76552;777;10
+r;25023553;590381;76552;777;10
+r;25023554;1270584;76552;777;10
+r;25238268;1906;76552;777;10
+r;25252616;406428;76552;777;10
+r;25376353;104582;76552;777;10
+r;25965922;303934;76552;777;10
+r;25965923;303935;76552;777;10
+r;25973641;307655;76552;777;10
+r;25973642;171033;76552;777;10
+r;25973643;93600;76552;777;10
+r;26193508;229911;76552;777;10
+r;26193509;1646811;76552;777;10
+r;26193510;389319;76552;777;10
+r;26193511;1470;76552;777;10
+r;26193512;252;76552;777;10
+r;27072573;1654173;76552;777;10
+r;27468778;1656305;76552;777;10
+r;27724839;203626;76552;777;10
+r;27742755;97985;76552;777;10
+r;27742756;229281;76552;777;10
+r;27851692;164335;76552;777;10
+r;27942254;1693294;76552;777;10
+r;28141757;1704436;76552;777;10
+r;28158638;271453;76552;777;10
+r;28451909;1732092;76552;777;10
+r;28451910;1732093;76552;777;10
+r;28992730;1764349;76552;777;10
+r;29016568;1765182;76552;777;10
+r;29071955;35397;76552;777;10
+r;29241522;1781143;76552;777;10
+r;29410358;1793689;76552;777;10
+r;29602525;1814584;76552;777;10
+r;29602526;1813669;76552;777;10
+r;29603128;1813649;76552;777;10
+r;29608093;1813845;76552;777;10
+r;29610074;1814077;76552;777;10
+r;29610075;1814823;76552;777;10
+r;29611837;1814869;76552;777;10
+r;29615970;1814098;76552;777;10
+r;29615971;1814982;76552;777;10
+r;29616929;1814363;76552;777;10
+r;29618447;1814452;76552;777;10
+r;30584489;116788;76552;777;10
+r;31658436;1965843;76552;777;10
+r;31658435;1965775;76552;777;10
+r;31102018;1921775;76552;777;10
+r;31437531;1937724;76552;777;10
+r;31526224;1952675;76552;777;10
+r;32106340;315687;76552;777;10
+r;33576713;2321679;76552;777;10
+r;33576718;2321680;76552;777;10
+r;33644898;362223;76552;777;10
+r;33740461;2324440;76552;777;10
+r;34673132;98664;76552;777;10
+r;34746334;2352335;76552;777;10
+r;34746335;2352336;76552;777;10
+r;34746336;2352337;76552;777;10
+r;50060615;2358247;76552;777;10
+r;50060614;145771;76552;777;10
+r;50067687;2359407;76552;777;10
+r;50189051;2362485;76552;777;10
+r;50459915;2365570;76552;777;10
+r;52040494;2372269;76552;777;10
+r;52040495;2372272;76552;777;10
+r;52215826;2375516;76552;777;10
+r;52997800;2385083;76552;777;10
+r;53067543;2388779;76552;777;10
+r;53130140;2391684;76552;777;10
+r;53150138;2392519;76552;777;10
+r;53194139;2395019;76552;777;10
+r;53235308;2397357;76552;777;10
+r;53244334;2397919;76552;777;10
+r;53286591;2400145;76552;777;10
+r;53830428;2406264;76552;777;10
+r;53841773;2437021;76552;777;10
+r;53841774;2406922;76552;777;10
+r;54216816;116078;76552;777;10
+r;54216817;2409797;76552;777;10
+r;54261960;2411985;76552;777;10
+r;54284760;2458242;76552;777;10
+r;54284761;2413043;76552;777;10
+r;54301241;2413786;76552;777;10
+r;54459563;2420118;76552;777;10
+r;54472232;2420805;76552;777;10
+r;54535353;2424205;76552;777;10
+r;54740272;2429031;76552;777;10
+r;54881864;2445331;76552;777;10
+r;54963843;2431042;76552;777;10
+r;55046121;2433351;76552;777;10
+r;55181275;2437235;76552;777;10
+r;55234503;2439743;76552;777;10
+r;55315498;2443904;76552;777;10
+r;55532079;2453106;76552;777;10
+r;55696332;2461967;76552;777;10
+r;55877892;2471375;76552;777;10
+r;58003462;2476605;76552;777;10
+r;58025173;2477357;76552;777;10
+r;59452286;2002614;76552;777;10
+r;61352788;2484663;76552;777;10
+r;62104249;2490074;76552;777;10
+r;62331990;2736024;76552;777;10
+r;62541432;2497627;76552;777;10
+r;62830845;2499883;76552;777;10
+r;62959132;2499533;76552;777;10
+r;62959131;144407;76552;777;10
+r;67166088;85986;76552;777;10
+r;67882950;2507447;76552;777;10
+r;68255758;2507553;76552;777;10
+r;68339001;2510440;76552;777;10
+r;68963974;2511467;76552;777;10
+r;69608116;2513589;76552;777;10
+r;71880277;2931525;76552;777;10
+r;71966910;2932867;76552;777;10
+r;72028314;1732714;76552;777;10
+r;72281749;2937040;76552;777;10
+r;72789027;2951745;76552;777;10
+r;72883623;2225810;76552;777;10
+r;73172478;2872080;76552;777;10
+r;73912364;2956754;76552;777;10
+r;73915317;2957330;76552;777;10
+r;74415435;2959466;76552;777;10
+r;75848554;3046125;76552;777;10
+r;75893050;3158069;76552;777;10
+r;75991687;3160283;76552;777;10
+r;76140830;3167913;76552;777;10
+r;76140831;3167914;76552;777;10
+r;76236983;3170441;76552;777;10
+r;76376234;244649;76552;777;10
+r;76511938;3175780;76552;777;10
+r;76656330;3178435;76552;777;10
+r;76775103;2601675;76552;777;10
+r;77229017;419945;76552;777;10
+r;77229018;1890172;76552;777;10
+r;78375659;284271;76552;777;10
+r;78375660;3232612;76552;777;10
+r;78375661;3232613;76552;777;10
+r;78375662;206089;76552;777;10
+r;78375663;3232614;76552;777;10
+r;81772974;3293219;76552;777;10
+r;82476428;101467;76552;777;10
+r;83555009;2606629;76552;777;10
+r;83562932;14401;76552;777;10
+r;83794375;27310;76552;777;10
+r;83794376;3323648;76552;777;10
+r;84141595;3332672;76552;777;10
+r;84185811;2528866;76552;777;10
+r;109435325;166471;76552;777;10
+r;86811365;2540882;76552;777;10
+r;86894022;56734;76552;777;10
+r;86914113;129423;76552;777;10
+r;87397459;105714;76552;777;10
+r;87397460;3426112;76552;777;10
+r;88667157;3541734;76552;777;10
+r;88729146;3552256;76552;777;10
+r;88729147;3552257;76552;777;10
+r;88729148;3552258;76552;777;10
+r;88729149;2645535;76552;777;10
+r;88796225;267788;76552;777;10
+r;88796226;267787;76552;777;10
+r;88822593;2608106;76552;777;10
+r;88822594;3560053;76552;777;10
+r;88827640;3560487;76552;777;10
+r;89140742;1814114;76552;777;10
+r;89164548;3573285;76552;777;10
+r;91746994;2600544;76552;777;10
+r;96411175;3319604;76552;777;10
+r;97413025;272323;76552;777;10
+r;98016817;4314625;76552;777;10
+r;98016818;4314626;76552;777;10
+r;98602366;4323103;76552;777;10
+r;98614460;60437;76552;777;10
+r;101992093;33344;76552;777;10
+r;103077644;4907544;76552;777;10
+r;103279645;4933819;76552;777;10
+r;103279646;4933820;76552;777;10
+r;103581383;4262109;76552;777;10
+r;103879509;4950215;76552;777;10
+r;105057499;5056347;76552;777;10
+r;108255421;222795;76552;777;10
+r;109340347;5522419;76552;777;10
+r;109340392;5522420;76552;777;10
+r;109578562;5536009;76552;777;10
+r;109627527;5534759;76552;777;10
+r;109645065;5538060;76552;777;10
+r;109774213;5553687;76552;777;10
+r;109791606;5554339;76552;777;10
+r;109912385;143228;76552;777;10
+r;109912386;5559226;76552;777;10
+r;110007466;5563952;76552;777;10
+r;110079550;45989;76552;777;10
+r;110079551;5565123;76552;777;10
+r;110254448;5574226;76552;777;10
+r;110254449;5574227;76552;777;10
+r;110254450;5574229;76552;777;10
+r;110412838;5599014;76552;777;10
+r;110567816;134169;76552;777;10
+r;110567817;139062;76552;777;10
+r;110567818;220883;76552;777;10
+r;110733464;5624315;76552;777;10
+r;111175829;5671124;76552;777;10
+r;111175831;5671125;76552;777;10
+r;111175833;2468515;76552;777;10
+r;111175835;5671126;76552;777;10
+r;111177033;17138;76552;777;10
+r;111199721;5629625;76552;777;10
+r;111412319;37166;76552;777;10
+r;112109934;140343;76552;777;10
+r;112578227;5721817;76552;777;10
+r;112849113;5795403;76552;777;10
+r;112905493;5797931;76552;777;10
+r;112905495;5619396;76552;777;10
+r;112905497;5797933;76552;777;10
+r;112905499;5797935;76552;777;10
+r;113133542;5806902;76552;777;10
+r;113266537;5812098;76552;777;10
+r;113333806;371437;76552;777;10
+r;113334388;5815280;76552;777;10
+r;113335488;5815337;76552;777;10
+r;113836838;5836112;76552;777;10
+r;113837750;5836129;76552;777;10
+r;113837753;5836130;76552;777;10
+r;114113701;5855308;76552;777;10
+r;114114136;5855314;76552;777;10
+r;114115748;5855339;76552;777;10
+r;114115874;5855342;76552;777;10
+r;114115959;5855343;76552;777;10
+r;114116018;5855344;76552;777;10
+r;114116083;5855346;76552;777;10
+r;114116085;5855347;76552;777;10
+r;114116175;5855348;76552;777;10
+r;114116898;13861;76552;777;10
+r;114117060;5855371;76552;777;10
+r;114117062;2157822;76552;777;10
+r;114117064;5855372;76552;777;10
+r;114118567;159081;76552;777;10
+r;114118573;154339;76552;777;10
+r;114119443;5855428;76552;777;10
+r;114121806;179181;76552;777;10
+r;114127154;5855648;76552;777;10
+r;114263631;40001;76552;777;10
+r;114263633;135538;76552;777;10
+r;114264223;5853960;76552;777;10
+r;114287904;5872437;76552;777;10
+r;114298861;5873012;76552;777;10
+r;114298863;5669946;76552;777;10
+r;114322016;5873409;76552;777;10
+r;114345854;5873851;76552;777;10
+r;114367544;5874381;76552;777;10
+r;114609488;5892485;76552;777;10
+r;114609491;5892486;76552;777;10
+r;114617469;5892643;76552;777;10
+r;114737629;364201;76552;777;10
+r;115114220;3426115;76552;777;10
+r;115572531;181423;76552;777;10
+r;115959002;5940369;76552;777;10
+r;115974941;5940750;76552;777;10
+r;115975020;5940751;76552;777;10
+r;115983685;5941092;76552;777;10
+r;116014919;5942203;76552;777;10
+r;116022301;5942450;76552;777;10
+r;116198276;2407131;76552;777;10
+r;116998487;5980035;76552;777;10
+r;117011322;5980293;76552;777;10
+r;117011324;366509;76552;777;10
+r;117011326;5980295;76552;777;10
+r;117011328;88969;76552;777;10
+r;117011330;88274;76552;777;10
+r;117011332;1834426;76552;777;10
+r;117011334;51209;76552;777;10
+r;117134847;5983908;76552;777;10
+r;117162642;5984694;76552;777;10
+r;117231958;5986829;76552;777;10
+r;117682515;5992360;76552;777;10
+r;117682517;5992361;76552;777;10
+r;117944909;6000225;76552;777;10
+r;117946501;6000252;76552;777;10
+r;117964570;6000414;76552;777;10
+r;118013320;6000571;76552;777;10
+r;118024401;6000755;76552;777;10
+r;118027014;6000809;76552;777;10
+r;118027061;6000811;76552;777;10
+r;118067145;6001306;76552;777;10
+r;118080433;6001829;76552;777;10
+r;118136250;6002918;76552;777;10
+r;118143086;6003004;76552;777;10
+r;118143090;6003005;76552;777;10
+r;118154989;1890173;76552;777;10
+r;118156810;6003241;76552;777;10
+r;118159969;6003274;76552;777;10
+r;118165742;409871;76552;777;10
+r;118165988;1890189;76552;777;10
+r;118183133;77306;76552;777;10
+r;118198147;6003966;76552;777;10
+r;118208066;6004229;76552;777;10
+r;118209567;6004255;76552;777;10
+r;118210273;6004280;76552;777;10
+r;118232567;6004653;76552;777;10
+r;118258514;6006671;76552;777;10
+r;118258702;6006674;76552;777;10
+r;118262691;6006793;76552;777;10
+r;118262814;6006798;76552;777;10
+r;118274319;6007008;76552;777;10
+r;118291902;82942;76552;777;10
+r;118291905;2588137;76552;777;10
+r;118291907;6007421;76552;777;10
+r;118291911;6007424;76552;777;10
+r;118291913;6007426;76552;777;10
+r;118348559;6008603;76552;777;10
+r;118441703;6012023;76552;777;10
+r;118444694;6012105;76552;777;10
+r;118444696;6012107;76552;777;10
+r;118469651;6012664;76552;777;10
+r;118470256;6012670;76552;777;10
+r;118470942;6012677;76552;777;10
+r;118589910;2536534;76552;777;10
+r;118836426;5996241;76552;777;10
+r;118842685;4266290;76552;777;10
+r;118999366;6069222;76552;777;10
+r;119005975;6069403;76552;777;10
+r;119014559;2959748;76552;777;10
+r;119045324;6070118;76552;777;10
+r;119045326;6070119;76552;777;10
+r;119707901;6015233;76552;777;10
+r;190320704;8571113;76552;777;10
+r;190834226;56095;76552;777;10
+r;192831483;8902717;76552;777;10
+r;98665786;124518;76552;27;11
+r;98665787;124518;76552;0;11
+r;98665812;2308;76552;27;11
+r;98665814;102256;76552;27;11
+r;98665815;102256;76552;0;11
+r;98665813;2308;76552;0;13
+r;15392176;9894;76552;0;21
+r;964736;1290;76552;0;22
+r;12188912;146191;76552;0;22
+r;12294542;104113;76552;0;22
+r;15386364;16644;76552;0;23
+r;54807020;49318;76552;0;23
+r;862409;69826;76552;0;24
+r;956300;4827;76552;0;24
+r;15183946;16644;76552;27;24
+r;1722916;53314;76552;5;26
+r;9084193;29378;76552;35;26
+r;12289121;88662;76552;0;26
+r;15530783;153253;76552;27;26
+r;15581082;153253;76552;0;26
+r;21097219;48104;76552;0;26
+r;85747937;60361;76552;5;26
+r;12199995;53314;76552;0;27
+r;13951798;160996;76552;0;27
+r;87482971;148869;76552;0;27
+r;15187036;9894;76552;27;28
+r;59516240;7804;76552;0;29
+r;85787398;60361;76552;0;29
+r;1728377;47360;76552;7;30
+r;15531736;141272;76552;27;30
+r;15576590;141272;76552;0;30
+r;109357694;5524090;76552;0;30
+r;1803731;93861;76552;0;31
+r;21094371;64265;76552;0;31
+r;21129897;87409;76552;0;31
+r;33546581;361041;76552;6;32
+r;33547948;361039;76552;6;32
+r;33548565;361038;76552;6;32
+r;33575749;361034;76552;6;32
+r;33575948;361040;76552;6;32
+r;33576563;361035;76552;6;32
+r;1527641;212982;76552;0;34
+r;3103653;83457;76552;0;35
+r;29415859;197297;76552;0;35
+r;9084546;321989;76552;0;38
+r;33581318;361037;76552;6;40
+r;54855645;69826;76552;5;47
+r;28976879;1763383;76552;0;51
+r;312743;76552;76552;19;52
+r;1975045;217533;76552;16;52
+r;11591300;327011;76552;16;52
+r;54796737;49318;76552;5;53
+r;236761;125290;76552;0;54
+r;54732637;7804;76552;5;54
+r;53616955;4827;76552;5;55
+r;312744;148869;76552;19;57
+r;2409843;240079;76552;0;59
+r;1803856;230833;76552;0;60
+r;2042786;29378;76552;0;60
+r;3125396;35722;76552;0;60
+r;24311265;46879;76552;0;61
+r;581590;104113;76552;5;77
+r;1752165;146191;76552;5;81
+r;594124;88662;76552;5;85
+r;14045738;361036;76552;6;98
+r;12658620;361035;76552;0;101
+r;12658624;361034;76552;0;101
+r;12676558;356616;76552;0;102
+r;12715740;346927;76552;0;102
+r;12658596;361041;76552;0;104
+r;12658616;361036;76552;0;104
+r;12658600;361040;76552;0;106
+r;12658604;361039;76552;0;107
+r;12545794;389028;76552;0;108
+r;12658608;361038;76552;0;108
+r;12658612;361037;76552;0;108
+r;1552465;167818;76552;0;115
+r;9417694;122345;76552;0;144
+
+// END

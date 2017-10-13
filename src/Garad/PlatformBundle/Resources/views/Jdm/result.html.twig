@@ -1,0 +1,25 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats du mot {{ word }}</title>
+</head>
+<body>
+<h1>Jeu de mots</h1>
+<h2>Extension réalisée part : A.Carmona, M.Pyz, J.Ramos, A.Garcia</h2>
+<h3>
+    {% if isNewWord %}
+        Ce mot n'a pas était recherché, il a était mis en cache
+    {% else %}
+        Mot déjà en cache
+    {% endif %}
+</h3>
+<p>
+
+    Résultat de la recherche.
+    <pre>{{ result }}</pre>
+
+</p>
+</body>
+</html>

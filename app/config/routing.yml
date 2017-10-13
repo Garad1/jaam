@@ -1,0 +1,5 @@
+garad_platform:
+    resource: "@GaradPlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

@@ -1,0 +1,14 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: symfony
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 89c2214255e9d4880bb03d4d1d68a5fb59e3d3dc
+   # app_name: "Jeu de mots"
+   # app_developpers: "A.Carmora, M.Pyz, J.Ramos, A.Garcia"

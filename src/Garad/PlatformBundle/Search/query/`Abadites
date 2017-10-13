@@ -1,0 +1,80 @@
+
+// DUMP pour le terme '`Abadites' (eid=276810)
+
+
+Les `Abbadides, `Abadites ou Banû `Abbad (arabe : ban? `abb?d ??? ???? ou al-`abb?dy? ???????) sont une dynastie musulmane qui régna à Séville (1023-1091) après le démembrement du califat Omeyyade de Cordoue, durant la première période de taïfas.
+
+
+
+
+// les types de noeuds (Nodes Types) : nt;ntid;'ntname'
+
+nt;1;'n_term'
+nt;4;'n_pos'
+nt;18;'n_data'
+nt;36;'n_data_pot'
+nt;444;'n_link'
+nt;777;'n_wikipedia'
+
+// les noeuds/termes (Entries) : e;eid;'name';type;w;'formated name' 
+
+e;276810;'`Abadites';777;50
+e;8462;'Almoravides';1;50
+e;39492;'cadi';1;50
+e;42719;'arabe';1;433
+e;98142;'Cordoue';1;52
+e;100835;'islam';1;295
+e;101599;'Almohades';1;50
+e;103281;'Almanzor';1;50
+e;114805;'Reconquista';1;66
+e;130349;'Nasrides';1;50
+e;131625;'Séville';1;56
+e;142939;'ISBN';1;60
+e;146849;'Islam';1;70
+e;171870;'Nom:';4;50
+e;179763;'Arabe';1;50
+e;239128;'_COM';36;50
+e;276096;'_INFO-WIKI-YES';36;50
+e;292126;'International Standard Book Number';777;54
+e;2426962;'Al-Andalus';1;0
+e;2585997;'_INFO-CNRTL-NO';36;50
+e;3228593;'wiki:@';444;0
+e;3576104;'Morpho:nospace';18;50
+
+// les types de relations (Relation Types) : rt;rtid;'trname';'trgpname';'rthelp' 
+
+rt;0;'r_associated';'idée associée';Il est demandé d'énumérer les termes les plus étroitement associés au mot cible... Ce mot vous fait penser à quoi ?
+rt;4;'r_pos';'POS';Partie du discours (Nom, Verbe, Adjectif, Adverbe, etc.)
+rt;18;'r_data';'r_data';Informations diverses (plutôt d'ordre lexicales)
+rt;36;'r_infopot';'information potentielle';Information sémantique potentielle
+rt;444;'r_link';'r_link';Lien vers une ressource externe (WordNet, RadLex, UMLS, Wikipedia, etc...)
+rt;777;'r_wiki';'r_wiki';Associations issues de wikipedia...
+
+// les relations sortantes : r;rid;node1;node2;type;w 
+
+r;4112011;276810;8462;777;10
+r;4112008;276810;39492;777;10
+r;4111998;276810;42719;777;10
+r;4112005;276810;98142;777;10
+r;100141660;276810;100835;777;10
+r;4112020;276810;101599;777;10
+r;4112017;276810;103281;777;10
+r;4112023;276810;114805;777;10
+r;4112026;276810;130349;777;10
+r;4112002;276810;131625;777;10
+r;4112014;276810;142939;777;10
+r;100141659;276810;146849;777;10
+r;4291263;276810;171870;4;35
+r;4111997;276810;179763;777;10
+r;100141653;276810;239128;0;1000000
+r;100141662;276810;276096;36;30
+r;17954570;276810;292126;777;10
+r;100141656;276810;2426962;777;10
+r;72227571;276810;2585997;36;63
+r;78061005;276810;3228593;444;32
+r;90790714;276810;3576104;18;37
+
+// les relations entrantes : r;rid;node1;node2;type;w 
+
+
+// END

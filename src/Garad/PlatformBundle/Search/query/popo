@@ -1,0 +1,110 @@
+
+// DUMP pour le terme 'popo' (eid=420247)
+
+
+1. (Langage enfantin) Pot de chambre sur lequel les enfants en bas âge font leurs besoins. 
+ Être sur le popo.  
+2. (Argot) Pollen (type de haschich).
+3. (Argot) (Familier) Police. 
+ Tiens, v'là la popo.  
+4. (Par métonymie) Équivalent de caca dans le langage enfantin. 
+ Faire un gros popo.  
+5. (Par métonymie) Matière fécale, dans le langage enfantin. 
+ Faire un gros popo.  
+
+
+
+
+// les types de noeuds (Nodes Types) : nt;ntid;'ntname'
+
+nt;1;'n_term'
+nt;4;'n_pos'
+nt;18;'n_data'
+nt;36;'n_data_pot'
+nt;444;'n_link'
+
+// les noeuds/termes (Entries) : e;eid;'name';type;w;'formated name' 
+
+e;420247;'popo';1;50
+e;239128;'_COM';36;50
+e;171870;'Nom:';4;50
+e;139303;'drogue';1;1542
+e;142367;'pot';1;854
+e;226753;'faire popo';1;2
+e;3370304;'tarte amandine poire chocolat façon popo';1;0
+e;3491290;'Langage:enfantin';18;50
+e;3575927;'Morpho:min';18;50
+e;3576104;'Morpho:nospace';18;50
+e;187275;'Langage:argot';18;50
+e;172435;'Langage:familier';18;50
+e;254877;'_POL-NEUTRE_PC';36;50
+e;276096;'_INFO-WIKI-YES';36;50
+e;241794;'_POL-NEUTRE';36;50
+e;2585997;'_INFO-CNRTL-NO';36;50
+e;254878;'_POL-NEG_PC';36;50
+e;223172;'_POL-NEG';36;50
+e;3861965;'dbnary:fra:__ws_1_popo__nom__1';444;0
+e;3886331;'dbnary:fra:__ws_4_popo__nom__3';444;0
+e;4122677;'dbnary:fra:__ws_3_popo__nom__2';444;0
+e;4245518;'dbnary:fra:__ws_2_popo__nom__1';444;0
+e;3228593;'wiki:@';444;0
+e;2983124;'_SW';36;50
+e;151484;'Manga';1;50
+e;70892;'manga';1;184
+e;167064;'Dragon Ball';1;52
+e;112382;'volcan';1;704
+e;13001;'Mexique';1;288
+e;20040;'pot de chambre';1;72
+e;586644;'Volcan';1;2
+
+// les types de relations (Relation Types) : rt;rtid;'trname';'trgpname';'rthelp' 
+
+rt;0;'r_associated';'idée associée';Il est demandé d'énumérer les termes les plus étroitement associés au mot cible... Ce mot vous fait penser à quoi ?
+rt;4;'r_pos';'POS';Partie du discours (Nom, Verbe, Adjectif, Adverbe, etc.)
+rt;6;'r_isa';'générique';Il est demandé d'énumérer les GENERIQUES/hyperonymes du terme. Par exemple, 'animal' et 'mammifère' sont des génériques de 'chat'.
+rt;11;'r_locution';'locution';A partir d'un terme, il est demandé d'énumérer les locutions, expression ou mots composés en rapport avec ce terme. Par exemple, pour 'moulin', ou pourra avoir 'moulin à vent', 'moulin à eau', 'moulin à café'. Pour 'vendre', on pourra avoir 'vendre la peau de l'ours avant de l'avoir tué', 'vendre à perte', etc..
+rt;18;'r_data';'r_data';Informations diverses (plutôt d'ordre lexicales)
+rt;36;'r_infopot';'information potentielle';Information sémantique potentielle
+rt;444;'r_link';'r_link';Lien vers une ressource externe (WordNet, RadLex, UMLS, Wikipedia, etc...)
+rt;555;'r_cooccurrence';'r_cooccurrence';
+rt;777;'r_wiki';'r_wiki';Associations issues de wikipedia...
+
+// les relations sortantes : r;rid;node1;node2;type;w 
+
+r;52726947;420247;239128;0;1000000
+r;52053900;420247;171870;4;53
+r;80664971;420247;139303;6;31
+r;82554900;420247;142367;6;48
+r;14273877;420247;226753;11;53
+r;86146286;420247;3370304;11;57
+r;88347109;420247;3491290;18;30
+r;89785333;420247;3575927;18;30
+r;90749460;420247;3576104;18;32
+r;52528106;420247;187275;18;40
+r;60377899;420247;172435;18;40
+r;26706559;420247;254877;36;24
+r;85815043;420247;276096;36;31
+r;26573927;420247;241794;36;44
+r;85815003;420247;2585997;36;52
+r;26706560;420247;254878;36;76
+r;26573926;420247;223172;36;138
+r;94253039;420247;3861965;444;1
+r;94274725;420247;3886331;444;1
+r;94486811;420247;4122677;444;1
+r;94597646;420247;4245518;444;1
+r;78160093;420247;3228593;444;29
+r;74265906;420247;2983124;555;76
+r;17518535;420247;151484;777;10
+r;17518536;420247;70892;777;10
+r;17518537;420247;167064;777;10
+r;17518538;420247;112382;777;10
+r;17518539;420247;13001;777;10
+r;17518540;420247;20040;777;10
+r;22033083;420247;586644;777;10
+
+// les relations entrantes : r;rid;node1;node2;type;w 
+
+r;14273878;226753;420247;0;49
+r;86146287;3370304;420247;0;59
+
+// END
