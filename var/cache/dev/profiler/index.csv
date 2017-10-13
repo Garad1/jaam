@@ -403,3 +403,8 @@ e40786,::1,POST,http://localhost:8888/jaam/web/app_dev.php/jdm/jdm,1507884270,,2
 256bbe,::1,GET,http://localhost:8888/jaam/web/app_dev.php/jdm,1507884455,,200
 056717,::1,POST,http://localhost:8888/jaam/web/app_dev.php/jdm,1507884458,,302
 f4f097,::1,GET,http://localhost:8888/jaam/web/app_dev.php/jdm/titi,1507884459,,200
+e73538,::1,GET,http://localhost:8888/jaam/web/app_dev.php/jdm/titi,1507884676,,200
+ab3037,::1,GET,http://localhost:8888/jaam/web/app_dev.php/jdm/,1507884676,6e7855,200
+6e7855,::1,GET,http://localhost:8888/jaam/web/app_dev.php/jdm/,1507884676,,500
+b92c4f,::1,GET,http://localhost:8888/jaam/web/app_dev.php/jdm,1507884676,,200
+26c843,::1,GET,http://localhost:8888/jaam/web/app_dev.php/jdm,1507884676,,200
