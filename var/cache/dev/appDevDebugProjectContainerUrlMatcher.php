@@ -134,7 +134,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             // garad_jdm_search
             if (preg_match('#^/jdm/(?P<word>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'garad_jdm_search')), array (  '_controller' => 'Garad\\PlatformBundle\\Controller\\JdmController::searchAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'garad_jdm_search')), array (  '_controller' => 'Garad\\PlatformBundle\\Controller\\JdmController::displayAction',));
             }
 
         }

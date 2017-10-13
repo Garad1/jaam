@@ -3,7 +3,9 @@
 
 namespace Garad\PlatformBundle\Controller;
 
+use Garad\PlatformBundle\Parser\FetchWord;
 use Garad\PlatformBundle\Search\GaradSearch;
+use Garad\PlatformBundle\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -32,9 +34,6 @@ class JdmController extends Controller
 
     public function searchAction($word)
     {
-
-
-
         $extract = new GaradSearch();
         $result = $extract->getElement($word);
         $isNewWord = $extract->isNewWord();
@@ -42,6 +41,20 @@ class JdmController extends Controller
 
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:result.html.twig', array('result' => $result, 'isNewWord' => $isNewWord, 'word' => $word));
+        return new Response($content);
+    }
+
+
+    public function displayAction($word){
+
+
+        $extract = new GaradSearch();
+        $result = $extract->getElement($word);
+        $object = DocumentParser::parse($result);
+
+        echo $object->definition;
+
+        $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');
         return new Response($content);
     }
 }

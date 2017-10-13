@@ -6,10 +6,13 @@
  * Time: 11:20
  */
 
-namespace Parser;
+namespace Garad\PlatformBundle\Parser;
 
 class DocumentParser
 {
+
+
+
 
     static function parse(\DOMElement $node): \stdClass
     {

@@ -9,6 +9,6 @@ garad_jdm_home:
 
 garad_jdm_search:
     path:      /jdm/{word}
-    defaults: { _controller: GaradPlatformBundle:Jdm:search }
+    defaults: { _controller: GaradPlatformBundle:Jdm:display }
 
 

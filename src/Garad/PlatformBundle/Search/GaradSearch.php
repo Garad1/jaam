@@ -42,10 +42,9 @@ class GaradSearch
         }
 
         $result = $this->extract($query);
-        if (strcmp('', $result) == 0){
 
-        }
-        $this->writeContentInFile($query, $result);
+        $this->writeContentInFile($query,$result->textContent);
+
         return $result;
     }
 
@@ -60,16 +59,22 @@ class GaradSearch
         curl_setopt( $curl_handle, CURLOPT_URL, GaradSearch::$url . $query);
         $result = curl_exec( $curl_handle ); // Execute the request
         curl_close($curl_handle);
+        dump($result);
+        die;
         return $this->parse($result);
     }
 
     private function parse($html){
-        $dom = new \DOMDocument();
-        @$dom->loadHTML($html);
+        #$dom = new \DOMDocument();
+       # @$dom->loadHTML($html);
+#
+ #       foreach($dom->getElementsByTagName('code') as $code) {
+  #          return $code->nodeValue;
+   #     }
 
-        foreach($dom->getElementsByTagName('code') as $code) {
-            return $code->nodeValue;
-        }
+        $domDoc = new \DOMDocument('1.0', 'ISO-8859-1');
+        @$domDoc->loadHTML($html);
+        return $domDoc->getElementsByTagName('code')->item(0);
     }
 
     private function writeContentInFile($name, $content){
@@ -77,6 +82,9 @@ class GaradSearch
         $myFile = fopen(GaradSearch::$directory . DIRECTORY_SEPARATOR . $name, "w");
         fwrite($myFile, $content);
         fclose($myFile);
+
+
+
     }
 
 
