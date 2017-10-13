@@ -11,9 +11,6 @@ namespace Garad\PlatformBundle\Parser;
 class DocumentParser
 {
 
-
-
-
     static function parse(\DOMElement $node): \stdClass
     {
         $content = $node->textContent;
@@ -66,8 +63,4 @@ class DocumentParser
         strtok('', '');
         return $object;
     }
-
-
-
-
 }
