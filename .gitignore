@@ -1,20 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-src/Garad/Search/query/
 .idea/
-var/cache/dev/doctrine/
-var/cache/dev/pools/I-KlcVaTrD/
-var/cache/dev/pools/bTbPVTQ5H7/
-var/cache/dev/pools/k7-pWItAOZ/
-var/cache/dev/pools/kZWBNakmH4/
-var/cache/dev/pools/ptWFeEnklc/
-var/cache/dev/pools/tAxfGqO2h2/
-var/cache/dev/pools/yKXmj+S6ts/
-var/cache/dev/pools/zFn3TTB2m6/
-var/cache/dev/profiler/37/30/
-var/cache/dev/profiler/38/
-var/cache/dev/profiler/43/c8/
-var/cache/dev/profiler/4f/2c/
-var/cache/dev/profiler/55/
-var/cache/prod/doctrine/
+var/cache/*
+src/Garad/PlatformBundle/Search/
 vendor/doctrine/orm/docs/en/_theme/
-web/bundles/
