@@ -3,9 +3,9 @@
 
 namespace Garad\PlatformBundle\Controller;
 
-use Garad\PlatformBundle\Parser\FetchWord;
-use Garad\PlatformBundle\Search\GaradSearch;
-use Garad\PlatformBundle\Parser\DocumentParser;
+use Garad\PlatformBundle\Search\Parser\FetchWord;
+use Garad\PlatformBundle\Search\Parser\FileHandler;
+use Garad\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -34,6 +34,7 @@ class JdmController extends Controller
 
     public function searchAction($word)
     {
+
         $extract = new GaradSearch();
         $result = $extract->getElement($word);
         $isNewWord = $extract->isNewWord();
@@ -47,12 +48,28 @@ class JdmController extends Controller
 
     public function displayAction($word){
 
+        $fileHandler = new FileHandler();
+        if($fileHandler::exist($word)){
+            echo "File already exists";
+        }
+        else {
+            $html = FetchWord::fetch($word);
 
-        $extract = new GaradSearch();
+            //Get code balise
+            $domDoc = new \DOMDocument('1.0', 'ISO-8859-1');
+            @$domDoc->loadHTML($html);
+            $code = $domDoc->getElementsByTagName('code')->item(0);
+
+            $object = DocumentParser::parse($code);
+            dump($object);
+
+        }
+
+        /*$extract = new GaradSearch();
         $result = $extract->getElement($word);
         $object = DocumentParser::parse($result);
 
-        echo $object->definition;
+        echo $object->definition;*/
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');
         return new Response($content);

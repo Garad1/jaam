@@ -14,7 +14,7 @@ class GaradSearch
     }
 
     /*
-     * Parcours le fichier query à la recherche des éléments
+     * Parcours le dossier query à la recherche des éléments
      * S'il y a l'élément en cache, on le récupère et on l'affiche
      * Sinon on le télécharge et le met en cache
      */
@@ -61,10 +61,15 @@ class GaradSearch
         curl_close($curl_handle);
         dump($result);
         die;
-        return $this->parse($result);
+        return $this->getCode($result);
     }
 
-    private function parse($html){
+    /**
+     * Get code balise from html string
+     * @param $html
+     * @return \DOMElement
+     */
+    private function getCode($html){
         #$dom = new \DOMDocument();
        # @$dom->loadHTML($html);
 #
@@ -76,16 +81,4 @@ class GaradSearch
         @$domDoc->loadHTML($html);
         return $domDoc->getElementsByTagName('code')->item(0);
     }
-
-    private function writeContentInFile($name, $content){
-
-        $myFile = fopen(GaradSearch::$directory . DIRECTORY_SEPARATOR . $name, "w");
-        fwrite($myFile, $content);
-        fclose($myFile);
-
-
-
-    }
-
-
 }
