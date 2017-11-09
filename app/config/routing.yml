@@ -1,5 +1,5 @@
-Jdm_platform:
-    resource: "@JdmPlatformBundle/Resources/config/routing.yml"
+Jaam_platform:
+    resource: "@JaamPlatformBundle/Resources/config/routing.yml"
     prefix:   /
 
 

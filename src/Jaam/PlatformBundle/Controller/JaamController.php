@@ -1,21 +1,21 @@
 <?php
 
 
-namespace Jdm\PlatformBundle\Controller;
+namespace Jaam\PlatformBundle\Controller;
 
-use Jdm\PlatformBundle\Search\Parser\FetchWord;
-use Jdm\PlatformBundle\Search\Parser\FileHandler;
-use Jdm\PlatformBundle\Search\Parser\DocumentParser;
+use Jaam\PlatformBundle\Search\Parser\FetchWord;
+use Jaam\PlatformBundle\Search\Parser\FileHandler;
+use Jaam\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class JdmController extends Controller
+class JaamController extends Controller
 {
 
 
     public function redirectAction()
     {
-        return $this->redirectToRoute('Jdm_jdm_home');
+        return $this->redirectToRoute('Jaam_jdm_home');
     }
 
 
@@ -23,9 +23,9 @@ class JdmController extends Controller
     {
 
         if(isset($_POST["search"]) && strcmp($_POST["search"],"")!== 0){
-            return $this->redirectToRoute('Jdm_jdm_search', array('word' => $_POST["search"]));
+            return $this->redirectToRoute('Jaam_jdm_search', array('word' => $_POST["search"]));
         }
-        $content = $this->get('templating')->render('JdmPlatformBundle:Jdm:index.html.twig');
+        $content = $this->get('templating')->render('JaamPlatformBundle:Jdm:index.html.twig');
 
         return new Response($content);
     }
@@ -56,7 +56,7 @@ class JdmController extends Controller
 
         }
 
-        $content = $this->get('templating')->render('JdmPlatformBundle:Jdm:result.html.twig', array('result' => $object, 'isNewWord' => true, 'word' => $word));
+        $content = $this->get('templating')->render('JaamPlatformBundle:Jdm:result.html.twig', array('result' => $object, 'isNewWord' => true, 'word' => $word));
         return new Response($content);
     }
 }

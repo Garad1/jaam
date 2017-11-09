@@ -6,8 +6,8 @@
  * Time: 14:32
  */
 
-namespace Jdm\PlatformBundle\Search\Parser;
-use Jdm\PlatformBundle\Search\Config;
+namespace Jaam\PlatformBundle\Search\Parser;
+use Jaam\PlatformBundle\Search\Config;
 
 class FileHandler
 {

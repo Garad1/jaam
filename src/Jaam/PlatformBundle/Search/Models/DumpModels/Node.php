@@ -6,7 +6,7 @@
  * Time: 16:08
  */
 
-namespace Jdm\PlatformBundle\Search\Models\DumpModels;
+namespace Jaam\PlatformBundle\Search\Models\DumpModels;
 
 class Node
 {

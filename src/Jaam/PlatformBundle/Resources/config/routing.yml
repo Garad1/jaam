@@ -1,0 +1,14 @@
+Jaam_jdm_redirect:
+    path:      /
+    defaults: { _controller: JaamPlatformBundle:Jaam:redirect }
+
+
+Jaam_jdm_home:
+    path:      /jdm/
+    defaults: { _controller: JaamPlatformBundle:Jaam:index }
+
+Jaam_jdm_search:
+    path:      /jdm/{word}
+    defaults: { _controller: JaamPlatformBundle:Jaam:display }
+
+

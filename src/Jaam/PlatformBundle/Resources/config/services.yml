@@ -1,4 +1,4 @@
 services:
-#       Jdm_platform.example:
-#        class: Jdm\PlatformBundle\Example
+#      Jaam_platform.example:
+#        class: Jaam\PlatformBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -6,12 +6,12 @@
  * Time: 11:20
  */
 
-namespace Jdm\PlatformBundle\Search\Parser;
+namespace Jaam\PlatformBundle\Search\Parser;
 
-use Jdm\PlatformBundle\Search\Models\DumpModels\Node;
-use Jdm\PlatformBundle\Search\Models\DumpModels\NodeType;
-use Jdm\PlatformBundle\Search\Models\DumpModels\RelationType;
-use Jdm\PlatformBundle\Search\Models\DumpModels\Relation;
+use Jaam\PlatformBundle\Search\Models\DumpModels\Node;
+use Jaam\PlatformBundle\Search\Models\DumpModels\NodeType;
+use Jaam\PlatformBundle\Search\Models\DumpModels\RelationType;
+use Jaam\PlatformBundle\Search\Models\DumpModels\Relation;
 
 class DocumentParser
 {

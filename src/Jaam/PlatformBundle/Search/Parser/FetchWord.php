@@ -6,7 +6,7 @@
  * Time: 2:36 PM
  */
 
-namespace Jdm\PlatformBundle\Search\Parser;
+namespace Jaam\PlatformBundle\Search\Parser;
 
 class FetchWord
 {
