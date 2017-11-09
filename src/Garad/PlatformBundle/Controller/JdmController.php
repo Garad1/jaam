@@ -20,8 +20,6 @@ class JdmController extends Controller
 
 
     public function indexAction()
-
-
     {
 
         if(isset($_POST["search"]) && strcmp($_POST["search"],"")!== 0){
@@ -39,10 +37,13 @@ class JdmController extends Controller
         $result = $extract->getElement($word);
         $isNewWord = $extract->isNewWord();
 
-
-
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:result.html.twig', array('result' => $result, 'isNewWord' => $isNewWord, 'word' => $word));
         return new Response($content);
+    }
+
+    public function parse($code){
+        $object = DocumentParser::parse($code);
+        return $object;
     }
 
 
@@ -60,16 +61,14 @@ class JdmController extends Controller
             @$domDoc->loadHTML($html);
             $code = $domDoc->getElementsByTagName('code')->item(0);
 
-            $object = DocumentParser::parse($code);
+            $object = parse($code);
+
             dump($object);
 
+
+
+
         }
-
-        /*$extract = new GaradSearch();
-        $result = $extract->getElement($word);
-        $object = DocumentParser::parse($result);
-
-        echo $object->definition;*/
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');
         return new Response($content);

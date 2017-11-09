@@ -12,5 +12,6 @@ class RelationType
     public $code;
     public $name;
     public $description;
+    private $relations = ['in' => [], 'out' => []];
 
 }

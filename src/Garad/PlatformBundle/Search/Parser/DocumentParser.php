@@ -19,10 +19,12 @@ class DocumentParser
 
     static function parse(\DOMElement $node): \stdClass
     {
-        $content = $node->textContent;
-        $definition = $node->getElementsByTagName("def")->item(0)->textContent;
-
         $object = new \stdClass();
+
+        $content = $node->textContent;
+        $description = $node->getElementsByTagName("def")->item(0)->textContent;
+
+        $object->description = $description;
 
         $object->nodeTypes = [];
         $object->nodes = [];
@@ -42,7 +44,6 @@ class DocumentParser
                 $object->nodeTypes[] = $nodeType;
             } elseif ($type === 'e') {
                 $node = new Node($array[1],$array[2],$array[3],$array[4],  isset($array[5]) ? $array[5] : null);
-                $node->setDescription($definition);
                 $object->nodes[] = $node;
             } elseif ($type === 'rt') {
                 $relationType = new RelationType($array[1],$array[2],$array[3],$array[4]);

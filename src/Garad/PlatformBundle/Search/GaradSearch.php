@@ -70,15 +70,10 @@ class GaradSearch
      * @return \DOMElement
      */
     private function getCode($html){
-        #$dom = new \DOMDocument();
-       # @$dom->loadHTML($html);
-#
- #       foreach($dom->getElementsByTagName('code') as $code) {
-  #          return $code->nodeValue;
-   #     }
 
         $domDoc = new \DOMDocument('1.0', 'ISO-8859-1');
         @$domDoc->loadHTML($html);
         return $domDoc->getElementsByTagName('code')->item(0);
+
     }
 }
