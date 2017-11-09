@@ -1,5 +1,5 @@
-garad_platform:
-    resource: "@GaradPlatformBundle/Resources/config/routing.yml"
+Jdm_platform:
+    resource: "@JdmPlatformBundle/Resources/config/routing.yml"
     prefix:   /
 
 

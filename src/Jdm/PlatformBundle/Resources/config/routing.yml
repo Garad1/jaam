@@ -1,0 +1,14 @@
+Jdm_jdm_redirect:
+    path:      /
+    defaults: { _controller: JdmPlatformBundle:Jdm:redirect }
+
+
+Jdm_jdm_home:
+    path:      /jdm/
+    defaults: { _controller: JdmPlatformBundle:Jdm:index }
+
+Jdm_jdm_search:
+    path:      /jdm/{word}
+    defaults: { _controller: JdmPlatformBundle:Jdm:display }
+
+
