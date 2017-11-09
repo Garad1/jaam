@@ -61,7 +61,7 @@ class JdmController extends Controller
             $code = $domDoc->getElementsByTagName('code')->item(0);
 
             $object = DocumentParser::parse($code);
-            dump($object);
+
 
         }
 
@@ -71,7 +71,7 @@ class JdmController extends Controller
 
         echo $object->definition;*/
 
-        $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');
+        $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:result.html.twig', array('result' => $object, 'isNewWord' => true, 'word' => $word));
         return new Response($content);
     }
 }

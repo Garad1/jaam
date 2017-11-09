@@ -18,7 +18,26 @@
 <p>
 
     Résultat de la recherche.
-    <pre>{{ result }}</pre>
+
+    <div id="Specific">
+    Types de relation :
+    <ul>
+        {% for nodeType in result.nodeTypes %}
+            <li>{{ nodeType.getName() }}</li>
+        {% endfor %}
+    </ul>
+
+    </div>
+
+    <div id="desription">
+        {{ result.nodes.getDescription() }}
+    </div>
+
+
+
+
+
+
 
 </p>
 </body>
