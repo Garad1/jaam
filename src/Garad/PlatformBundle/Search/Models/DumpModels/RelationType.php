@@ -24,14 +24,14 @@ class RelationType
      */
     public function __construct($id, $name, $code, $description)
     {
-        $this->id = $id;
+        $this->id = (int)$id;
         $this->name = $name;
         $this->code = $code;
         $this->description = $description;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -39,7 +39,7 @@ class RelationType
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {

@@ -1,4 +1,9 @@
 <?php
+
+namespace Garad\PlatformBundle\Search\Models\ElasticModels;
+
+use Garad\PlatformBundle\Search\Models\DumpModels\Node;
+
 /**
  * Created by PhpStorm.
  * User: Proprietaire
@@ -11,29 +16,25 @@ class NodeCache
 
     private $id;
     private $name;
-    private $type;
+    private $nodeType;
     private $weight;
     private $formattedName;
     private $description;
     private $relationTypes = [];
     private $nodeTypes = [];
 
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
+    public function setNode(Node $node){
 
+        $this->setId($node->getId());
+        $this->setName($node->getName());
+        $this->setDescription($node->getDescription());
+        $this->setFormattedName($node->getFormattedName());
+        $this->setNodeType($node->getNodeType());
+        $this->setWeight($node->getWeight());
+
+    }
+    
     /**
      * @return mixed
      */
@@ -146,5 +147,19 @@ class NodeCache
         $this->name = $name;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNodeType()
+    {
+        return $this->nodeType;
+    }
 
+    /**
+     * @param mixed $nodeType
+     */
+    public function setNodeType($nodeType)
+    {
+        $this->nodeType = $nodeType;
+    }
 }

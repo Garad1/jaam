@@ -26,11 +26,11 @@ class Relation
      */
     public function __construct($id, $from, $to, $type, $weight)
     {
-        $this->id = $id;
-        $this->from = $from;
-        $this->to = $to;
-        $this->type = $type;
-        $this->weight = $weight;
+        $this->id = (int)$id;
+        $this->from = (int)$from;
+        $this->to = (int)$to;
+        $this->type = (int)$type;
+        $this->weight = (int)$weight;
     }
 
     /**

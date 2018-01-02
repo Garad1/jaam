@@ -12,7 +12,7 @@ class Node
 {
     private $id;
     private $name;
-    private $type;
+    private $nodeType;
     private $weight;
     private $formattedName;
     private $description;
@@ -27,15 +27,15 @@ class Node
      */
     public function __construct($id, $name, $type, $weight, $formattedName)
     {
-        $this->id = $id;
+        $this->id = (int)$id;
         $this->name = $name;
-        $this->type = $type;
-        $this->weight = $weight;
+        $this->type = (int)$type;
+        $this->weight = (int)$weight;
         $this->formattedName = $formattedName;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -43,7 +43,7 @@ class Node
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -67,23 +67,7 @@ class Node
     }
 
     /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return mixed
+     * @return int
      */
     public function getWeight()
     {
@@ -91,7 +75,7 @@ class Node
     }
 
     /**
-     * @param mixed $weight
+     * @param int $weight
      */
     public function setWeight($weight)
     {
@@ -128,6 +112,22 @@ class Node
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNodeType()
+    {
+        return $this->nodeType;
+    }
+
+    /**
+     * @param mixed $nodeType
+     */
+    public function setNodeType($nodeType)
+    {
+        $this->nodeType = $nodeType;
     }
 
 }

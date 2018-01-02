@@ -8,6 +8,7 @@ use Garad\PlatformBundle\Search\Parser\FileHandler;
 use Garad\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Garad\PlatformBundle\Search\Models\ElasticFactory;
 
 class JdmController extends Controller
 {
@@ -41,11 +42,6 @@ class JdmController extends Controller
         return new Response($content);
     }
 
-    public function parse($code){
-        $object = DocumentParser::parse($code);
-        return $object;
-    }
-
 
     public function displayAction($word){
 
@@ -61,16 +57,19 @@ class JdmController extends Controller
             @$domDoc->loadHTML($html);
             $code = $domDoc->getElementsByTagName('code')->item(0);
 
-            $object = parse($code);
+            $object = $this->parse($code);
 
             dump($object);
 
-
-
-
+            $factory = new ElasticFactory($object);
         }
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');
         return new Response($content);
+    }
+
+    public function parse($code){
+        $object = DocumentParser::parse($code);
+        return $object;
     }
 }
