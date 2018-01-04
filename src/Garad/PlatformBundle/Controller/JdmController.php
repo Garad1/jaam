@@ -9,6 +9,7 @@ use Garad\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Garad\PlatformBundle\Search\Models\ElasticFactory;
+use Garad\PlatformBundle\Entity\NodeCache;
 
 class JdmController extends Controller
 {
@@ -61,7 +62,15 @@ class JdmController extends Controller
 
             dump($object);
 
-            $factory = new ElasticFactory($object);
+            $node_cache = ElasticFactory::createCache($object);
+
+            dump($node_cache);
+            $nodeCache = new NodeCache($node_cache);
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($nodeCache);
+
+            $em->flush();
         }
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');

@@ -29,7 +29,7 @@ class NodeCache
         $this->setId($node->getId());
         $this->setName($node->getName());
         $this->setDescription($node->getDescription());
-        $this->setFormattedName($node->getFormattedName());
+        $this->setFormattedName($node->getName());
         $this->setNodeType($node->getNodeType());
         $this->setWeight($node->getWeight());
 

@@ -22,7 +22,6 @@ class Relation
         $this->id = $id;
         $this->weight = $weight;
         $this->node = $node;
-
     }
 
 

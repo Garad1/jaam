@@ -15,7 +15,7 @@ use Garad\PlatformBundle\Search\Models\ElasticModels\Relation;
 class ElasticFactory
 {
 
-    public function __construct ($object){
+    public static function createCache ($object){
 
         $nodeCache = new NodeCache();
 
@@ -26,13 +26,13 @@ class ElasticFactory
         $description = $object->description;
 
         foreach ($nodes as $entity) {
-
             $nodeCache->setNode($entity);
-
-            dump($nodeCache);
-            dump($relationTypes);
+            dump($entity);
             break;
         }
+
+        $nodeCache->setNodeTypes($nodeTypes);
+        $nodeCache->setDescription($description);
 
         $allRelationsTypes = [];
 
@@ -77,7 +77,6 @@ class ElasticFactory
 
         $nodeCache->setRelationTypes($allRelationsTypes);
 
-        dump($nodeCache);
-
+        return $nodeCache;
     }
 }

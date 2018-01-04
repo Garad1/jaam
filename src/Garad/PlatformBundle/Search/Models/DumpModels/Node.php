@@ -29,7 +29,7 @@ class Node
     {
         $this->id = (int)$id;
         $this->name = $name;
-        $this->type = (int)$type;
+        $this->nodeType = (int)$type;
         $this->weight = (int)$weight;
         $this->formattedName = $formattedName;
     }
