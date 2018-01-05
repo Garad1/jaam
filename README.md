@@ -1,4 +1,15 @@
-Symfony
+Jaam
 =======
 
-A Symfony project created on September 28, 2017, 1:40 pm.
+## Installation
+
+```
+composer install
+yarn install
+```
+
+## Compilation des assets
+
+```
+yarn run encore dev
+```
