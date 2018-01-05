@@ -15,13 +15,13 @@ class NodeCache
 
     public function __construct(\Garad\PlatformBundle\Search\Models\ElasticModels\NodeCache $nodeCache)
     {
+        $this->id = $nodeCache->getId();
         $this->setName($nodeCache->getName());
         $this->setDescription($nodeCache->getDescription());
         $this->setNodeTypes($nodeCache->getNodeTypes());
         $this->setNodeType($nodeCache->getNodeType());
         $this->setRelationTypes($nodeCache->getRelationTypes());
         $this->setWeight($nodeCache->getWeight());
-        $this->id = $nodeCache->getId();
         $this->setFormattedName($nodeCache->getFormattedName());
     }
 
@@ -65,14 +65,14 @@ class NodeCache
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=1000000)
+     * @ORM\Column(name="description", type="string", length=10000)
      */
     private $description;
 
     /**
-     * @var array
+     * @var object
      *
-     * @ORM\Column(name="relationTypes", type="array")
+     * @ORM\Column(name="relationTypes", type="object")
      */
     private $relationTypes;
 

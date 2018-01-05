@@ -10,12 +10,12 @@ namespace Garad\PlatformBundle\Search\Models\DumpModels;
 
 class Node
 {
-    private $id;
-    private $name;
-    private $nodeType;
-    private $weight;
-    private $formattedName;
-    private $description;
+    public $id;
+    public $name;
+    public $nodeType;
+    public $weight;
+    public $formattedName;
+    public $description;
 
     /**
      * Node constructor.

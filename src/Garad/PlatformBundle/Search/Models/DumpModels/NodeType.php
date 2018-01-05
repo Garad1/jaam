@@ -11,8 +11,8 @@ namespace Garad\PlatformBundle\Search\Models\DumpModels;
 
 class NodeType
 {
-    private $id;
-    private $name;
+    public $id;
+    public $name;
 
     /**
      * NodeType constructor.

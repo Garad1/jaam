@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Garad\PlatformBundle\Search\Models\ElasticFactory;
 use Garad\PlatformBundle\Entity\NodeCache;
+use Elasticsearch\ClientBuilder;
 
 class JdmController extends Controller
 {
@@ -64,13 +65,24 @@ class JdmController extends Controller
 
             $node_cache = ElasticFactory::createCache($object);
 
-            dump($node_cache);
             $nodeCache = new NodeCache($node_cache);
-            $em = $this->getDoctrine()->getManager();
+
+            dump(\GuzzleHttp\json_encode($node_cache));
+            /*$em = $this->getDoctrine()->getManager();
 
             $em->persist($nodeCache);
 
-            $em->flush();
+            $em->flush();*/
+
+            $params = [
+                'index' => 'nodes-cache',
+                'type' => 'node-cache',
+                'body' => json_encode($node_cache)
+            ];
+
+
+            $client = ClientBuilder::create()->build();
+            $response = $client->index($params);
         }
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');

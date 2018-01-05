@@ -2,9 +2,7 @@ fos_elastica:
     clients:
         default: { host: localhost, port: 9200 }
     indexes:
-        app:
-            index_name: nodes-cache
-            client: default
+        nodes-cache:
             types:
                 node-cache:
                     properties:
@@ -33,7 +31,7 @@ fos_elastica:
                                 name:
                                     type: keyword
                                 relations:
-                                    type: object
+                                    type: nested
                                     properties:
                                         in:
                                             type: nested

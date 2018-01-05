@@ -10,11 +10,11 @@ namespace Garad\PlatformBundle\Search\Models\DumpModels;
 
 class Relation
 {
-    private $id;
-    private $from;
-    private $to;
-    private $type;
-    private $weight;
+    public $id;
+    public $from;
+    public $to;
+    public $type;
+    public $weight;
 
     /**
      * Relation constructor.

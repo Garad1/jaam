@@ -13,9 +13,9 @@ use Garad\PlatformBundle\Search\Models\DumpModels\Node;
 class Relation
 {
 
-    private $id;
-    private $weight;
-    private $node;
+    public $id;
+    public $weight;
+    public $node;
 
     public function __construct($id, $weight, Node $node)
     {

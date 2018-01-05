@@ -14,7 +14,7 @@ class RelationType
     public $code;
     public $name;
     public $description;
-    private $relations = ['in' => [], 'out' => []];
+    public $relations = ['in' => [], 'out' => []];
 
     public function __construct(\Garad\PlatformBundle\Search\Models\DumpModels\RelationType $relationType)
     {

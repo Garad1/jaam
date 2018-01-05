@@ -14,14 +14,14 @@ use Garad\PlatformBundle\Search\Models\DumpModels\Node;
 class NodeCache
 {
 
-    private $id;
-    private $name;
-    private $nodeType;
-    private $weight;
-    private $formattedName;
-    private $description;
-    private $relationTypes = [];
-    private $nodeTypes = [];
+    public $id;
+    public $name;
+    public $nodeType;
+    public $weight;
+    public $formattedName;
+    public $description;
+    public $relationTypes = [];
+    public $nodeTypes = [];
 
 
     public function setNode(Node $node){
@@ -96,7 +96,7 @@ class NodeCache
      */
     public function setRelationTypes($relationTypes)
     {
-        $this->relationTypes = $relationTypes;
+        $this->relationTypes = array_values($relationTypes);
     }
 
     /**
