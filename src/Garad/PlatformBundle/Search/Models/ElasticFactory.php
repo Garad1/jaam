@@ -27,7 +27,6 @@ class ElasticFactory
 
         foreach ($nodes as $entity) {
             $nodeCache->setNode($entity);
-            dump($entity);
             break;
         }
 

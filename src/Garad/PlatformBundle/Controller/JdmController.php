@@ -3,14 +3,14 @@
 
 namespace Garad\PlatformBundle\Controller;
 
+use Garad\PlatformBundle\Elastic\Client;
 use Garad\PlatformBundle\Search\Parser\FetchWord;
 use Garad\PlatformBundle\Search\Parser\FileHandler;
 use Garad\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Garad\PlatformBundle\Search\Models\ElasticFactory;
-use Garad\PlatformBundle\Entity\NodeCache;
-use Elasticsearch\ClientBuilder;
+
 
 class JdmController extends Controller
 {
@@ -47,11 +47,27 @@ class JdmController extends Controller
 
     public function displayAction($word){
 
-        $fileHandler = new FileHandler();
-        if($fileHandler::exist($word)){
-            echo "File already exists";
+        //If word exists in elastic database
+        /**
+         * Handle creation of elastic request
+         */
+
+        $response = Client::search('nodes-cache','node-cache', [
+            'query' => [
+                'match' => [
+                    'name' => $word
+                ]
+            ]
+        ]);
+
+        dump($response);
+        //If word exists in elatic search we take source
+        if(count($response['hits']['hits']) !=  0){
+            dump("from elastic");
+            dump($response['hits']['hits'][0]['_source']);
         }
         else {
+            //If not exist we create the cache from jdm
             $html = FetchWord::fetch($word);
 
             //Get code balise
@@ -61,29 +77,20 @@ class JdmController extends Controller
 
             $object = $this->parse($code);
 
-            dump($object);
-
             $node_cache = ElasticFactory::createCache($object);
 
-            $nodeCache = new NodeCache($node_cache);
+            dump("from jdm");
+            Client::index('nodes-cache','node-cache', json_encode($node_cache));
 
-            dump(\GuzzleHttp\json_encode($node_cache));
-            /*$em = $this->getDoctrine()->getManager();
-
-            $em->persist($nodeCache);
-
-            $em->flush();*/
-
-            $params = [
-                'index' => 'nodes-cache',
-                'type' => 'node-cache',
-                'body' => json_encode($node_cache)
-            ];
-
-
-            $client = ClientBuilder::create()->build();
-            $response = $client->index($params);
         }
+        /*$fileHandler = new FileHandler();
+        if($fileHandler::exist($word)){
+            echo "File already exists";
+        }
+        else {
+            //If not in elastic cache index it
+            dump($response);
+        }*/
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');
         return new Response($content);

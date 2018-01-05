@@ -27,7 +27,7 @@ class NodeCache
     public function setNode(Node $node){
 
         $this->setId($node->getId());
-        $this->setName($node->getName());
+        $this->setName(str_replace("'", "", $node->getName()));
         $this->setDescription($node->getDescription());
         $this->setFormattedName($node->getName());
         $this->setNodeType($node->getNodeType());
