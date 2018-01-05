@@ -33,7 +33,7 @@ class JdmController extends Controller
         return new Response($content);
     }
 
-    public function searchAction($word)
+    /*public function searchAction($word)
     {
 
         $extract = new GaradSearch();
@@ -42,7 +42,7 @@ class JdmController extends Controller
 
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:result.html.twig', array('result' => $result, 'isNewWord' => $isNewWord, 'word' => $word));
         return new Response($content);
-    }
+    }*/
 
 
     public function displayAction($word){
@@ -60,11 +60,14 @@ class JdmController extends Controller
             ]
         ]);
 
-        dump($response);
+        dump($response->hits);
         //If word exists in elatic search we take source
-        if(count($response['hits']['hits']) !=  0){
+        if(count($response->hits->hits) !=  0){
+
             dump("from elastic");
-            dump($response['hits']['hits'][0]['_source']);
+            $node_cache = $response->hits->hits[0]->_source;
+            dump($node_cache->name);
+
         }
         else {
             //If not exist we create the cache from jdm

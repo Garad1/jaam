@@ -20,7 +20,9 @@ class Client
     private static function getInstance(){
 
         if(self::$client == null){
-            self::$client = ClientBuilder::create()->build();
+            self::$client = ClientBuilder::create()
+                    ->setSerializer("Garad\PlatformBundle\Elastic\Serializer")
+                    ->build();
         }
         return self::$client;
     }
