@@ -7,14 +7,14 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('build/app.css') }}">
     {% endblock %}
-    <title>{% block title %}Jaam{% endblock %}</title>
+    <title>{% block title %} Jaam {% endblock %}</title>
 </head>
 <body>
 <header>
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo center">Jaam</a>
-            {% if word is defined %}
+            {% if cache is defined %}
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             {% endif %}
         </div>

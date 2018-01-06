@@ -25,8 +25,6 @@ class ElasticFactory
         $relations = $object->relations;
         $description = $object->description;
 
-        dump($nodes);
-
         foreach ($nodes as $entity) {
             $nodeCache->setNode($entity);
             break;

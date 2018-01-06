@@ -27,11 +27,12 @@ class Client
         return self::$client;
     }
 
-    public static function index($index,$type,$body){
+    public static function index($index,$type,$id,$body){
 
         $params = [
                 'index' => $index,
                 'type' => $type,
+                'id' => $id,
                 'body' => $body,
             ];
 

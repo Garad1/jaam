@@ -54,6 +54,8 @@ class JdmController extends Controller
 
         $node_cache = null;
 
+        
+
         $response = Client::search('nodes-cache','node-cache', [
             'query' => [
                 'match' => [
@@ -66,7 +68,7 @@ class JdmController extends Controller
         //If word exists in elatic search we take source
         if(count($response->hits->hits) !=  0){
 
-            dump("from elastic");
+            //dump("from elastic");
             $node_cache = $response->hits->hits[0]->_source;
             //dump($node_cache->name);
 
@@ -84,8 +86,9 @@ class JdmController extends Controller
 
             $node_cache = ElasticFactory::createCache($object);
 
-            dump("from jdm");
-            Client::index('nodes-cache','node-cache', json_encode($node_cache));
+            //dump("from jdm");
+            //Index in nodeCache
+            Client::index('nodes-cache','node-cache',$node_cache->getId(), json_encode($node_cache));
 
         }
         /*$fileHandler = new FileHandler();

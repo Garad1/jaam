@@ -120,4 +120,12 @@ class RelationType
         $this->relations['out'][] = $relation;
     }
 
+
+    public function getRelationIn(){
+        return $this->relations['in'];
+    }
+
+    public function getRelationOut(){
+        return $this->relations['out'];
+    }
 }
