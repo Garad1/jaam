@@ -25,7 +25,7 @@
                         </div>
                         <div class="card-content">
                             <p>
-                                {{ cache.description }}
+                                {{cache.description|replace({'\n': '<br>'})| striptags('<br>')| raw }}
                             </p>
                         </div>
                     </div>
