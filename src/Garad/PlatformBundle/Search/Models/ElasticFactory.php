@@ -25,6 +25,8 @@ class ElasticFactory
         $relations = $object->relations;
         $description = $object->description;
 
+        dump($nodes);
+
         foreach ($nodes as $entity) {
             $nodeCache->setNode($entity);
             break;
@@ -47,11 +49,11 @@ class ElasticFactory
             if($nodeCache->getId() == $idFrom && $nodeCache->getId() != $idTo){
 
                 if (array_key_exists($relationType, $allRelationsTypes)) {
-                    $allRelationsTypes[$relationType]->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $allRelationsTypes[$relationType]->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idTo]));
                 }
                 else {
                     $elasticType = new RelationType($relationTypes[$relationType]);
-                    $elasticType->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $elasticType->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idTo]));
                     $allRelationsTypes[$relationType] = $elasticType;
                 }
             }
@@ -70,7 +72,16 @@ class ElasticFactory
             }
             //In Out Relation Me -> Me
             if($nodeCache->getId() == $idFrom && $nodeCache->getId() == $idTo){
-
+                if (array_key_exists($relationType, $allRelationsTypes)) {
+                    $allRelationsTypes[$relationType]->addRelationIn(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $allRelationsTypes[$relationType]->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                }
+                else {
+                    $elasticType = new RelationType($relationTypes[$relationType]);
+                    $elasticType->addRelationIn(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $elasticType->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $allRelationsTypes[$relationType] = $elasticType;
+                }
             }
         }
 

@@ -52,6 +52,8 @@ class JdmController extends Controller
          * Handle creation of elastic request
          */
 
+        $node_cache = null;
+
         $response = Client::search('nodes-cache','node-cache', [
             'query' => [
                 'match' => [
@@ -60,13 +62,13 @@ class JdmController extends Controller
             ]
         ]);
 
-        dump($response->hits);
+        //dump($response->hits);
         //If word exists in elatic search we take source
         if(count($response->hits->hits) !=  0){
 
             dump("from elastic");
             $node_cache = $response->hits->hits[0]->_source;
-            dump($node_cache->name);
+            //dump($node_cache->name);
 
         }
         else {
@@ -95,8 +97,9 @@ class JdmController extends Controller
             dump($response);
         }*/
 
-        $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:empty.html.twig');
-        return new Response($content);
+        return $this->render('GaradPlatformBundle:Jdm:result.html.twig',array(
+            'cache' => $node_cache
+        ));
     }
 
     public function parse($code){
