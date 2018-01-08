@@ -23,6 +23,7 @@ class NodeCache
     public $relationTypes = [];
     public $nodeTypes = [];
     public $timestamp;
+    private $raffinement;
 
     public function __construct()
     {
@@ -97,14 +98,17 @@ class NodeCache
         return $this->relationTypes;
     }
 
-    public function addRelationType($relationType){
-
-    }
     /**
      * @param array $relationTypes
      */
     public function setRelationTypes($relationTypes)
     {
+        foreach ($relationTypes as $relationType){
+            if($relationType->getName() == 'raffinement sémantique'){
+                $this->raffinement = $relationType;
+                unset($relationTypes,$relationType);
+            }
+        }
         $this->relationTypes = array_values($relationTypes);
     }
 
