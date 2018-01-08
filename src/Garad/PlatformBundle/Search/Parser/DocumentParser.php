@@ -75,7 +75,7 @@ class DocumentParser
 
             } elseif ($type === 'e') {
 
-                $node = new Node($array[1],trim($array[2]),$array[3],$array[4],  isset($array[5]) ? $array[5] : null);
+                $node = new Node($array[1],$array[2],$array[3],$array[4],  isset($array[5]) ? $array[5] : null);
                 $object->nodes[$node->getId()] = $node;
 
             } elseif ($type === 'rt') {

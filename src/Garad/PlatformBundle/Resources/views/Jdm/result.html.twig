@@ -44,10 +44,10 @@
                             </div>
                             <div class="card-content">
                                 {% for relationIn in relationType.relations.in %}
-                                    <a href="{{ path('jdm_search', {'word' : relationIn.node.name|url_encode}) }}">{{ relationIn.node.name }}</a>
+                                    <a href="{{ path('jdm_search', {'word' : relationIn.node.name}) }}">{{ relationIn.node.name }}</a>
                                 {% endfor %}
                                 {% for relationOut in relationType.relations.out %}
-                                    <a href="{{ path('jdm_search', {'word' : relationOut.node.name|url_encode}) }}">{{ relationOut.node.name }}</a>
+                                    <a href="{{ path('jdm_search', {'word' : relationOut.node.name}) }}">{{ relationOut.node.name }}</a>
                                 {% endfor %}
                             </div>
                         </div>

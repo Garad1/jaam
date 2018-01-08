@@ -15,13 +15,13 @@ class FetchWord
 
     static function fetch($word)
     {
-        dump(self::$url . $word);
+        dump(self::$url . utf8_decode($word));
         $curl_handle = curl_init();
         curl_setopt($curl_handle, CURLOPT_ENCODING, '');
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt( $curl_handle, CURLOPT_URL, self::$url . $word);
+        curl_setopt( $curl_handle, CURLOPT_URL, self::$url . utf8_decode(str_replace(' ', '+',ltrim($word))));
         $result = curl_exec( $curl_handle ); // Execute the request
-        curl_close($curl_handle);;
+        curl_close($curl_handle);
         return $result;
     }
 }
