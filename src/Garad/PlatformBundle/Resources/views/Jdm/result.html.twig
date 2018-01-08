@@ -6,7 +6,7 @@
     <ul class="side-nav fixed" id="nav-mobile">
         <div class="collection">
         {% for relationType in cache.relationTypes %}
-            <a href="#" class="collection-item"> {{ relationType.code }} </a>
+            <a href="#{{ relationType.code }}" class="collection-item"> {{ relationType.code }} </a>
         {% endfor %}
         </div>
     </ul>
@@ -32,7 +32,7 @@
                 </div>
 
                 {% for relationType in cache.relationTypes %}
-                    <div class="relations">.
+                    <div id= "{{ relationType.code }}" class="relations">.
                         <div class="card hoverable">
                             <div class="accordion">
                                 <div class="card-title section">

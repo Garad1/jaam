@@ -4,6 +4,7 @@
 namespace Garad\PlatformBundle\Controller;
 
 use Garad\PlatformBundle\Elastic\Client;
+use Garad\PlatformBundle\Search\Models\ElasticModels\ElasticRelation;
 use Garad\PlatformBundle\Search\Parser\FetchWord;
 use Garad\PlatformBundle\Search\Parser\FileHandler;
 use Garad\PlatformBundle\Search\Parser\DocumentParser;
@@ -54,8 +55,6 @@ class JdmController extends Controller
 
         $node_cache = null;
 
-        
-
         $response = Client::search('nodes-cache','node-cache', [
             'query' => [
                 'match' => [
@@ -68,7 +67,7 @@ class JdmController extends Controller
         //If word exists in elatic search we take source
         if(count($response->hits->hits) !=  0){
 
-            //dump("from elastic");
+            dump("from elastic");
             $node_cache = $response->hits->hits[0]->_source;
             //dump($node_cache->name);
 
@@ -84,21 +83,22 @@ class JdmController extends Controller
 
             $object = $this->parse($code);
 
-            $node_cache = ElasticFactory::createCache($object);
+            $full_node_cache = ElasticFactory::createCache($object);
 
-            //dump("from jdm");
-            //Index in nodeCache
+            $node_cache = clone $full_node_cache;
+            $node_cache->trimRelations(30);
+
+            dump("from jdm");
+
+            //Save the trimmed cache into elastic
             Client::index('nodes-cache','node-cache',$node_cache->getId(), json_encode($node_cache));
 
+            //Save relations
+            foreach ($full_node_cache->getRelationTypes() as $relationType) {
+                ElasticRelation::bulkCreate("relation-in", $node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
+                ElasticRelation::bulkCreate("relation-out", $node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
+            }
         }
-        /*$fileHandler = new FileHandler();
-        if($fileHandler::exist($word)){
-            echo "File already exists";
-        }
-        else {
-            //If not in elastic cache index it
-            dump($response);
-        }*/
 
         return $this->render('GaradPlatformBundle:Jdm:result.html.twig',array(
             'cache' => $node_cache

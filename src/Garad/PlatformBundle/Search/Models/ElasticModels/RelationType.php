@@ -128,4 +128,28 @@ class RelationType
     public function getRelationOut(){
         return $this->relations['out'];
     }
+
+    public function setRelationIn($relationIn){
+        $this->relations['in'] = $relationIn;
+    }
+
+    public function setRelationOut($relationOut){
+        $this->relations['out'] = $relationOut;
+    }
+
+
+    public function trimRelations($size){
+        $this->relations['in'] = array_slice($this->relations['in'], 0, $size);
+        $this->relations['out'] = array_slice($this->relations['out'], 0, $size);
+    }
+
+    public function sortRelationsByWeight()
+    {
+        usort($this->relations['in'], function ($first, $second) {
+            return $second->weight - $first->weight;
+        });
+        usort($this->relations['out'], function ($first, $second) {
+            return $second->weight - $first->weight;
+        });
+    }
 }

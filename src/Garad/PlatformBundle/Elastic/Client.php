@@ -50,4 +50,8 @@ class Client
 
         return self::getInstance()->search($params);
     }
+
+    public static function getClient(){
+        return self::$client;
+    }
 }

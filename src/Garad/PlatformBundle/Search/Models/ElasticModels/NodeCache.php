@@ -162,4 +162,16 @@ class NodeCache
     {
         $this->nodeType = $nodeType;
     }
+
+    public function trimRelations($size){
+        if($this->getRelationTypes() != null){
+            foreach ($this->getRelationTypes() as $rel){
+                $rel->sortRelationsByWeight();
+            }
+
+            foreach($this->getRelationTypes() as $rel){
+                $rel->trimRelations($size);
+            }
+        }
+    }
 }
