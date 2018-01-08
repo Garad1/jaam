@@ -27,7 +27,7 @@ class NodeCache
     public function setNode(Node $node){
 
         $this->setId($node->getId());
-        $this->setName(str_replace("'", "", $node->getName()));
+        $this->setName(self::trim($node->getName()));
         $this->setDescription($node->getDescription());
         $this->setFormattedName($node->getName());
         $this->setNodeType($node->getNodeType());
@@ -91,6 +91,9 @@ class NodeCache
         return $this->relationTypes;
     }
 
+    public function addRelationType($relationType){
+
+    }
     /**
      * @param array $relationTypes
      */
@@ -173,5 +176,24 @@ class NodeCache
                 $rel->trimRelations($size);
             }
         }
+    }
+
+    static function trim($word, $separator = '\'')
+    {
+        $len = strlen($word);
+        if ($word[0] === $separator) {
+            $iniidx = 1;
+        } else {
+            $iniidx = 0;
+        }
+        if ($word[$len - 1] === $separator) {
+            $endidx = -1;
+        } else {
+            $endidx = $len - 1;
+        }
+        if ($iniidx == 1 || $endidx == -1) {
+            return substr($word, $iniidx, $endidx);
+        }
+        return $word;
     }
 }

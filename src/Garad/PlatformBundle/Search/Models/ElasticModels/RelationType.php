@@ -20,7 +20,7 @@ class RelationType
     {
         $this->setId($relationType->getId());
         $this->setDescription($relationType->getDescription());
-        $this->setName($relationType->getName());
+        $this->setName(str_replace("'", "", $relationType->getName()));
         $this->setCode($relationType->getCode());
     }
 

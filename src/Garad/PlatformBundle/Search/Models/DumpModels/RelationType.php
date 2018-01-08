@@ -25,8 +25,8 @@ class RelationType
     public function __construct($id, $name, $code, $description)
     {
         $this->id = (int)$id;
-        $this->name = $name;
-        $this->code = $code;
+        $this->name = str_replace("'", "", $name);
+        $this->code = str_replace("'", "", $code);
         $this->description = $description;
     }
 

@@ -17,14 +17,11 @@ class DocumentParser
 {
     static $separator = "\n";
 
-    static function parse(\DOMElement $node)
+    static function parse($html)
     {
         $object = new \stdClass();
 
-        $content = $node->textContent;
-        $description = $node->getElementsByTagName("def")->item(0)->textContent;
-
-        $object->description = $description;
+        $content = utf8_encode($html);
 
         $object->nodeTypes = [];
         $object->nodes = [];
@@ -32,6 +29,38 @@ class DocumentParser
         $object->relations = [];
 
         $line = strtok($content, self::$separator);
+
+        while ($line !== false && $line !== "<CODE>") {// fail safe check
+            $line = strtok(self::$separator);
+        }
+
+        // YES !! we are in code
+        // getting the description and the error if has some
+        $error = null;
+        $description = "";
+        $areWeInDefYet = false;
+        $isDefDoneYet = false; // ??
+        while ($line !== false && !$isDefDoneYet) {
+            if (!$areWeInDefYet) {
+                if ("<WARNING>" === substr($line, 0, 9)) {
+                    $error = "TOOBIG_USE_DUMP";
+                } elseif ("<def>" === $line) {
+                    $areWeInDefYet = true;
+                }
+                $line = strtok(self::$separator);
+                continue;
+            }
+            if ($line === "</def>") {
+                $isDefDoneYet = true;
+            } else {
+                $description .= trim(strip_tags($line))."\n";
+            }
+            $line = strtok(self::$separator);
+        }
+
+        $object->description = $description;
+
+        //Cf Fati chen
 
         while ($line !== false) {
             if ($line === null) {
@@ -46,22 +75,41 @@ class DocumentParser
 
             } elseif ($type === 'e') {
 
-                $node = new Node($array[1],$array[2],$array[3],$array[4],  isset($array[5]) ? $array[5] : null);
+                $node = new Node($array[1],trim($array[2]),$array[3],$array[4],  isset($array[5]) ? $array[5] : null);
                 $object->nodes[$node->getId()] = $node;
 
             } elseif ($type === 'rt') {
 
-                $relationType = new RelationType($array[1],$array[2],$array[3],$array[4]);
+                $relationType = new RelationType($array[1],trim($array[2]),$array[3],$array[4]);
                 $object->relationTypes[$relationType->getId()] = $relationType;
 
             } elseif ($type === 'r') {
 
-                $relation = new Relation($array[1],$array[2],$array[3],$array[4],$array[5]);
+                $relation = new Relation($array[1],trim($array[2]),$array[3],$array[4],$array[5]);
                 $object->relations[$array[1]] = $relation;
             }
             $line = strtok(self::$separator);
         }
         strtok('', '');
         return $object;
+    }
+
+    static function trim($word, $separator = '\'')
+    {
+        $len = strlen($word);
+        if ($word[0] === $separator) {
+            $iniidx = 1;
+        } else {
+            $iniidx = 0;
+        }
+        if ($word[$len - 1] === $separator) {
+            $endidx = -1;
+        } else {
+            $endidx = $len - 1;
+        }
+        if ($iniidx == 1 || $endidx == -1) {
+            return substr($word, $iniidx, $endidx);
+        }
+        return $word;
     }
 }

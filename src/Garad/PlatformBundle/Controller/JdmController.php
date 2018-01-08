@@ -77,11 +77,11 @@ class JdmController extends Controller
             $html = FetchWord::fetch($word);
 
             //Get code balise
-            $domDoc = new \DOMDocument('1.0', 'ISO-8859-1');
+            /*$domDoc = new \DOMDocument('1.0', 'ISO-8859-1');
             @$domDoc->loadHTML($html);
-            $code = $domDoc->getElementsByTagName('code')->item(0);
+            $code = $domDoc->getElementsByTagName('code')->item(0);*/
 
-            $object = $this->parse($code);
+            $object = $this->parse($html);
 
             $full_node_cache = ElasticFactory::createCache($object);
 
