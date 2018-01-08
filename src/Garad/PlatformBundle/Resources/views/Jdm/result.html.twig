@@ -16,10 +16,10 @@
                 <h5 class="wordSearched">Mot recherché : <span class="searched-word"> {{ cache.name }}</span></h5>
                 {% if cache.description != null %}
                 <div class="description">
-                    <div class="card hoverable">
+                    <div class="card">
                         <div class="accordion">
                             <div class="card-title section">
-                                <span class="">Description</span>
+                                <span>Description</span>
                                 <i class="material-icons">chevron_right</i>
                             </div>
                             <div class="divider"></div>
@@ -34,10 +34,10 @@
                 {% endif %}
                 {% for relationType in cache.relationTypes %}
                     <div id= "{{ relationType.code }}" class="relations">
-                        <div class="card hoverable">
+                        <div class="card">
                             <div class="accordion">
                                 <div class="card-title section">
-                                    <span class=""> {{ relationType.code }}</span>
+                                    <span> {{ relationType.code }}</span>
                                     <i class="material-icons">chevron_right</i>
                                 </div>
                                 <div class="divider"></div>

@@ -10,7 +10,7 @@ $(function () {
     $(".accordion").each(function(){
         $(this).click(function(){
             $(this).toggleClass("hidden");
-            $(this.nextElementSibling).toggle(400);
+            $(this.nextElementSibling).toggle(0);
         });
     })
 })

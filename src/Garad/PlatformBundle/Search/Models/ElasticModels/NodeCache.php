@@ -22,6 +22,12 @@ class NodeCache
     public $description;
     public $relationTypes = [];
     public $nodeTypes = [];
+    public $timestamp;
+
+    public function __construct()
+    {
+        $this->timestamp = (new \DateTime('now'))->format(\DateTime::ATOM);
+    }
 
 
     public function setNode(Node $node){

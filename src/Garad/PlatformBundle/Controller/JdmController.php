@@ -6,7 +6,6 @@ namespace Garad\PlatformBundle\Controller;
 use Garad\PlatformBundle\Elastic\Client;
 use Garad\PlatformBundle\Search\Models\ElasticModels\ElasticRelation;
 use Garad\PlatformBundle\Search\Parser\FetchWord;
-use Garad\PlatformBundle\Search\Parser\FileHandler;
 use Garad\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
