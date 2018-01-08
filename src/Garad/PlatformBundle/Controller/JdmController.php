@@ -10,23 +10,18 @@ use Garad\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Garad\PlatformBundle\Search\Models\ElasticFactory;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class JdmController extends Controller
 {
-
-
-    public function redirectAction()
-    {
-        return $this->redirectToRoute('garad_jdm_home');
-    }
-
-
+    /**
+     * @Route("/", name="jdm_index")
+     */
     public function indexAction()
     {
 
         if(isset($_POST["search"]) && strcmp($_POST["search"],"")!== 0){
-            return $this->redirectToRoute('garad_jdm_search', array('word' => $_POST["search"]));
+            return $this->redirectToRoute('jdm_search', array('word' => $_POST["search"]));
         }
         $content = $this->get('templating')->render('GaradPlatformBundle:Jdm:index.html.twig');
 
@@ -44,7 +39,9 @@ class JdmController extends Controller
         return new Response($content);
     }*/
 
-
+    /**
+     * @Route("/{word}", name="jdm_search")
+     */
     public function displayAction($word){
 
         //If word exists in elastic database
