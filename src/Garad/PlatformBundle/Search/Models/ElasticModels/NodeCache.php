@@ -103,10 +103,12 @@ class NodeCache
      */
     public function setRelationTypes($relationTypes)
     {
+        dump("set relations");
         foreach ($relationTypes as $relationType){
-            if($relationType->getName() == 'raffinement sémantique'){
-                $this->raffinement = $relationType;
-                unset($relationTypes,$relationType);
+            if($relationType->getCode() == "raffinement sémantique"){
+                dump($relationType);
+                /*$this->raffinement = $relationType;
+                unset($relationTypes,$relationType);*/
             }
         }
         $this->relationTypes = array_values($relationTypes);
@@ -186,6 +188,10 @@ class NodeCache
                 $rel->trimRelations($size);
             }
         }
+    }
+
+    public function getRaffinement(){
+        return $this->raffinement;
     }
 
     static function trim($word, $separator = '\'')
