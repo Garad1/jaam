@@ -60,9 +60,7 @@ class DocumentParser
         }
 
         if(isset($error)){
-            //If the dump is too big
-            dump($error);
-            return null;
+            throw new \Exception($error);
         }
         else {
 

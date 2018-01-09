@@ -1,15 +1,16 @@
 {% extends 'GaradPlatformBundle::base.html.twig' %}
 
 {% block body %}
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="flash-{{ label }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
     <div class="container">
-        <form action="" method="post">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash-{{ label }}">
+                    {{ message }}
+                    <i class="material-icons">close</i>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <form action="{{ path('jdm_index') }}" method="post">
             <div class="row">
                 <div class="input-field col s12">
                     <label for="search">Entrez le mot à rechercher</label>

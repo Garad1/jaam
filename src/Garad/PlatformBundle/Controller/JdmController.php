@@ -74,8 +74,15 @@ class JdmController extends Controller
         else {
             //If not exist we create the cache from jdm
             $html = FetchWord::fetch($word);
-
-            $object = $this->parse($html);
+            try{
+                $object = DocumentParser::parse($html);
+            }
+            catch(\Exception $exception){
+                $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
+                $this->get('session')->getFlashBag()->add('error', 'Le mot contient trop de relations pour être supporté par rezo-dump (le site où nous récupérons les données)');
+                $this->get('logger')->error($errorMessage);
+                return $this->render('GaradPlatformBundle:Jdm:index.html.twig');
+            }
 
             if ($object != null) {
 
@@ -148,12 +155,5 @@ class JdmController extends Controller
         }
 
         return new Response(json_encode($relations));
-    }
-
-
-
-    public function parse($code){
-        $object = DocumentParser::parse($code);
-        return $object;
     }
 }
