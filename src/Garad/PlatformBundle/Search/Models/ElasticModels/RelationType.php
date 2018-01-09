@@ -154,4 +154,15 @@ class RelationType
 
         dump($this->relations['in']);
     }
+
+    public function getJsonWithoutRelations(){
+
+        $object = new \stdClass();
+        $object->id = $this->getId();
+        $object->code = $this->getCode();
+        $object->name = $this->getName();
+        $object->description = $this->getDescription();
+
+        return json_encode($object);
+    }
 }

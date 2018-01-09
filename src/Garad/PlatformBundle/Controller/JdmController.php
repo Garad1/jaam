@@ -11,6 +11,7 @@ use Garad\PlatformBundle\Search\Parser\DocumentParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Garad\PlatformBundle\Search\Models\ElasticFactory;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class JdmController extends Controller
@@ -90,6 +91,7 @@ class JdmController extends Controller
 
                 //Save relations
                 foreach ($full_node_cache->getRelationTypes() as $relationType) {
+                    Client::index('relations-type','relationTypes',$relationType->getId(),$relationType->getJsonWithoutRelations());
                     ElasticRelation::bulkCreate("relation-in", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
                     ElasticRelation::bulkCreate("relation-out", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
                 }
@@ -115,12 +117,13 @@ class JdmController extends Controller
     /**
      * @Route("/mot/{idNode}/relationType/{idRelationType}", name="jdm_display_relationtype")
      */
-        public function displayRelationType($idNode,$idRelationType){
-        $relation = json_decode($this->getAllRelations($idNode, $idRelationType, 1));
+    public function displayRelationType($idNode,$idRelationType){
+        $response = $this->getAllRelations($idNode, $idRelationType, 1);
+        $test = json_decode($response->getContent());
 
-        var_dump($relation);
+        dump($test);
         return $this->render('GaradPlatformBundle:Jdm:relationType.html.twig',array(
-            'relation' => $relation
+            'relation' => $test
         ));
     }
 
@@ -130,6 +133,22 @@ class JdmController extends Controller
      */
     public function getAllRelations($idNode,$idRelationType,$idPage){
 
+        //Get relationType from elastic
+        $relationRequest =  [
+            'query' => [
+                'bool' => [
+                    'filter' => [
+                        [ 'term' => [ 'id' => $idRelationType ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        $relation = Client::search('relations-type','relationTypes',$relationRequest);
+
+        dump($relation);
+
+        //Paginate over
         $size = 150;
 
         $from = $size * ($idPage - 1);
@@ -166,6 +185,8 @@ class JdmController extends Controller
 
         $relations['isMoreToLoad'] = $isMoreToLoad;
 
-        return new Response(json_encode($relations));
+        dump(new JsonResponse($relations));
+
+        return new JsonResponse($relations);
     }
 }
