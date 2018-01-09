@@ -63,6 +63,8 @@
                                             {{ relationOut.node.formattedName }}
                                         {% endif %}
                                     </a>
+                                    <a href="{{ path('jdm_display_relationtype', {'idNode' : cache.id, 'idRelationType' : relationType.id}) }}">Afficher tout</a>
+
                                 {% endfor %}
                             </div>
                         </div>

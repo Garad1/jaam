@@ -1,0 +1,22 @@
+{% extends 'GaradPlatformBundle::base.html.twig' %}
+
+{% block title %}relationType{% endblock %}
+
+{% block body %}
+
+    <div class="container-sidenav">
+        <div class="row">
+            <div class="col s12">
+                <h5 class="wordSearched">Ensemble des mots pour : relationType (à completer) </h5>
+
+                {% for wordIn in relation['in'] %}
+                    <p>test {{ wordIn }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ asset('build/app.js') }}"></script>
+{% endblock %}

@@ -113,6 +113,19 @@ class JdmController extends Controller
     }
 
     /**
+     * @Route("/mot/{idNode}/relationType/{idRelationType}", name="jdm_display_relationtype")
+     */
+        public function displayRelationType($idNode,$idRelationType){
+        $relation = json_decode($this->getAllRelations($idNode, $idRelationType, 1));
+
+        var_dump($relation);
+        return $this->render('GaradPlatformBundle:Jdm:relationType.html.twig',array(
+            'relation' => $relation
+        ));
+    }
+
+
+    /**
      * @Route("/mot/{idNode}/relationType/{idRelationType}/{idPage}", name="jdm_get_relations")
      */
     public function getAllRelations($idNode,$idRelationType,$idPage){
