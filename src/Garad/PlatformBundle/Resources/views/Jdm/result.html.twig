@@ -45,12 +45,24 @@
                             <div class="card-content">
                                 {% for relationIn in relationType.relations.in %}
                                     {% set word = relationIn.node.name|url_encode %}
-                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">{{ relationIn.node.name }}</a>
+                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                        {% if relationIn.node.formattedName is null %}
+                                            {{ relationIn.node.name }}
+                                        {% else %}
+                                            {{ relationIn.node.formattedName }}
+                                        {% endif %}
+                                    </a>
                                 {% endfor %}
                                 <br>
                                 {% for relationOut in relationType.relations.out %}
                                     {% set word = relationOut.node.name|url_encode %}
-                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">{{ relationOut.node.name }}</a>
+                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                        {% if relationOut.node.formattedName is null %}
+                                            {{ relationOut.node.name }}
+                                        {% else %}
+                                            {{ relationOut.node.formattedName }}
+                                        {% endif %}
+                                    </a>
                                 {% endfor %}
                             </div>
                         </div>

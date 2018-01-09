@@ -31,7 +31,7 @@ class Node
         $this->name = self::trim($name);
         $this->nodeType = (int)$type;
         $this->weight = (int)$weight;
-        $this->formattedName = $formattedName;
+        $this->formattedName =  self::trim($formattedName);
     }
 
     /**
