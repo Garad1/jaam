@@ -103,12 +103,11 @@ class NodeCache
     public function setRelationTypes($relationTypes)
     {
         dump("set relations");
-        foreach ($relationTypes as $relationType){
-            if($relationType->getCode() == "raffinement sémantique"){
-                dump($relationType);
-                /*$this->raffinement = $relationType;
-                unset($relationTypes,$relationType);*/
-            }
+        //If relationsTypes contains raffinement semantique we push it in first pos
+        if(isset($relationTypes[1])){
+            $raffinement = $relationTypes[1];
+            unset($relationTypes[1]);
+            array_unshift($relationTypes,$raffinement);
         }
         $this->relationTypes = array_values($relationTypes);
     }
