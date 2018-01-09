@@ -60,6 +60,7 @@ class Client
             'type' => $type,
             'body' => $body,
         ];
+        $params['sort'] = array('weight:desc');
 
         return self::getInstance()->search($params);
     }

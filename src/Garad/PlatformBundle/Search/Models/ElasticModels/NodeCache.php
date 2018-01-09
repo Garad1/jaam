@@ -102,7 +102,12 @@ class NodeCache
      */
     public function setRelationTypes($relationTypes)
     {
-        dump("set relations");
+        //We sort all relations first
+        if($this->getRelationTypes() != null) {
+            foreach ($this->getRelationTypes() as $rel) {
+                $rel->sortRelationsByWeight();
+            }
+        }
         //If relationsTypes contains raffinement semantique we push it in first pos
         if(isset($relationTypes[1])){
             $raffinement = $relationTypes[1];

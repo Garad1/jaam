@@ -131,7 +131,7 @@ class JdmController extends Controller
             $responseIn = Client::paginate('relations', 'relation-in',30,$maxRelationIn->count,$request);
             foreach ($responseIn->hits->hits as $hits){
                 //we get source
-                $relations['in'][] = $hits->_source;
+                $relations['in'][] = $hits->_source->weight;
             }
             dump($responseIn);
         }
@@ -141,7 +141,7 @@ class JdmController extends Controller
             $responseOut = Client::paginate('relations', 'relation-out',30,$maxRelationIn->count,$request);
             foreach ($responseOut->hits->hits as $hits){
                 //we get source
-                $relations['out'][] = $hits->_source;
+                $relations['out'][] = $hits->_source->weight;
             }
 
             dump($responseOut);

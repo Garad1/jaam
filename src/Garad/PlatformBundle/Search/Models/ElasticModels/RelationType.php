@@ -151,5 +151,7 @@ class RelationType
         usort($this->relations['out'], function ($first, $second) {
             return $second->weight - $first->weight;
         });
+
+        dump($this->relations['in']);
     }
 }
