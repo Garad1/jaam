@@ -51,6 +51,29 @@ class Client
         return self::getInstance()->search($params);
     }
 
+    public static function paginate($index,$type,$from,$size,$body){
+
+        $params = [
+            'index' => $index,
+            'from' => $from,
+            'size' => $size,
+            'type' => $type,
+            'body' => $body,
+        ];
+
+        return self::getInstance()->search($params);
+    }
+
+    public static function count($index,$type,$body){
+        $params = [
+            'index' => $index,
+            'type' => $type,
+            'body' => $body,
+        ];
+
+        return self::getInstance()->count($params);
+    }
+
     public static function getClient(){
         return self::$client;
     }

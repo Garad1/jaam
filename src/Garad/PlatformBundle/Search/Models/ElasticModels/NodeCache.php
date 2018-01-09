@@ -23,7 +23,6 @@ class NodeCache
     public $relationTypes = [];
     public $nodeTypes = [];
     public $timestamp;
-    private $raffinement;
 
     public function __construct()
     {

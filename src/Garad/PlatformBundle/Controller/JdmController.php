@@ -81,6 +81,12 @@ class JdmController extends Controller
 
             $full_node_cache = ElasticFactory::createCache($object);
 
+            //Save relations
+            foreach ($full_node_cache->getRelationTypes() as $relationType) {
+                ElasticRelation::bulkCreate("relation-in", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
+                ElasticRelation::bulkCreate("relation-out", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
+            }
+
             $node_cache = clone $full_node_cache;
             $node_cache->trimRelations(30);
 
@@ -89,17 +95,51 @@ class JdmController extends Controller
             //Save the trimmed cache into elastic
             Client::index('nodes-cache','node-cache',$node_cache->getId(), json_encode($node_cache));
 
-            //Save relations
-            foreach ($full_node_cache->getRelationTypes() as $relationType) {
-                ElasticRelation::bulkCreate("relation-in", $node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
-                ElasticRelation::bulkCreate("relation-out", $node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
-            }
         }
 
         return $this->render('GaradPlatformBundle:Jdm:result.html.twig',array(
             'cache' => $node_cache
         ));
     }
+
+    /**
+     * @Route("/mot/{idNode}/relationType/{idRelationType}", name="jdm_get_relations")
+     */
+    public function getAllRelations($idNode,$idRelationType){
+
+        $request =  [
+            'query' => [
+                'bool' => [
+                    'must' => [
+                        [ 'match' => [ 'idNode' => $idNode ] ],
+                        [ 'match' => [ 'idRelationType' => $idRelationType ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        $maxRelationIn = Client::count('relations','relation-in',$request);
+        $maxRelationOut = Client::count('relations','relation-out',$request);
+
+        dump($maxRelationIn);
+        dump($maxRelationOut);
+
+        if($maxRelationIn->count > 30) {
+            //If we don't have all relations
+            $responseIn = Client::paginate('relations', 'relation-in',30,$maxRelationIn->count,$request);
+            dump($responseIn);
+        }
+
+        if($maxRelationOut->count > 30){
+            //If we don't have all relations
+            $responseOut = Client::paginate('relations', 'relation-out',30,$maxRelationIn->count,$request);
+            dump($responseIn);
+        }
+
+        return $this->render('GaradPlatformBundle:Jdm:empty.html.twig');
+    }
+
+
 
     public function parse($code){
         $object = DocumentParser::parse($code);
