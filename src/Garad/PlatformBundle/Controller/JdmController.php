@@ -133,6 +133,8 @@ class JdmController extends Controller
      */
     public function getAllRelations($idNode,$idRelationType,$idPage){
 
+        $relations = [];
+
         //Get relationType from elastic
         $relationRequest =  [
             'query' => [
@@ -146,14 +148,12 @@ class JdmController extends Controller
 
         $relation = Client::search('relations-type','relationTypes',$relationRequest);
 
-        dump($relation);
+        $relations['relationType'] = $relation->hits->hits[0]->_source;
 
         //Paginate over
         $size = 150;
 
         $from = $size * ($idPage - 1);
-
-        $relations = [];
 
         $request =  [
             'query' => [
@@ -184,8 +184,6 @@ class JdmController extends Controller
         $isMoreToLoad = (($from+$size) < $maxRelationOut->count) || (($from+$size) < $maxRelationIn->count);
 
         $relations['isMoreToLoad'] = $isMoreToLoad;
-
-        dump(new JsonResponse($relations));
 
         return new JsonResponse($relations);
     }
