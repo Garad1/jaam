@@ -47,6 +47,7 @@
                                     {% set word = relationIn.node.name|url_encode %}
                                     <a href="{{ path('jdm_search', {'word' : word|raw}) }}">{{ relationIn.node.name }}</a>
                                 {% endfor %}
+                                <br>
                                 {% for relationOut in relationType.relations.out %}
                                     {% set word = relationOut.node.name|url_encode %}
                                     <a href="{{ path('jdm_search', {'word' : word|raw}) }}">{{ relationOut.node.name }}</a>

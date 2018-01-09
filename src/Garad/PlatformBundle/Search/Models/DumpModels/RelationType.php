@@ -25,8 +25,8 @@ class RelationType
     public function __construct($id, $name, $code, $description)
     {
         $this->id = (int)$id;
-        $this->name = str_replace("'", "", $name);
-        $this->code = str_replace("'", "", $code);
+        $this->name = self::trim($name);
+        $this->code = self::trim($code);
         $this->description = $description;
     }
 
@@ -92,5 +92,24 @@ class RelationType
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    static function trim($word, $separator = '\'')
+    {
+        $len = strlen($word);
+        if ($word[0] === $separator) {
+            $iniidx = 1;
+        } else {
+            $iniidx = 0;
+        }
+        if ($word[$len - 1] === $separator) {
+            $endidx = -1;
+        } else {
+            $endidx = $len - 1;
+        }
+        if ($iniidx == 1 || $endidx == -1) {
+            return substr($word, $iniidx, $endidx);
+        }
+        return $word;
     }
 }
