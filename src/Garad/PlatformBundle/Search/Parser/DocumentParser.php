@@ -44,6 +44,7 @@ class DocumentParser
             if (!$areWeInDefYet) {
                 if ("<WARNING>" === substr($line, 0, 9)) {
                     $error = "TOOBIG_USE_DUMP";
+                    break;
                 } elseif ("<def>" === $line) {
                     $areWeInDefYet = true;
                 }
@@ -58,40 +59,48 @@ class DocumentParser
             $line = strtok(self::$separator);
         }
 
-        $object->description = $description;
+        if(isset($error)){
+            //If the dump is too big
+            dump($error);
+            return null;
+        }
+        else {
 
-        //Cf Fati chen
+            $object->description = $description;
 
-        while ($line !== false) {
-            if ($line === null) {
+            //Cf Fati chen
+
+            while ($line !== false) {
+                if ($line === null) {
+                    $line = strtok(self::$separator);
+                }
+                $array = explode(';', $line);
+                $type = $array[0];
+                if ($type === "nt") {
+
+                    $nodeType = new NodeType($array[1], $array[2]);
+                    $object->nodeTypes[] = $nodeType;
+
+                } elseif ($type === 'e') {
+
+                    $node = new Node($array[1],$array[2],$array[3],$array[4],  isset($array[5]) ? $array[5] : null);
+                    $object->nodes[$node->getId()] = $node;
+
+                } elseif ($type === 'rt') {
+
+                    $relationType = new RelationType($array[1],trim($array[2]),$array[3],$array[4]);
+                    $object->relationTypes[$relationType->getId()] = $relationType;
+
+                } elseif ($type === 'r') {
+
+                    $relation = new Relation($array[1],trim($array[2]),$array[3],$array[4],$array[5]);
+                    $object->relations[$array[1]] = $relation;
+                }
                 $line = strtok(self::$separator);
             }
-            $array = explode(';', $line);
-            $type = $array[0];
-            if ($type === "nt") {
-
-                $nodeType = new NodeType($array[1], $array[2]);
-                $object->nodeTypes[] = $nodeType;
-
-            } elseif ($type === 'e') {
-
-                $node = new Node($array[1],$array[2],$array[3],$array[4],  isset($array[5]) ? $array[5] : null);
-                $object->nodes[$node->getId()] = $node;
-
-            } elseif ($type === 'rt') {
-
-                $relationType = new RelationType($array[1],trim($array[2]),$array[3],$array[4]);
-                $object->relationTypes[$relationType->getId()] = $relationType;
-
-            } elseif ($type === 'r') {
-
-                $relation = new Relation($array[1],trim($array[2]),$array[3],$array[4],$array[5]);
-                $object->relations[$array[1]] = $relation;
-            }
-            $line = strtok(self::$separator);
+            strtok('', '');
+            return $object;
         }
-        strtok('', '');
-        return $object;
     }
 
     static function trim($word, $separator = '\'')

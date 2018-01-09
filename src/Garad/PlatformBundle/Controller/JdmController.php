@@ -4,6 +4,7 @@
 namespace Garad\PlatformBundle\Controller;
 
 use Garad\PlatformBundle\Elastic\Client;
+use Garad\PlatformBundle\GaradPlatformBundle;
 use Garad\PlatformBundle\Search\Models\ElasticModels\ElasticRelation;
 use Garad\PlatformBundle\Search\Parser\FetchWord;
 use Garad\PlatformBundle\Search\Parser\DocumentParser;
@@ -74,29 +75,29 @@ class JdmController extends Controller
             //If not exist we create the cache from jdm
             $html = FetchWord::fetch($word);
 
-            //Get code balise
-            /*$domDoc = new \DOMDocument('1.0', 'ISO-8859-1');
-            @$domDoc->loadHTML($html);
-            $code = $domDoc->getElementsByTagName('code')->item(0);*/
-
             $object = $this->parse($html);
 
-            $full_node_cache = ElasticFactory::createCache($object);
+            if ($object != null) {
 
-            //Save relations
-            foreach ($full_node_cache->getRelationTypes() as $relationType) {
-                ElasticRelation::bulkCreate("relation-in", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
-                ElasticRelation::bulkCreate("relation-out", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
+                $full_node_cache = ElasticFactory::createCache($object);
+
+                //Save relations
+                foreach ($full_node_cache->getRelationTypes() as $relationType) {
+                    ElasticRelation::bulkCreate("relation-in", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
+                    ElasticRelation::bulkCreate("relation-out", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
+                }
+
+                $node_cache = clone $full_node_cache;
+                $node_cache->trimRelations(30);
+
+                dump("from jdm");
+
+                //Save the trimmed cache into elastic
+                Client::index('nodes-cache', 'node-cache', $node_cache->getId(), json_encode($node_cache));
+
+            } else {
+                //Handle error here
             }
-
-            $node_cache = clone $full_node_cache;
-            $node_cache->trimRelations(30);
-
-            dump("from jdm");
-
-            //Save the trimmed cache into elastic
-            Client::index('nodes-cache','node-cache',$node_cache->getId(), json_encode($node_cache));
-
         }
 
         return $this->render('GaradPlatformBundle:Jdm:result.html.twig',array(

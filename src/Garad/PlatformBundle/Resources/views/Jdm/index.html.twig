@@ -1,6 +1,13 @@
 {% extends 'GaradPlatformBundle::base.html.twig' %}
 
 {% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <div class="container">
         <form action="" method="post">
             <div class="row">
