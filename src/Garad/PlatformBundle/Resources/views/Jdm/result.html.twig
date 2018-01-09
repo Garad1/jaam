@@ -3,7 +3,7 @@
 {% block title %}{{ cache.name }}{% endblock %}
 
 {% block body %}
-    <ul class="side-nav fixed" id="nav-mobile">
+    <ul class="side-nav fixed" id="nav-mobile" xmlns="http://www.w3.org/1999/html">
         <div class="collection">
         {% for relationType in cache.relationTypes %}
             <a href="#{{ relationType.id }}" class="collection-item"> {{ relationType.code }} </a>
@@ -43,6 +43,7 @@
                                 <div class="divider"></div>
                             </div>
                             <div class="card-content">
+                                <blockquote class="blockquote-in">
                                 {% for relationIn in relationType.relations.in %}
                                     {% set word = relationIn.node.name|url_encode %}
                                     <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
@@ -53,7 +54,8 @@
                                         {% endif %}
                                     </a>
                                 {% endfor %}
-                                <br>
+                                </blockquote>
+                                <blockquote class="blockquote-out hide-on-small-only">
                                 {% for relationOut in relationType.relations.out %}
                                     {% set word = relationOut.node.name|url_encode %}
                                     <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
@@ -63,9 +65,11 @@
                                             {{ relationOut.node.formattedName }}
                                         {% endif %}
                                     </a>
-                                    <a href="{{ path('jdm_display_relationtype', {'idNode' : cache.id, 'idRelationType' : relationType.id}) }}">Afficher tout</a>
-
                                 {% endfor %}
+                                </blockquote>
+                                {%  if relationType.relations.in|length == 30 or relationType.relations.out|length == 30 %}
+                                    <a href="{{ path('jdm_display_relationtype', {'idNode' : cache.id, 'idRelationType' : relationType.id}) }}">Afficher tout</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

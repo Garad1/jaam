@@ -71,3 +71,11 @@ $toast-error-bgcolor : color('yellow', 'darken-2') /*color('red', 'accent-2') */
     }
   }
 }
+
+.blockquote-in{
+  border-left-color: blue;
+}
+
+.blockquote-out{
+  border-left-color: red;
+}
