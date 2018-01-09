@@ -67,6 +67,8 @@ class JdmController extends Controller
             $node_cache = $response->hits->hits[0]->_source;
             //dump($node_cache->name);
 
+            dump($node_cache);
+
         }
         else {
             //If not exist we create the cache from jdm
