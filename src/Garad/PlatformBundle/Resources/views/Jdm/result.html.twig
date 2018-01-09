@@ -13,7 +13,7 @@
     <div class="container-sidenav">
         <div class="row">
             <div class="col s12">
-                <h5 class="wordSearched">Mot recherché : <span id={{ cache.id }} class="searched-word"> {{ cache.name }}</span></h5>
+                <h5 class="wordSearched">Mot recherché : <span id={{ cache.id }}class="searched-word"> {{ cache.name }}</span></h5>
                 {% if cache.description != null %}
                 <div class="description">
                     <div class="card">
@@ -47,9 +47,9 @@
                                     {% set word = relationIn.node.name|url_encode %}
                                     <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if relationIn.node.formattedName is empty %}
-                                            {{ relationIn.weight }}
+                                            {{ relationIn.node.name }}
                                         {% else %}
-                                            {{ relationIn.weight }}
+                                            {{ relationIn.node.formattedName }}
                                         {% endif %}
                                     </a>
                                 {% endfor %}
@@ -58,9 +58,9 @@
                                     {% set word = relationOut.node.name|url_encode %}
                                     <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if relationOut.node.formattedName is empty %}
-                                            {{ relationOut.weight }}
+                                            {{ relationOut.node.name }}
                                         {% else %}
-                                            {{ relationOut.weight }}
+                                            {{ relationOut.node.formattedName }}
                                         {% endif %}
                                     </a>
                                 {% endfor %}
