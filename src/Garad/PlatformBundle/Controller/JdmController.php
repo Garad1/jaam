@@ -110,10 +110,9 @@ class JdmController extends Controller
      */
     public function getAllRelations($idNode,$idRelationType,$idPage){
 
-        $wordsByPage = 150;
+        $size = 150;
 
-        $from = $wordsByPage * ($idPage - 1);
-        $to = $wordsByPage * $idPage;
+        $from = $size * ($idPage - 1);
 
         $relations = [];
 
@@ -131,62 +130,19 @@ class JdmController extends Controller
         $maxRelationIn = Client::count('relations','relation-in',$request);
         $maxRelationOut = Client::count('relations','relation-out',$request);
 
-        dump($maxRelationIn);
-        dump($maxRelationOut);
-
-        if($from < $maxRelationIn->count){
-            //load relationIn
-            if($to < $maxRelationIn->count){
-                $responseIn = Client::paginate('relations', 'relation-in',$from,$to,$request);
-                foreach ($responseIn->hits->hits as $hits){
-                    //we get source
-                    $relations['in'][] = $hits->_source->node;
-                }
-            }
-            else {
-                //Load to maxRelationIn
-                $responseIn = Client::paginate('relations', 'relation-in',$from,$maxRelationIn->count,$request);
-                foreach ($responseIn->hits->hits as $hits){
-                    //we get source
-                    $relations['in'][] = $hits->_source->node;
-                }
-            }
+        $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request);
+        foreach ($responseIn->hits->hits as $hits){
+            //we get source
+            $relations['in'][] = $hits->_source->node;
         }
-        /*else {
-            $responseIn = Client::paginate('relations', 'relation-in', 0, $maxRelationIn->count, $request);
-            foreach ($responseIn->hits->hits as $hits) {
-                //we get source
-                $relations['in'][] = $hits->_source->node;
-            }
-        }*/
 
-        if ($from < $maxRelationOut->count) {
-            //load RelationOut
-            if ($to < $maxRelationOut->count) {
-                $responseOut = Client::paginate('relations', 'relation-out', $from, $to, $request);
-                foreach ($responseOut->hits->hits as $hits) {
-                    //we get source
-                    $relations['out'][] = $hits->_source->node;
-                }
-            }
-            else {
-                $responseOut = Client::paginate('relations', 'relation-out', $from, $maxRelationOut->count, $request);
-                foreach ($responseOut->hits->hits as $hits) {
-                    //we get source
-                    $relations['out'][] = $hits->_source->node;
-                }
-            }
+        $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request);
+        foreach ($responseIn->hits->hits as $hits){
+            //we get source
+            $relations['out'][] = $hits->_source->node;
         }
-        /*else {
-            //load from 0
-            $responseOut = Client::paginate('relations', 'relation-out', 1, $maxRelationOut->count, $request);
-            foreach ($responseOut->hits->hits as $hits) {
-                //we get source
-                $relations['out'][] = $hits->_source->node;
-            }
-        }*/
 
-        $isMoreToLoad = (($to < $maxRelationOut->count) || ($to < $maxRelationIn->count));
+        $isMoreToLoad = (($from+$size) < $maxRelationOut->count) || (($from+$size) < $maxRelationIn->count);
 
         $relations['isMoreToLoad'] = $isMoreToLoad;
 
