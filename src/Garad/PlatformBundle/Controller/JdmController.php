@@ -110,6 +110,8 @@ class JdmController extends Controller
      */
     public function getAllRelations($idNode,$idRelationType){
 
+        $relations = [];
+
         $request =  [
             'query' => [
                 'bool' => [
@@ -124,22 +126,28 @@ class JdmController extends Controller
         $maxRelationIn = Client::count('relations','relation-in',$request);
         $maxRelationOut = Client::count('relations','relation-out',$request);
 
-        dump($maxRelationIn);
-        dump($maxRelationOut);
-
         if($maxRelationIn->count > 30) {
             //If we don't have all relations
             $responseIn = Client::paginate('relations', 'relation-in',30,$maxRelationIn->count,$request);
+            foreach ($responseIn->hits->hits as $hits){
+                //we get source
+                $relations['in'][] = $hits->_source;
+            }
             dump($responseIn);
         }
 
         if($maxRelationOut->count > 30){
             //If we don't have all relations
             $responseOut = Client::paginate('relations', 'relation-out',30,$maxRelationIn->count,$request);
-            dump($responseIn);
+            foreach ($responseOut->hits->hits as $hits){
+                //we get source
+                $relations['out'][] = $hits->_source;
+            }
+
+            dump($responseOut);
         }
 
-        return $this->render('GaradPlatformBundle:Jdm:empty.html.twig');
+        return new Response(json_encode($relations));
     }
 
 
