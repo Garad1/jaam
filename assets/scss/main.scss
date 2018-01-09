@@ -9,7 +9,7 @@
 @import '~materialize-css/sass/materialize';
 
 
-.container-sidenav {
+.container-sidenav, header.header-sidenav {
   margin-left: 300px;
   @media #{$medium-and-down} {
     margin-left: 0px;

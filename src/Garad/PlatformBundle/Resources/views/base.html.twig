@@ -10,7 +10,7 @@
         <title>{% block title %} Jaam {% endblock %}</title>
     </head>
     <body>
-        <header>
+        <header {% if cache is defined %}class="header-sidenav"{% endif %}>
             <nav>
                 <div class="nav-wrapper">
                     <a href="{{ path('jdm_index') }}" class="brand-logo center">Jaam</a>
