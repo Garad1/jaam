@@ -22,12 +22,18 @@ class NodeCache
     public $description;
     public $relationTypes = [];
     public $nodeTypes = [];
+    public $timestamp;
+
+    public function __construct()
+    {
+        $this->timestamp = (new \DateTime('now'))->format(\DateTime::ATOM);
+    }
 
 
     public function setNode(Node $node){
 
         $this->setId($node->getId());
-        $this->setName(str_replace("'", "", $node->getName()));
+        $this->setName(self::trim($node->getName()));
         $this->setDescription($node->getDescription());
         $this->setFormattedName($node->getName());
         $this->setNodeType($node->getNodeType());
@@ -96,6 +102,18 @@ class NodeCache
      */
     public function setRelationTypes($relationTypes)
     {
+        //We sort all relations first
+        if($this->getRelationTypes() != null) {
+            foreach ($this->getRelationTypes() as $rel) {
+                $rel->sortRelationsByWeight();
+            }
+        }
+        //If relationsTypes contains raffinement semantique we push it in first pos
+        if(isset($relationTypes[1])){
+            $raffinement = $relationTypes[1];
+            unset($relationTypes[1]);
+            array_unshift($relationTypes,$raffinement);
+        }
         $this->relationTypes = array_values($relationTypes);
     }
 
@@ -161,5 +179,40 @@ class NodeCache
     public function setNodeType($nodeType)
     {
         $this->nodeType = $nodeType;
+    }
+
+    public function trimRelations($size){
+        if($this->getRelationTypes() != null){
+            foreach ($this->getRelationTypes() as $rel){
+                $rel->sortRelationsByWeight();
+            }
+
+            foreach($this->getRelationTypes() as $rel){
+                $rel->trimRelations($size);
+            }
+        }
+    }
+
+    public function getRaffinement(){
+        return $this->raffinement;
+    }
+
+    static function trim($word, $separator = '\'')
+    {
+        $len = strlen($word);
+        if ($word[0] === $separator) {
+            $iniidx = 1;
+        } else {
+            $iniidx = 0;
+        }
+        if ($word[$len - 1] === $separator) {
+            $endidx = -1;
+        } else {
+            $endidx = $len - 1;
+        }
+        if ($iniidx == 1 || $endidx == -1) {
+            return substr($word, $iniidx, $endidx);
+        }
+        return $word;
     }
 }

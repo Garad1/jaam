@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% block stylesheets %}
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ asset('build/app.css') }}">
-    {% endblock %}
-    <title>{% block title %} Jaam {% endblock %}</title>
-</head>
-<body>
-<header>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Jaam</a>
-            {% if cache is defined %}
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            {% endif %}
-        </div>
-    </nav>
-</header>
-<main>
-    {% block body %}
-    {% endblock %}
-    {% block javascript %}
-    {% endblock %}
-</main>
-<footer>
-</footer>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="{{ asset('build/app.css') }}">
+        {% endblock %}
+        <title>{% block title %} Jaam {% endblock %}</title>
+    </head>
+    <body>
+        <header {% if cache is defined %}class="header-sidenav"{% endif %}>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="{{ path('jdm_index') }}" class="brand-logo center">Jaam</a>
+                    {% if cache is defined %}
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+        <main>
+            {% block body %}
+            {% endblock %}
+            {% block javascript %}
+            {% endblock %}
+        </main>
+        <footer>
+        </footer>
+    </body>
+</html>

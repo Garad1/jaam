@@ -6,19 +6,20 @@
     <ul class="side-nav fixed" id="nav-mobile">
         <div class="collection">
         {% for relationType in cache.relationTypes %}
-            <a href="#" class="collection-item"> {{ relationType.code }} </a>
+            <a href="#{{ relationType.id }}" class="collection-item"> {{ relationType.code }} </a>
         {% endfor %}
         </div>
     </ul>
     <div class="container-sidenav">
         <div class="row">
             <div class="col s12">
-                <h5 class="wordSearched">Mot recherché : <span class="searched-word"> {{ cache.name }}</span></h5>
+                <h5 class="wordSearched">Mot recherché : <span id={{ cache.id }}class="searched-word"> {{ cache.name }}</span></h5>
+                {% if cache.description != null %}
                 <div class="description">
-                    <div class="card hoverable">
+                    <div class="card">
                         <div class="accordion">
                             <div class="card-title section">
-                                <span class="">Description</span>
+                                <span>Description</span>
                                 <i class="material-icons">chevron_right</i>
                             </div>
                             <div class="divider"></div>
@@ -30,23 +31,38 @@
                         </div>
                     </div>
                 </div>
-
+                {% endif %}
                 {% for relationType in cache.relationTypes %}
-                    <div class="relations">.
-                        <div class="card hoverable">
+                    <div id= "{{ relationType.id }}" class="relations scrollspy">
+                        <div class="card">
                             <div class="accordion">
                                 <div class="card-title section">
-                                    <span class=""> {{ relationType.code }}</span>
+                                    <span> {{ relationType.code }}</span>
                                     <i class="material-icons">chevron_right</i>
                                 </div>
                                 <div class="divider"></div>
                             </div>
                             <div class="card-content">
                                 {% for relationIn in relationType.relations.in %}
-                                    <a href="#">{{ relationIn.node.name }}</a>
+                                    {% set word = relationIn.node.name|url_encode %}
+                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                        {% if relationIn.node.formattedName is empty %}
+                                            {{ relationIn.node.name }}
+                                        {% else %}
+                                            {{ relationIn.node.formattedName }}
+                                        {% endif %}
+                                    </a>
                                 {% endfor %}
+                                <br>
                                 {% for relationOut in relationType.relations.out %}
-                                    <a href="#">{{ relationOut.node.name }}</a>
+                                    {% set word = relationOut.node.name|url_encode %}
+                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                        {% if relationOut.node.formattedName is empty %}
+                                            {{ relationOut.node.name }}
+                                        {% else %}
+                                            {{ relationOut.node.formattedName }}
+                                        {% endif %}
+                                    </a>
                                 {% endfor %}
                             </div>
                         </div>

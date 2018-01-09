@@ -28,10 +28,10 @@ class Node
     public function __construct($id, $name, $type, $weight, $formattedName)
     {
         $this->id = (int)$id;
-        $this->name = $name;
+        $this->name = self::trim($name);
         $this->nodeType = (int)$type;
         $this->weight = (int)$weight;
-        $this->formattedName = $formattedName;
+        $this->formattedName =  self::trim($formattedName);
     }
 
     /**
@@ -128,6 +128,25 @@ class Node
     public function setNodeType($nodeType)
     {
         $this->nodeType = $nodeType;
+    }
+
+    static function trim($word, $separator = '\'')
+    {
+        $len = strlen($word);
+        if ($word[0] === $separator) {
+            $iniidx = 1;
+        } else {
+            $iniidx = 0;
+        }
+        if ($word[$len - 1] === $separator) {
+            $endidx = -1;
+        } else {
+            $endidx = $len - 1;
+        }
+        if ($iniidx == 1 || $endidx == -1) {
+            return substr($word, $iniidx, $endidx);
+        }
+        return $word;
     }
 
 }

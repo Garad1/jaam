@@ -7,10 +7,12 @@ $(function () {
         draggable: true, // Choose whether you can drag to open on touch screens,
     });
 
+    $('.scrollspy').scrollSpy();
+
     $(".accordion").each(function(){
         $(this).click(function(){
             $(this).toggleClass("hidden");
-            $(this.nextElementSibling).toggle(400);
+            $(this.nextElementSibling).toggle(0);
         });
     })
 })

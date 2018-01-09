@@ -47,11 +47,13 @@ class ElasticFactory
             if($nodeCache->getId() == $idFrom && $nodeCache->getId() != $idTo){
 
                 if (array_key_exists($relationType, $allRelationsTypes)) {
-                    $allRelationsTypes[$relationType]->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idTo]));
+                    if(isset($nodes[$idTo])){
+                        $allRelationsTypes[$relationType]->addRelationOut(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idTo]));
+                    }
                 }
                 else {
                     $elasticType = new RelationType($relationTypes[$relationType]);
-                    $elasticType->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idTo]));
+                    $elasticType->addRelationOut(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idTo]));
                     $allRelationsTypes[$relationType] = $elasticType;
                 }
             }
@@ -60,29 +62,31 @@ class ElasticFactory
             if($nodeCache->getId() != $idFrom && $nodeCache->getId() == $idTo){
 
                 if (array_key_exists($relationType, $allRelationsTypes)) {
-                    $allRelationsTypes[$relationType]->addRelationIn(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    if(isset($nodes[$idFrom])) {
+                        $allRelationsTypes[$relationType]->addRelationIn(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
+                    }
                 }
                 else {
                     $elasticType = new RelationType($relationTypes[$relationType]);
-                    $elasticType->addRelationIn(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $elasticType->addRelationIn(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
                     $allRelationsTypes[$relationType] = $elasticType;
                 }
             }
             //In Out Relation Me -> Me
             if($nodeCache->getId() == $idFrom && $nodeCache->getId() == $idTo){
                 if (array_key_exists($relationType, $allRelationsTypes)) {
-                    $allRelationsTypes[$relationType]->addRelationIn(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
-                    $allRelationsTypes[$relationType]->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $allRelationsTypes[$relationType]->addRelationIn(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
+                    $allRelationsTypes[$relationType]->addRelationOut(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
                 }
                 else {
                     $elasticType = new RelationType($relationTypes[$relationType]);
-                    $elasticType->addRelationIn(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
-                    $elasticType->addRelationOut(new Relation($idFrom,$relation->getWeight(),$nodes[$idFrom]));
+                    $elasticType->addRelationIn(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
+                    $elasticType->addRelationOut(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
                     $allRelationsTypes[$relationType] = $elasticType;
                 }
             }
         }
-
+        dump($allRelationsTypes);
         $nodeCache->setRelationTypes($allRelationsTypes);
 
         return $nodeCache;
