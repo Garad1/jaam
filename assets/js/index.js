@@ -45,10 +45,10 @@ $(function () {
     });
 
     $('.js-submit').on('click', function(){
+        var url = window.location.protocol + '//' + window.location.host+ '/';
         switch(multiple.value.length){
             case 1:
-                console.log(window.location.hostname);
-                window.location.href = window.location.protocol + '//' + window.location.host+ '/' + multiple.value[0].text;
+                window.location.href = url + multiple.value[0].text;
                 break;
 
             case 2:
@@ -58,6 +58,14 @@ $(function () {
                 break;
 
             default:
+                var value = $('input#multipleInput').val();
+                console.log(value);
+                if(value){
+                    window.location.href = url + value;
+                }
+                else{
+                    Materialize.toast('Le champ de recherche est vide', 4000)
+                }
                 break;
         }
     });
