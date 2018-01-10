@@ -33,11 +33,12 @@ $toast-error-bgcolor : color('yellow', 'darken-2') /*color('red', 'accent-2') */
   padding: 10px 25px;
   font-size: 1.1rem;
   font-weight: 300;
+
+  & > i{
+    cursor: pointer;
+  }
 }
 
-.flash-error > i{
-  cursor: pointer;
-}
 
 .collection {
   margin-top:0px;
@@ -69,6 +70,20 @@ $toast-error-bgcolor : color('yellow', 'darken-2') /*color('red', 'accent-2') */
     & > .card-title > i{
       transform: rotate(0deg);
     }
+  }
+}
+
+.descriptif{
+  padding: 10px 20px;
+}
+
+.sidebar-search{
+  padding: 10px 20px;
+
+  & > i{
+    position: absolute;
+    top:10px;
+    right: 10px;
   }
 }
 

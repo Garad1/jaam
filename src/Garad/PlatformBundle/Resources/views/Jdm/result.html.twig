@@ -4,15 +4,15 @@
 
 {% block body %}
     <ul class="side-nav fixed" id="nav-mobile" xmlns="http://www.w3.org/1999/html">
-        <div >
+        <div class="descriptif">
             <p> Mot Recherché : {{ cache.name }} </p>
             <p> Id : {{ cache.id }}
             <p> Type de node : {{ cache.nodeTypes[cache.nodeType].name }}</p>
             <p> Nombre de relation types : {{ cache.relationTypes|length }} </p>
         </div>
-        <div style="padding: 10px;" class="input-field z-depth-3">
+        <div class="input-field z-depth-3 sidebar-search">
             <input placeholder="search" type="text" id="autocomplete-input" class="autocomplete">
-            <i style="position: absolute;top:10px;right: 10px; " class="material-icons">search</i>
+            <i class="material-icons">search</i>
         </div>
         <div class="collection">
         {% for relationType in cache.relationTypes %}
