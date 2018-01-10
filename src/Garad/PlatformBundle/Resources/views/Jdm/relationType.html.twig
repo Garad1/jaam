@@ -45,21 +45,17 @@
     <script>
       var element = document.getElementById("readMore");
       element.onclick = function readMore() {
-        alert('Hello world');
         var div = document.getElementById("relationIn");
-
           $.ajax({
               url : '{{ app.request.uri }}' +'/' + 2,
               type : 'GET',
               dataType : 'json', // On désire recevoir du json
               success : function(json, statut){ // code_html contient le HTML renvoyé
-                console.log(json.relationType.description); //Manipule ton objet comme ca :D
+                console.log(json); //Manipule ton objet comme ca :D
               }
           });
       }
     </script>
-
-
 {% endblock %}
 
 {% block javascript %}

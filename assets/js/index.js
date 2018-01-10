@@ -22,13 +22,13 @@ $('input.autocomplete').bind('input', function() {
 
                 var result = new Array();
                 for (var i = 0; i < data.length; ++i) {
-                    result.push(data[i]._source.name);
+                    result[data[i]._source.name] = null;
                 }
                 console.log(result);
 
                 $('input.autocomplete').autocomplete({
                     data: result,
-                    limit: 5// The max amount of results that can be shown at once. Default: Infinity.
+                    limit: 5,// The max amount of results that can be shown at once. Default: Infinity.
                 });
             },
             error: function(xhr, status, error) {
@@ -36,11 +36,4 @@ $('input.autocomplete').bind('input', function() {
             }
         });
     }
-});
-
-$(function(){
-    $('#search').autocomplete({
-        source : function(requete, response){
-        }
-    });
 });
