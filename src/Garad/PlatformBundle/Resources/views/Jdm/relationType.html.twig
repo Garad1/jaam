@@ -22,7 +22,7 @@
                     {% endfor %}
                 {% endif %}
                 </blockquote>
-                <blockquote id="relationOut" class="blockquote-out hide-on-small-only">
+                <blockquote id="relationOut" class="blockquote-out">
                 {% if relation.out is defined %}
                     {% for wordOut in relation.out %}
                         {% set word = wordOut.name|url_encode %}
@@ -36,34 +36,26 @@
                     {% endfor %}
                 {% endif %}
                 </blockquote>
-
                 <button id="readMore">Afficher la suite</button>
             </div>
         </div>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script id="readMore">
+    <script>
       var element = document.getElementById("readMore");
       element.onclick = function readMore() {
         alert('Hello world');
         var div = document.getElementById("relationIn");
 
-        var result = $.get("{{ app.request.uri }}/2", {})
-         /* .done(function(data) {
-            var response = JSON.parse(data);
-            // ...
-          })
-          .fail(function() {
-            alert('Une erreur est survenue...');
-          });*/
-        //var resultParsed = JSON.parse(result);
-        console.log(result);
-        for (var o in result) {
-            console.log("test : " + o);
-        }
-        div.append("monPutaindeTest");
-
+          $.ajax({
+              url : '{{ app.request.uri }}' +'/' + 2,
+              type : 'GET',
+              dataType : 'json', // On désire recevoir du json
+              success : function(json, statut){ // code_html contient le HTML renvoyé
+                console.log(json.relationType.description); //Manipule ton objet comme ca :D
+              }
+          });
       }
     </script>
 
