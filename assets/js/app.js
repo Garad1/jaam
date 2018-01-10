@@ -53,15 +53,27 @@ $(function () {
             dataType : 'json', // On désire recevoir du json
             success : function(json, statut){ // code_html contient le HTML renvoyé
                 console.log(json); //Manipule ton objet comme ca :D
-
-                /*json.in.forEach(function(element) {
-                  div.append(element);
-                  console.log(element);
+                json.in.forEach(function(element) {
+                    if(element.formattedName == "") {
+                        var a = document.createElement('a');
+                        a.href = '/' + element.name;
+                        a.textContent = element.name;
+                        div.append(a);
+                        div.append('&nbsp;');
+                    } else {
+                        var a = document.createElement('a');
+                        a.href = '/' + element.name;
+                        a.textContent = element.formattedName;
+                        div.append(a);
+                        div.append('&nbsp;');
+                    }
+                    
+                    //console.log(element);
                 });
 
-                if(json.isMoreToLoad) {
-
-                }*/
+                if(!json.isMoreToLoad) {
+                    $("#readMoreIn").hide();
+                }
             }
         });
         pagenumberIn++;
