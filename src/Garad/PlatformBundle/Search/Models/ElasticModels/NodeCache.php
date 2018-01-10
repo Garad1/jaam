@@ -40,6 +40,17 @@ class NodeCache
         $this->setWeight($node->getWeight());
 
     }
+
+    public function getNode(){
+        $node = new \stdClass();
+        $node->id = $this->getId();
+        $node->name = $this->getName();
+        $node->formattedName = $this->getFormattedName();
+        $node->description = $this->getDescription();
+        $node->nodeType = $this->getNodeType();
+        $node->weight = $this->getWeight();
+        return $node;
+    }
     
     /**
      * @return mixed

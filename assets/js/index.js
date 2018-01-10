@@ -8,3 +8,39 @@ $(function () {
         });
     });
 });
+
+
+$('input.autocomplete').bind('input', function() {
+
+    $val = $(this).val();// get the current value of the input field.
+    //Ajax request
+    if($val != ""){
+        $.ajax({
+            type:"POST",
+            url : "/mot/" + $('input.autocomplete').val(),
+            success : function(data){
+
+                var result = new Array();
+                for (var i = 0; i < data.length; ++i) {
+                    result.push(data[i]._source.name);
+                }
+                console.log(result);
+
+                $('input.autocomplete').autocomplete({
+                    data: result,
+                    limit: 5// The max amount of results that can be shown at once. Default: Infinity.
+                });
+            },
+            error: function(xhr, status, error) {
+                console.log("error");
+            }
+        });
+    }
+});
+
+$(function(){
+    $('#search').autocomplete({
+        source : function(requete, response){
+        }
+    });
+});

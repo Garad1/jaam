@@ -88,6 +88,9 @@ class JdmController extends Controller
             if ($object != null) {
 
                 $full_node_cache = ElasticFactory::createCache($object);
+                //Save the node
+
+                Client::index('nodes','node',$full_node_cache->getId(),json_encode($full_node_cache->getNode()));
 
                 //Save relations
                 foreach ($full_node_cache->getRelationTypes() as $relationType) {
@@ -186,5 +189,49 @@ class JdmController extends Controller
         $relations['isMoreToLoad'] = $isMoreToLoad;
 
         return new JsonResponse($relations);
+    }
+
+    /**
+     * @Route("/mot/{idNode}/relationIn/{idRelationType}/{idPage}", name="jdm_get_relationsIn")
+     */
+    public function getRelationsIn(){
+
+    }
+
+    /**
+     * @Route("/mot/{idNode}/relationOut/{idRelationType}/{idPage}", name="jdm_get_relationsIn")
+     */
+    public function getRelationsOut(){
+
+    }
+
+    /**
+     * @Route("/mot/{name}", name="jdm_get_relationsIn")
+     */
+    public function getNode($name){
+
+        $request =  [
+            'query' => [
+                'bool' => [
+                    'must' => [
+                        'multi_match' => [
+                            'query' => $name,
+                            'fields' => ['name.autocomplete','formattedName.autocomplete']
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        $hits = [];
+
+        $nodesFound = Client::search('nodes','node',$request);
+
+        //dump($nodesFound);
+        if($nodesFound->hits->hits != null){
+            //If we found nodes
+            $hits = $nodesFound->hits->hits;
+        }
+        return new JsonResponse($hits);
     }
 }
