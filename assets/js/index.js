@@ -9,6 +9,13 @@ $(function () {
     });
 });
 
+$('.chips-autocomplete').material_chip({
+    autocompleteOptions: {
+        data: [],
+        limit: 5,
+        minLength: 1
+    }
+});
 
 $('input.autocomplete').bind('input', function() {
 
@@ -26,9 +33,12 @@ $('input.autocomplete').bind('input', function() {
                 }
                 console.log(result);
 
-                $('input.autocomplete').autocomplete({
-                    data: result,
-                    limit: 5,// The max amount of results that can be shown at once. Default: Infinity.
+                $('.chips-autocomplete').material_chip({
+                    autocompleteOptions: {
+                        data: result,
+                        limit: 5,
+                        minLength: 1
+                    }
                 });
             },
             error: function(xhr, status, error) {
