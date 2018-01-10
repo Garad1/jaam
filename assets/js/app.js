@@ -41,11 +41,11 @@ $(function () {
 
     //RelationType.html.twig
     $("#readMoreIn").click(function(){
-        var div = $("#relationIn");
-        console.log(pagenumberIn);
+
+        var readMore = document.getElementById("readMoreIn");
+        var div = document.getElementById("relationIn");
 
         var myUrl = $(location).attr('href') +'/in/' + pagenumberIn;
-        console.log(myUrl);
 
         $.ajax({
             type : 'POST',
@@ -57,18 +57,14 @@ $(function () {
                     if(element.formattedName == "") {
                         var a = document.createElement('a');
                         a.href = '/' + element.name;
-                        a.textContent = element.name;
-                        div.append(a);
-                        div.append('&nbsp;');
+                        a.textContent = element.name + " ";
+                        readMore.parentNode.insertBefore(a,readMore);
                     } else {
                         var a = document.createElement('a');
                         a.href = '/' + element.name;
-                        a.textContent = element.formattedName;
-                        div.append(a);
-                        div.append('&nbsp;');
+                        a.textContent = element.formattedName + " ";
+                        readMore.parentNode.insertBefore(a,readMore);
                     }
-                    
-                    //console.log(element);
                 });
 
                 if(!json.isMoreToLoad) {
@@ -79,26 +75,38 @@ $(function () {
         pagenumberIn++;
     });
 
-  $("#readMoreOut").click(function(){
-    var div = $("#relationIn");
-    alert("I am an alert box!");
-    console.log(pagenumberOut);
-    //$("blockquote#relationIn");
-    //$("blockquote#relationOut");
-    $.ajax({
-      type : 'POST',
-      url : $(location).attr('href') +'/out/' + pagenumberOut,
-      dataType : 'json', // On désire recevoir du json
-      success : function(json, statut){ // code_html contient le HTML renvoyé
-        console.log(json); //Manipule ton objet comme ca :D
-        if(json.isMoreToLoad) {
-          json.in.forEach(function(element) {
-            console.log(element);
-          });
-        }
-      }
-    });
-    pagenumberOut++;
-  });
+    $("#readMoreOut").click(function(){
 
+        var readMore = document.getElementById("readMoreOut");
+        var div = document.getElementById("relationIn");
+
+        $.ajax({
+          type : 'POST',
+          url : $(location).attr('href') +'/out/' + pagenumberOut,
+          dataType : 'json', // On désire recevoir du json
+          success : function(json, statut){ // code_html contient le HTML renvoyé
+              json.out.forEach(function(element) {
+                  if(element.formattedName == "") {
+                      var a = document.createElement('a');
+                      a.href = '/' + element.name;
+                      a.textContent = element.name + " ";
+                      readMore.parentNode.insertBefore(a,readMore);
+                      //div.insertBefore(a,'&nbsp;');
+                  } else {
+                      var a = document.createElement('a');
+                      a.href = '/' + element.name ;
+                      a.textContent = element.formattedName + " ";
+
+                      readMore.parentNode.insertBefore(a,readMore);
+                      //div.insertBefore(a,'&nbsp;');
+                  }
+              });
+
+              if(!json.isMoreToLoad) {
+                  $("#readMoreIn").hide();
+              }
+          }
+        });
+        pagenumberOut++;
+    });
 });
