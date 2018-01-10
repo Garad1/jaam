@@ -74,7 +74,9 @@
                                 {% endfor %}
                                 </blockquote>
                                 {%  if relationType.relations.in|length == 30 or relationType.relations.out|length == 30 %}
-                                    <a href="{{ path('jdm_display_relationtype', {'idNode' : cache.id, 'idRelationType' : relationType.id}) }}">Afficher tout</a>
+                                    <div style="text-align: right">
+                                        <a href="{{ path('jdm_display_relationtype', {'idNode' : cache.id, 'idRelationType' : relationType.id}) }}">Afficher tout</a>
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>
