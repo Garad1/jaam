@@ -69,4 +69,12 @@ $(function () {
                 break;
         }
     });
+
+    $('.js-reset').on('click', function () {
+        var tab = multiple.value;
+        for(index in tab){
+            multiple.remove(tab[index]);
+        }
+       $('input#multipleInput').val('');
+    });
 });
