@@ -8,21 +8,69 @@
         <div class="row">
             <div class="col s12">
                 <h5 class="wordSearched">Ensemble des mots pour : relationType (à completer) </h5>
+                <blockquote id="relationIn" class="blockquote-in">
                 {% if relation.in is defined %}
                     {% for wordIn in relation.in %}
-                        <p>test {{ wordIn.formattedName }}</p>
+                        {% set word = wordIn.name|url_encode %}
+                        <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                            {% if wordIn.formattedName is empty %}
+                                {{ wordIn.name }}
+                            {% else %}
+                                {{ wordIn.formattedName }}
+                            {% endif %}
+                        </a>
                     {% endfor %}
                 {% endif %}
+                </blockquote>
+                <blockquote id="relationOut" class="blockquote-out hide-on-small-only">
                 {% if relation.out is defined %}
                     {% for wordOut in relation.out %}
-                        <p>test {{ wordOut.formattedName }}</p>
+                        {% set word = wordOut.name|url_encode %}
+                        <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                            {% if wordOut.formattedName is empty %}
+                                {{ wordOut.name }}
+                            {% else %}
+                                {{ wordOut.formattedName }}
+                            {% endif %}
+                        </a>
                     {% endfor %}
                 {% endif %}
+                </blockquote>
+
+                <button id="readMore">Afficher la suite</button>
             </div>
         </div>
     </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script id="readMore">
+      var element = document.getElementById("readMore");
+      element.onclick = function readMore() {
+        alert('Hello world');
+        var div = document.getElementById("relationIn");
+
+        var result = $.get("{{ app.request.uri }}/2", {})
+         /* .done(function(data) {
+            var response = JSON.parse(data);
+            // ...
+          })
+          .fail(function() {
+            alert('Une erreur est survenue...');
+          });*/
+        //var resultParsed = JSON.parse(result);
+        console.log(result);
+        for (var o in result) {
+            console.log("test : " + o);
+        }
+        div.append("monPutaindeTest");
+
+      }
+    </script>
+
+
 {% endblock %}
 
 {% block javascript %}
+
     <script src="{{ asset('build/app.js') }}"></script>
 {% endblock %}
