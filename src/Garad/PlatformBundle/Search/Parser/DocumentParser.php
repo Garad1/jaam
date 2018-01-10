@@ -76,7 +76,7 @@ class DocumentParser
                 $type = $array[0];
                 if ($type === "nt") {
 
-                    $nodeType = new NodeType($array[1], $array[2]);
+                    $nodeType = new NodeType($array[1], self::trim($array[2]));
                     $object->nodeTypes[] = $nodeType;
 
                 } elseif ($type === 'e') {

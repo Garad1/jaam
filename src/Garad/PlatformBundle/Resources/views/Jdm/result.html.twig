@@ -4,6 +4,12 @@
 
 {% block body %}
     <ul class="side-nav fixed" id="nav-mobile" xmlns="http://www.w3.org/1999/html">
+        <div style="text-align: center;" >
+            <p> Mot Recherché : {{ cache.name }} </p>
+            <p> Id : {{ cache.id }}
+            <p> Type de node : {{ cache.nodeTypes[cache.nodeType].name }}</p>
+            <p> Nombre de relation types : {{ cache.relationTypes|length }} </p>
+        </div>
         <div class="collection">
         {% for relationType in cache.relationTypes %}
             <a href="#{{ relationType.id }}" class="collection-item"> {{ relationType.code }} </a>
@@ -46,7 +52,7 @@
                                 <blockquote class="blockquote-in">
                                 {% for relationIn in relationType.relations.in %}
                                     {% set word = relationIn.node.name|url_encode %}
-                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Relation Entrante" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if relationIn.node.formattedName is empty %}
                                             {{ relationIn.node.name }}
                                         {% else %}
@@ -58,7 +64,7 @@
                                 <blockquote class="blockquote-out hide-on-small-only">
                                 {% for relationOut in relationType.relations.out %}
                                     {% set word = relationOut.node.name|url_encode %}
-                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Relation Sortante" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if relationOut.node.formattedName is empty %}
                                             {{ relationOut.node.name }}
                                         {% else %}
@@ -76,6 +82,30 @@
                 {% endfor %}
             </div>
         </div>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Jaam JDM</h5>
+                        <p class="grey-text text-lighten-4">Projet proposé dans le cadre de l'UE HMIN 302 : E-Application</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Participants</h5>
+                        <ul>
+                            <li>Carmona Anthony</li>
+                            <li>Garcia Adam</li>
+                            <li>Pyz Maxime</li>
+                            <li>Ramos Jean Francois</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2018 Copyright Text
+                </div>
+            </div>
+        </footer>
     </div>
 {% endblock %}
 

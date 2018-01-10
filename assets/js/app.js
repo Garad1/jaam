@@ -7,7 +7,9 @@ $(function () {
         draggable: true, // Choose whether you can drag to open on touch screens,
     });
 
-    $('.scrollspy').scrollSpy();
+    $('.scrollspy').scrollSpy(1000);
+
+    $('.tooltipped').tooltip({delay: 50});
 
     $(".accordion").each(function(){
         $(this).click(function(){
@@ -15,4 +17,4 @@ $(function () {
             $(this.nextElementSibling).toggle(0);
         });
     })
-})
+});
