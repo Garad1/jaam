@@ -316,7 +316,7 @@ class JdmController extends Controller
     }
 
     /**
-     * @Route("/mot/{name}", name="jdm_get_relationsIn")
+     * @Route("/mot/{name}", name="jdm_get_nodes")
      */
     public function getNode($name){
 

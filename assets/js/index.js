@@ -9,11 +9,13 @@ $(function () {
     });
 });
 
+
+$result = new Array();
+
 $('.chips-autocomplete').material_chip({
     autocompleteOptions: {
-        data: [],
+        data: $result,
         limit: 5,
-        minLength: 1
     }
 });
 
@@ -32,14 +34,11 @@ $('.chips > input').bind('input', function() {
                     result[data[i]._source.name] = null;
                 }
                 console.log(result);
-
                 $('.chips-autocomplete').material_chip({
-                    autocompleteOptions: {
-                        data: result,
-                        limit: 5,
-                        minLength: 1
-                    }
+                    'autocompleteData':result
                 });
+
+                //$('.chips-autocomplete').material_chip(result);
             },
             error: function(xhr, status, error) {
                 console.log("error");
