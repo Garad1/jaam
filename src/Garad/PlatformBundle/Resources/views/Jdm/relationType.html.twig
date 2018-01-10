@@ -22,6 +22,9 @@
                     {% endfor %}
                 {% endif %}
                 </blockquote>
+                {% if relation.isMoreToLoadIn %}
+                <button id="readMoreIn">Afficher la suite</button>
+                {% endif %}
                 <blockquote id="relationOut" class="blockquote-out">
                 {% if relation.out is defined %}
                     {% for wordOut in relation.out %}
@@ -36,7 +39,9 @@
                     {% endfor %}
                 {% endif %}
                 </blockquote>
-                <button id="readMore">Afficher la suite</button>
+                {% if relation.isMoreToLoadOut %}
+                <button id="readMoreOut">Afficher la suite</button>
+                {% endif %}
             </div>
         </div>
     </div>

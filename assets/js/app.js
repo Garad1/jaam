@@ -1,5 +1,7 @@
 var $ = require('jquery');
 require('materialize-css');
+var pagenumberIn = 2;
+var pagenumberOut = 2;
 
 $(function () {
     $('.button-collapse').sideNav({
@@ -37,13 +39,13 @@ $(function () {
         });
     })
     //RelationType.html.twig
-    $("#readMore").click(function(){
+    $("#readMoreIn").click(function(){
         var div = $("#relationIn");
         //$("blockquote#relationIn");
         //$("blockquote#relationOut");
         $.ajax({
             type : 'GET',
-            url : $(location).attr('href') +'/' + 2,
+            url : $(location).attr('href') +'/' + pagenumber,
             dataType : 'json', // On désire recevoir du json
             success : function(json, statut){ // code_html contient le HTML renvoyé
                 console.log(json); //Manipule ton objet comme ca :D
@@ -54,6 +56,27 @@ $(function () {
                 }
             },
         });
+        pagenumber++;
     });
+
+  $("#readMoreOut").click(function(){
+    var div = $("#relationIn");
+    //$("blockquote#relationIn");
+    //$("blockquote#relationOut");
+    $.ajax({
+      type : 'GET',
+      url : $(location).attr('href') +'/' + pagenumber,
+      dataType : 'json', // On désire recevoir du json
+      success : function(json, statut){ // code_html contient le HTML renvoyé
+        console.log(json); //Manipule ton objet comme ca :D
+        if(json.isMoreToLoad) {
+          json.in.forEach(function(element) {
+            console.log(element);
+          });
+        }
+      },
+    });
+    pagenumber++;
+  });
 
 });

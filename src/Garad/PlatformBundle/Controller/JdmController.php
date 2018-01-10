@@ -191,9 +191,11 @@ class JdmController extends Controller
             $relations['out'][] = $hits->_source->node;
         }
 
-        $isMoreToLoad = (($from+$size) < $maxRelationOut->count) || (($from+$size) < $maxRelationIn->count);
+        $isMoreToLoadIn =   (($from+$size) < $maxRelationIn->count);
+        $isMoreToLoadOut = (($from+$size) < $maxRelationOut->count);
 
-        $relations['isMoreToLoad'] = $isMoreToLoad;
+        $relations['isMoreToLoadIn'] = $isMoreToLoadIn;
+        $relations['isMoreToLoadOut'] = $isMoreToLoadOut;
 
         return new JsonResponse($relations);
     }
