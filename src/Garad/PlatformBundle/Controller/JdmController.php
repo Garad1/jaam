@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Garad\PlatformBundle\Search\Models\ElasticFactory;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Garad\PlatformBundle\Search\Exception\ErrorException;
 
 class JdmController extends Controller
 {
@@ -78,9 +79,17 @@ class JdmController extends Controller
             try{
                 $object = DocumentParser::parse($html);
             }
-            catch(\Exception $exception){
+            catch(ErrorException $exception){
+                //We check the error code
                 $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
-                $this->get('session')->getFlashBag()->add('error', 'Le mot contient trop de relations pour être supporté par rezo-dump (le site où nous récupérons les données)');
+
+                if($exception->getCode() == ErrorException::WARNING){
+                    $this->get('session')->getFlashBag()->add('warn', 'Le mot contient trop de relations pour être supporté par rezo-dump (le site où nous récupérons les données)');
+                }
+                if($exception->getCode() == ErrorException::ERROR){
+                    $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
+                    $this->get('session')->getFlashBag()->add('error', 'Le mot nexiste pas sur la plateforme jdm');
+                }
                 $this->get('logger')->error($errorMessage);
                 return $this->render('GaradPlatformBundle:Jdm:index.html.twig');
             }
@@ -90,11 +99,11 @@ class JdmController extends Controller
                 $full_node_cache = ElasticFactory::createCache($object);
                 //Save the node
 
-                Client::index('nodes','node',$full_node_cache->getId(),json_encode($full_node_cache->getNode()));
+                Client::index('nodes', 'node', $full_node_cache->getId(), json_encode($full_node_cache->getNode()));
 
                 //Save relations
                 foreach ($full_node_cache->getRelationTypes() as $relationType) {
-                    Client::index('relations-type','relationTypes',$relationType->getId(),$relationType->getJsonWithoutRelations());
+                    Client::index('relations-type', 'relationTypes', $relationType->getId(), $relationType->getJsonWithoutRelations());
                     ElasticRelation::bulkCreate("relation-in", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
                     ElasticRelation::bulkCreate("relation-out", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
                 }
@@ -107,8 +116,6 @@ class JdmController extends Controller
                 //Save the trimmed cache into elastic
                 Client::index('nodes-cache', 'node-cache', $node_cache->getId(), json_encode($node_cache));
 
-            } else {
-                //Handle error here
             }
         }
 

@@ -12,6 +12,7 @@ use Garad\PlatformBundle\Search\Models\DumpModels\Node;
 use Garad\PlatformBundle\Search\Models\DumpModels\NodeType;
 use Garad\PlatformBundle\Search\Models\DumpModels\RelationType;
 use Garad\PlatformBundle\Search\Models\DumpModels\Relation;
+use Garad\PlatformBundle\Search\Exception\ErrorException;
 
 class DocumentParser
 {
@@ -34,6 +35,9 @@ class DocumentParser
             $line = strtok(self::$separator);
         }
 
+        if($line === false){
+            throw new ErrorException("Word not exists", ErrorException::ERROR);
+        }
         // YES !! we are in code
         // getting the description and the error if has some
         $error = null;
@@ -60,14 +64,13 @@ class DocumentParser
         }
 
         if(isset($error)){
-            throw new \Exception($error);
+            throw new ErrorException($error,ErrorException::WARNING);
         }
         else {
 
             $object->description = $description;
 
             //Cf Fati chen
-
             while ($line !== false) {
                 if ($line === null) {
                     $line = strtok(self::$separator);

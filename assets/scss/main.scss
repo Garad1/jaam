@@ -6,7 +6,8 @@
  * Variables ?
  */
 
-$toast-error-bgcolor : color('yellow', 'darken-2') /*color('red', 'accent-2') */;
+$toast-warn-bgcolor : color('yellow', 'darken-2') /*color('red', 'accent-2') */;
+$toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
 
 @import '~materialize-css/sass/materialize';
 
@@ -15,6 +16,27 @@ $toast-error-bgcolor : color('yellow', 'darken-2') /*color('red', 'accent-2') */
   margin-left: 300px;
   @media #{$medium-and-down} {
     margin-left: 0px;
+  }
+}
+
+.flash-warn{
+  background-color: $toast-warn-bgcolor;
+  color: $toast-text-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  position: relative;
+  max-width:100%;
+  height: auto;
+  min-height: $toast-height;
+  line-height: 1.5em;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  font-weight: 300;
+
+  & > i{
+    cursor: pointer;
   }
 }
 
@@ -38,6 +60,7 @@ $toast-error-bgcolor : color('yellow', 'darken-2') /*color('red', 'accent-2') */
     cursor: pointer;
   }
 }
+
 
 
 .collection {
