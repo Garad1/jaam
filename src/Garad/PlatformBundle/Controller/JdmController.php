@@ -194,14 +194,115 @@ class JdmController extends Controller
     /**
      * @Route("/mot/{idNode}/relationIn/{idRelationType}/{idPage}", name="jdm_get_relationsIn")
      */
-    public function getRelationsIn(){
+    public function getRelationsIn($idNode,$idRelationType,$idPage){
 
+        $relations = [];
+
+        $size = 150;
+
+        $from = $size * ($idPage - 1);
+
+        /**
+         * Get RelationType
+         */
+        $relationRequest =  [
+            'query' => [
+                'bool' => [
+                    'filter' => [
+                        [ 'term' => [ 'id' => $idRelationType ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        $relation = Client::search('relations-type','relationTypes',$relationRequest);
+
+        $relations['relationType'] = $relation->hits->hits[0]->_source;
+
+        /**
+         * Get RelationIn
+         */
+        $request =  [
+            'query' => [
+                'bool' => [
+                    'filter' => [
+                        [ 'term' => [ 'idNode' => $idNode ] ],
+                        [ 'term' => [ 'idRelationType' => $idRelationType ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        $maxRelationIn = Client::count('relations','relation-in',$request);
+
+        $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request);
+        foreach ($responseIn->hits->hits as $hits){
+            //we get source
+            $relations['in'][] = $hits->_source->node;
+        }
+
+        $isMoreToLoad = (($from+$size) < $maxRelationIn->count);
+
+        $relations['isMoreToLoad'] = $isMoreToLoad;
+
+        return new JsonResponse($relations);
     }
 
     /**
-     * @Route("/mot/{idNode}/relationOut/{idRelationType}/{idPage}", name="jdm_get_relationsIn")
+     * @Route("/mot/{idNode}/relationOut/{idRelationType}/{idPage}", name="jdm_get_relationsOut")
      */
-    public function getRelationsOut(){
+    public function getRelationsOut($idNode,$idRelationType,$idPage){
+
+        $relations = [];
+
+        $size = 150;
+
+        $from = $size * ($idPage - 1);
+
+        /**
+         * Get RelationType
+         */
+        $relationRequest =  [
+            'query' => [
+                'bool' => [
+                    'filter' => [
+                        [ 'term' => [ 'id' => $idRelationType ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        $relation = Client::search('relations-type','relationTypes',$relationRequest);
+
+        $relations['relationType'] = $relation->hits->hits[0]->_source;
+
+        /**
+         * Get RelationIn
+         */
+        $request =  [
+            'query' => [
+                'bool' => [
+                    'filter' => [
+                        [ 'term' => [ 'idNode' => $idNode ] ],
+                        [ 'term' => [ 'idRelationType' => $idRelationType ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        $maxRelationIn = Client::count('relations','relation-out',$request);
+
+        $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request);
+        foreach ($responseIn->hits->hits as $hits){
+            //we get source
+            $relations['out'][] = $hits->_source->node;
+        }
+
+        $isMoreToLoad = (($from+$size) < $maxRelationIn->count);
+
+        $relations['isMoreToLoad'] = $isMoreToLoad;
+
+        return new JsonResponse($relations);
 
     }
 
