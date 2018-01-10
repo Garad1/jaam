@@ -17,14 +17,14 @@ $('.chips-autocomplete').material_chip({
     }
 });
 
-$('input.autocomplete').bind('input', function() {
+$('.chips > input').bind('input', function() {
 
     $val = $(this).val();// get the current value of the input field.
     //Ajax request
     if($val != ""){
         $.ajax({
             type:"POST",
-            url : "/mot/" + $('input.autocomplete').val(),
+            url : "/mot/" + $('.chips > input').val(),
             success : function(data){
 
                 var result = new Array();
