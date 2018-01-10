@@ -7,6 +7,25 @@ $(function () {
         draggable: true, // Choose whether you can drag to open on touch screens,
     });
 
+    //Recherche d'un autre mot quand on est dejà sur un mot
+    $('i.material-icons').css( 'cursor', 'pointer' );
+    $('i.material-icons').click(function(){
+        if($('input#autocomplete-input').val() == "") {
+            alert("Vous ne recherchez pas de mots");
+        } else {
+            document.location.href= $('input#autocomplete-input').val()
+        }
+    });
+    $(document).keypress(function(e) {
+        if(e.which == 13) {
+            if($('input#autocomplete-input').val() == "") {
+                alert("Vous ne recherchez pas de mots");
+            } else {
+                document.location.href= $('input#autocomplete-input').val()
+            }
+        }
+    });
+
     $('.scrollspy').scrollSpy(1000);
 
     $('.tooltipped').tooltip({delay: 50});
