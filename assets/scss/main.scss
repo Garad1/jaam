@@ -117,3 +117,35 @@ $toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
 .blockquote-out{
   border-left-color: red;
 }
+
+.autocomplete {
+  display: flex;
+
+  & .ac-users {
+    padding-top: 10px;
+
+    & .chip {
+      flex: auto;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+
+    & .chip:last-child {
+      margin-right: 5px;
+    }
+  }
+
+  & .ac-dropdown .ac-hover {
+    background: #eee;
+  }
+
+  & .ac-input {
+    flex: 1;
+    min-width: 150px;
+    padding-top: 0.6rem;
+
+    & input {
+      height: 2.4rem;
+    }
+  }
+}
