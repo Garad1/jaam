@@ -36,4 +36,24 @@ $(function () {
             $(this.nextElementSibling).toggle(0);
         });
     })
+    //RelationType.html.twig
+    $("#readMore").click(function(){
+        var div = $("#relationIn");
+        //$("blockquote#relationIn");
+        //$("blockquote#relationOut");
+        $.ajax({
+            type : 'GET',
+            url : $(location).attr('href') +'/' + 2,
+            dataType : 'json', // On désire recevoir du json
+            success : function(json, statut){ // code_html contient le HTML renvoyé
+                console.log(json); //Manipule ton objet comme ca :D
+                if(json.isMoreToLoad) {
+                    json.in.forEach(function(element) {
+                        console.log(element);
+                    });
+                }
+            },
+        });
+    });
+
 });
