@@ -201,7 +201,7 @@ class JdmController extends Controller
     }
 
     /**
-     * @Route("/mot/{idNode}/relationIn/{idRelationType}/{idPage}", name="jdm_get_relationsIn")
+     * @Route("/mot/{idNode}/relationType/{idRelationType}/in/{idPage}", name="jdm_get_relationsIn")
      */
     public function getRelationsIn($idNode,$idRelationType,$idPage){
 
@@ -258,7 +258,7 @@ class JdmController extends Controller
     }
 
     /**
-     * @Route("/mot/{idNode}/relationOut/{idRelationType}/{idPage}", name="jdm_get_relationsOut")
+     * @Route("/mot/{idNode}/relationType/{idRelationType}/out/{idPage}", name="jdm_get_relationsOut")
      */
     public function getRelationsOut($idNode,$idRelationType,$idPage){
 

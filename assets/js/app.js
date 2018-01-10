@@ -41,31 +41,41 @@ $(function () {
     //RelationType.html.twig
     $("#readMoreIn").click(function(){
         var div = $("#relationIn");
+        console.log(pagenumberIn);
+
+        var myUrl = $(location).attr('href') +'/in/' + pagenumberIn;
+        console.log(myUrl);
         //$("blockquote#relationIn");
         //$("blockquote#relationOut");
         $.ajax({
             type : 'GET',
-            url : $(location).attr('href') +'/' + pagenumber,
+            url : myUrl,
             dataType : 'json', // On désire recevoir du json
             success : function(json, statut){ // code_html contient le HTML renvoyé
                 console.log(json); //Manipule ton objet comme ca :D
+
+                json.in.forEach(function(element) {
+                  div.append(element);
+                  console.log(element);
+                });
+
                 if(json.isMoreToLoad) {
-                    json.in.forEach(function(element) {
-                        console.log(element);
-                    });
+
                 }
             },
         });
-        pagenumber++;
+        pagenumberIn++;
     });
 
   $("#readMoreOut").click(function(){
     var div = $("#relationIn");
+    alert("I am an alert box!");
+    console.log(pagenumberOut);
     //$("blockquote#relationIn");
     //$("blockquote#relationOut");
     $.ajax({
       type : 'GET',
-      url : $(location).attr('href') +'/' + pagenumber,
+      url : $(location).attr('href') +'/out/' + pagenumberOut,
       dataType : 'json', // On désire recevoir du json
       success : function(json, statut){ // code_html contient le HTML renvoyé
         console.log(json); //Manipule ton objet comme ca :D
@@ -76,7 +86,7 @@ $(function () {
         }
       },
     });
-    pagenumber++;
+    pagenumberOut++;
   });
 
 });
