@@ -128,12 +128,16 @@ class JdmController extends Controller
      * @Route("/mot/{idNode}/relationType/{idRelationType}", name="jdm_display_relationtype")
      */
     public function displayRelationType($idNode,$idRelationType){
+
         $response = $this->getAllRelations($idNode, $idRelationType, 1);
         $test = json_decode($response->getContent());
 
-        dump($test);
+        $nodeResponse = $this->getNodeFromId($idNode);
+        $node = json_decode($nodeResponse->getContent());
+
         return $this->render('GaradPlatformBundle:Jdm:relationType.html.twig',array(
-            'relation' => $test
+            'relation' => $test,
+            'node' => $node
         ));
     }
 
@@ -152,8 +156,8 @@ class JdmController extends Controller
                     'filter' => [
                         [ 'term' => [ 'id' => $idRelationType ] ],
                     ]
-                ]
-            ]
+                ],
+            ],
         ];
 
         $relation = Client::search('relations-type','relationTypes',$relationRequest);
@@ -173,19 +177,21 @@ class JdmController extends Controller
                         [ 'term' => [ 'idRelationType' => $idRelationType ] ],
                     ]
                 ]
-            ]
+            ],
         ];
+
+        $sort = array('node.weight:desc');
 
         $maxRelationIn = Client::count('relations','relation-in',$request);
         $maxRelationOut = Client::count('relations','relation-out',$request);
 
-        $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request);
+        $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
             $relations['in'][] = $hits->_source->node;
         }
 
-        $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request);
+        $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
             $relations['out'][] = $hits->_source->node;
@@ -242,9 +248,11 @@ class JdmController extends Controller
             ]
         ];
 
+        $sort = array('node.weight:desc');
+
         $maxRelationIn = Client::count('relations','relation-in',$request);
 
-        $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request);
+        $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
             $relations['in'][] = $hits->_source->node;
@@ -299,9 +307,11 @@ class JdmController extends Controller
             ]
         ];
 
+        $sort = array('node.weight:desc');
+
         $maxRelationIn = Client::count('relations','relation-out',$request);
 
-        $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request);
+        $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
             $relations['out'][] = $hits->_source->node;
@@ -320,15 +330,17 @@ class JdmController extends Controller
      */
     public function getNode($name){
 
-        dump($name);
-        $request = [
-            "query" => [
-                "simple_query_string" => [
-                    "fields" => ["name.autocomplete", "formattedName.autocomplete"],
-                    "query" => $name,
-                    "flags" => "PREFIX|PHRASE",
-                ],
-            ],
+        $request =  [
+            'query' => [
+                'bool' => [
+                    'must' => [
+                        'multi_match' => [
+                            'query' => $name,
+                            'fields' => ['name.autocomplete','formattedName.autocomplete']
+                        ]
+                    ]
+                ]
+            ]
         ];
 
         $hits = [];

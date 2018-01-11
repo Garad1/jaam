@@ -63,7 +63,7 @@ class Client
         return self::getInstance()->search($params);
     }
 
-    public static function paginate($index,$type,$from,$size,$body){
+    public static function paginate($index,$type,$from,$size,$body,$sort){
 
         $params = [
             'index' => $index,
@@ -71,8 +71,8 @@ class Client
             'size' => $size,
             'type' => $type,
             'body' => $body,
+            'sort' => $sort,
         ];
-        $params['sort'] = array('weight:desc');
 
         return self::getInstance()->search($params);
     }

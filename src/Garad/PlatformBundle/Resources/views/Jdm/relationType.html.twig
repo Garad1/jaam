@@ -6,8 +6,8 @@
     <nav>
         <div class="nav-wrapper">
           <div style="margin-left: 20px;">
-            <a href="#!" class="breadcrumb">Chien</a>
-            <a href="#!" class="breadcrumb">Idée associée</a>
+            <a href="#!" class="breadcrumb">{{ node.formattedName }}</a>
+            <a href="#!" class="breadcrumb">{{ relation.relationType.code }}</a>
           </div>
         </div>
     </nav>
@@ -39,7 +39,7 @@
                             {% if relation.in is defined %}
                                 {% for wordIn in relation.in %}
                                     {% set word = wordIn.name|url_encode %}
-                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="tooltipped" data-tooltip="weight : {{ wordIn.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if wordIn.formattedName is empty %}
                                             {{ wordIn.name }}
                                         {% else %}
@@ -67,7 +67,7 @@
                             {% if relation.out is defined %}
                                 {% for wordOut in relation.out %}
                                     {% set word = wordOut.name|url_encode %}
-                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="tooltipped" data-tooltip="weight : {{ wordOut.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if wordOut.formattedName is empty %}
                                             {{ wordOut.name }}
                                         {% else %}
