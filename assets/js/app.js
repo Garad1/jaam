@@ -72,6 +72,7 @@ $(function () {
                         readMore.parentNode.insertBefore(a,readMore);
                     }
                 });
+                $('.tooltipped').tooltip({delay: 50});
 
                 if(!json.isMoreToLoad) {
                     $("#readMoreIn").hide();
