@@ -12,15 +12,27 @@
         {% endfor %}
         <form action="{{ path('jdm_index') }}" method="post">
             <div class="row">
-                <div class="input-field col s12 chips chips-autocomplete">
-                    <!-- <label for="search">Entrez le mot à rechercher</label>
-                    <input class="autocomplete"  autocomplete="off" type="text" name="search" id="autocomplete-input"/> -->
+                <div class="input-field col s12">
+                    <div class="autocomplete" id="multiple">
+                        <div class="ac-users"></div>
+                        <div class="ac-input">
+                            <input type="text" id="multipleInput" placeholder="Entrez le mot à rechercher" data-activates="multipleDropdown" data-beloworigin="true" autocomplete="off">
+                        </div>
+                        <ul id="multipleDropdown" class="dropdown-content ac-dropdown"></ul>
+                        <input type="hidden" name="multipleHidden" />
+                    </div>
                 </div>
+                <!--
+                <div class="input-field col s12 chips chips-autocomplete">
+                    <label for="search">Entrez le mot à rechercher</label>
+                    <input class="autocomplete"  autocomplete="off" type="text" name="search" id="autocomplete-input"/>
+                </div>
+                -->
             </div>
             <div class="row">
                 <div class="col s12 center-align">
-                    <input type="submit" class="waves-effect waves-light btn" value="Rechercher"/>
-                    <input type="reset" class="waves-effect waves-light btn" value="Reinitialiser"/>
+                    <input type="button" class="waves-effect waves-light btn js-submit" value="Rechercher"/>
+                    <input type="reset" class="waves-effect waves-light btn js-reset" value="Reinitialiser"/>
                 </div>
             </div>
         </form>
