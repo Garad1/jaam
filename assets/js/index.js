@@ -13,7 +13,17 @@ $(function () {
         limit: 5,
         multiple: {
             enable: true,
-            maxSize: 3
+            maxSize: 3,
+
+            onAppend: function (item) {
+                console.log('append done');
+                multiple.resultCache = [];
+            },
+
+            onRemove: function (item) {
+                console.log('remove done');
+                multiple.resultCache = [];
+            }
         },
         appender: {
             el: '.ac-users'
@@ -22,25 +32,17 @@ $(function () {
             el: '#multipleDropdown'
         },
         ignoreCase: false,
-        getData: function (value, callback) {
-            $.ajax({
-                type:"POST",
-                url : "/mot/" + value,
-                success : function(data){
 
-                    var result = new Array();
-                    for (var i = 0; i < data.length; ++i) {
-                        result.push({
-                            id : data[i]._source.id,
-                            text : data[i]._source.name
-                        });
-                    }
-                    callback(value, result);
-                },
-                error: function(xhr, status, error) {
-                    console.log("error");
-                }
-            });
+        getData: function (value, callback) {
+            switch(multiple.value.length){
+                case 1:
+                    relationTypeAutocompletion(multiple.value[0], value, callback);
+                    break;
+
+                default:
+                    wordAutocompletion(value, callback);
+                    break;
+            }
         }
     });
 
@@ -59,7 +61,6 @@ $(function () {
 
             default:
                 var value = $('input#multipleInput').val();
-                console.log(value);
                 if(value){
                     window.location.href = url + value;
                 }
@@ -78,3 +79,47 @@ $(function () {
        $('input#multipleInput').val('');
     });
 });
+
+
+function wordAutocompletion(value, callback){
+    $.ajax({
+        type:"POST",
+        url : "/mot/" + value,
+        success : function(data){
+
+            var result = new Array();
+            for (var i = 0; i < data.length; ++i) {
+                result.push({
+                    id : data[i]._source.id,
+                    text : data[i]._source.name
+                });
+            }
+            callback(value, result);
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    });
+}
+
+function relationTypeAutocompletion(word, value, callback){
+    console.log("/mot/" + word.id + '/relationType/' + value);
+    $.ajax({
+        type:"POST",
+        url : "/mot/" + word.id + '/relationType/' + value,
+        success : function(data){
+
+            var result = new Array();
+            for (var i = 0; i < data.length; ++i) {
+                result.push({
+                    id : data[i]._source.id,
+                    text : data[i]._source.name
+                });
+            }
+            callback(value, result);
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    });
+}

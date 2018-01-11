@@ -121,6 +121,10 @@ $toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
 .autocomplete {
   display: flex;
 
+  @media #{$medium-and-down} {
+    display:block;
+  }
+
   & .ac-users {
     padding-top: 10px;
 
