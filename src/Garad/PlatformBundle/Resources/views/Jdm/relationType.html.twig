@@ -3,47 +3,86 @@
 {% block title %}relationType{% endblock %}
 
 {% block body %}
-
-    <div class="container-sidenav">
-        <div class="row">
-            <div class="col s12">
-                <h5 class="wordSearched">Ensemble des mots pour : relationType (à completer) </h5>
-                <blockquote id="relationIn" class="blockquote-in">
-                    {% if relation.in is defined %}
-                        {% for wordIn in relation.in %}
-                            {% set word = wordIn.name|url_encode %}
-                            <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
-                                {% if wordIn.formattedName is empty %}
-                                    {{ wordIn.name }}
-                                {% else %}
-                                    {{ wordIn.formattedName }}
-                                {% endif %}
-                            </a>
-                        {% endfor %}
-                    {% endif %}
-                    {% if relation.isMoreToLoadIn %}
-                        <span id="readMoreIn"> [...] </span>
-                    {% endif %}
-                </blockquote>
-                <blockquote id="relationOut" class="blockquote-out">
-                    {% if relation.out is defined %}
-                        {% for wordOut in relation.out %}
-                            {% set word = wordOut.name|url_encode %}
-                            <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
-                                {% if wordOut.formattedName is empty %}
-                                    {{ wordOut.name }}
-                                {% else %}
-                                    {{ wordOut.formattedName }}
-                                {% endif %}
-                            </a>
-                        {% endfor %}
-                    {% endif %}
-                    {% if relation.isMoreToLoadOut %}
-                        <span id="readMoreOut"> [...] </span>
-                    {% endif %}
-                </blockquote>
-            </div>
+    <nav>
+        <div class="nav-wrapper">
+          <div style="margin-left: 20px;">
+            <a href="#!" class="breadcrumb">Chien</a>
+            <a href="#!" class="breadcrumb">Idée associée</a>
+          </div>
         </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div>
+                 <div class="card">
+                    <div class="accordion">
+                        <div class="card-title section">
+                            <span> Description </span>
+                            <i class="material-icons">chevron_right</i>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                     <div class="card-content">
+                        {{ relation.relationType.description }}
+                     </div>
+                 </div>
+                <div class="card">
+                    <div class="accordion">
+                        <div class="card-title section">
+                            <span> Relations Entrantes</span>
+                            <i class="material-icons">chevron_right</i>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="card-content">
+                        <blockquote id="relationIn" class="blockquote-in">
+                            {% if relation.in is defined %}
+                                {% for wordIn in relation.in %}
+                                    {% set word = wordIn.name|url_encode %}
+                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                        {% if wordIn.formattedName is empty %}
+                                            {{ wordIn.name }}
+                                        {% else %}
+                                            {{ wordIn.formattedName }}
+                                        {% endif %}
+                                    </a>
+                                {% endfor %}
+                            {% endif %}
+                            {% if relation.isMoreToLoadIn %}
+                                <span id="readMoreIn"> [...] </span>
+                            {% endif %}
+                        </blockquote>
+                    </div>
+                 </div>
+                 <div class="card">
+                    <div class="accordion">
+                        <div class="card-title section">
+                            <span> Relations Sortantes</span>
+                            <i class="material-icons">chevron_right</i>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="card-content">
+                        <blockquote id="relationOut" class="blockquote-out">
+                            {% if relation.out is defined %}
+                                {% for wordOut in relation.out %}
+                                    {% set word = wordOut.name|url_encode %}
+                                    <a href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                        {% if wordOut.formattedName is empty %}
+                                            {{ wordOut.name }}
+                                        {% else %}
+                                            {{ wordOut.formattedName }}
+                                        {% endif %}
+                                    </a>
+                                {% endfor %}
+                            {% endif %}
+                            {% if relation.isMoreToLoadOut %}
+                                <span id="readMoreOut"> [...] </span>
+                            {% endif %}
+                        </blockquote>
+                    </div>
+                </div>
+         </div>
     </div>
     
 {% endblock %}
