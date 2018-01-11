@@ -103,7 +103,7 @@ $(function () {
               });
 
               if(!json.isMoreToLoad) {
-                  $("#readMoreIn").hide();
+                  $("#readMoreOut").hide();
               }
           }
         });

@@ -10,15 +10,20 @@
             <p> Type de node : {{ cache.nodeTypes[cache.nodeType].name }}</p>
             <p> Nombre de relation types : {{ cache.relationTypes|length }} </p>
         </div>
-        <div class="input-field z-depth-3 sidebar-search hide-on-small-only">
-            <input placeholder="search" type="text" id="autocomplete-input" class="autocomplete">
-            <i class="material-icons">search</i>
-        </div>
-        <div class="collection">
-        {% for relationType in cache.relationTypes %}
-            <a href="#{{ relationType.id }}" class="collection-item"> {{ relationType.code }} </a>
-        {% endfor %}
-        </div>
+        <li>
+            <div class="input-field z-depth-3 sidebar-search hide-on-small-only">
+                <input placeholder="search" type="text" id="autocomplete-input" class="autocomplete">
+                <i class="material-icons">search</i>
+            </div>
+        </li>
+
+        <li>
+            <div class="collection">
+                {% for relationType in cache.relationTypes %}
+                    <a href="#{{ relationType.id }}" class="collection-item"> {{ relationType.code }} </a>
+                {% endfor %}
+            </div>
+        </li>
     </ul>
     <div class="container-sidenav">
         <div class="row">
@@ -56,7 +61,7 @@
                                 <blockquote class="blockquote-in">
                                 {% for relationIn in relationType.relations.in %}
                                     {% set word = relationIn.node.name|url_encode %}
-                                    <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Relation Entrante" href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="relation tooltipped" data-position="top" data-delay="50" data-tooltip="weight : {{ relationIn.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if relationIn.node.formattedName is empty %}
                                             {{ relationIn.node.name }}
                                         {% else %}
@@ -68,7 +73,7 @@
                                 <blockquote class="blockquote-out">
                                 {% for relationOut in relationType.relations.out %}
                                     {% set word = relationOut.node.name|url_encode %}
-                                    <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Relation Sortante" href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="relation tooltipped" data-position="top" data-delay="50" data-tooltip="weight : {{ relationOut.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if relationOut.node.formattedName is empty %}
                                             {{ relationOut.node.name }}
                                         {% else %}

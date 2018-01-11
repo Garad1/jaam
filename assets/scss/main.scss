@@ -117,3 +117,7 @@ $toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
 .blockquote-out{
   border-left-color: red;
 }
+
+.relation:hover {
+  text-decoration: underline;
+}

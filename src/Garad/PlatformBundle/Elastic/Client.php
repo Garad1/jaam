@@ -32,7 +32,7 @@ class Client
         $params = [
                 'index' => $index,
                 'type' => $type,
-                'id' => $id,
+                'id'=> $id,
                 'body' => $body,
             ];
 
@@ -46,6 +46,18 @@ class Client
             'index' => $index,
             'type' => $type,
             'body' => $body,
+        ];
+
+        return self::getInstance()->search($params);
+    }
+
+    public static function searchWithSource($index,$type,$body,$fields){
+
+        $params = [
+            'index' => $index,
+            'type' => $type,
+            'body' => $body,
+            '_source' => $fields
         ];
 
         return self::getInstance()->search($params);

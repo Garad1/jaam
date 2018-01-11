@@ -344,4 +344,56 @@ class JdmController extends Controller
         }
         return new JsonResponse($hits);
     }
+
+    /**
+     * @Route("/mot/{idNode}/relationTypes", name="jdm_get_relationTypeForNode")
+     */
+    public function getRelationsTypeForNode($idNode){
+
+        $request =  [
+            'query' => [
+                'bool' => [
+                    'filter' => [
+                        [ 'term' => [ 'id' => $idNode ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        //Get all IDS
+        $fields = ['relationTypes.id','relationTypes.code','relationTypes.name'];
+
+        $relationTypesId = Client::searchWithSource('nodes-cache','node-cache',$request,$fields);
+
+        $hits = [];
+        if(count($relationTypesId->hits->hits) > 0){
+            foreach ($relationTypesId->hits->hits[0]->_source->relationTypes as $id){
+                $hits[] = $id;
+            }
+        }
+
+        return new JsonResponse($hits);
+
+    }
+    /**
+     * @Route("/node/{idNode}", name="jdm_get_node_from_id")
+     */
+    public function getNodeFromId($idNode){
+
+        $request =  [
+            'query' => [
+                'bool' => [
+                    'filter' => [
+                        [ 'term' => [ 'id' => $idNode ] ],
+                    ]
+                ]
+            ]
+        ];
+
+        $node = Client::search('nodes','node',$request);
+
+        return new JsonResponse($node->hits->hits[0]->_source);
+
+    }
+
 }
