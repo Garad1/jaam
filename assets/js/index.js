@@ -19,6 +19,7 @@ $(function () {
             onAppend: function (item) {
                 console.log('append done');
                 multiple.resultCache = [];
+                $('#multipleInput').focus();
             },
 
             onRemove: function (item) {
@@ -42,34 +43,19 @@ $(function () {
 
                 default:
                     wordAutocompletion(value, callback);
-                    console.log(multiple);
                     break;
             }
         }
     });
 
     $('.js-submit').on('click', function(){
-        var url = window.location.protocol + '//' + window.location.host+ '/';
-        switch(multiple.value.length){
-            case 1:
-                window.location.href = url + multiple.value[0].text;
-                break;
+        submitInput(multiple);
+    });
 
-            case 2:
-                break;
-
-            case 3:
-                break;
-
-            default:
-                var value = $('input#multipleInput').val();
-                if(value){
-                    window.location.href = url + value;
-                }
-                else{
-                    Materialize.toast('Le champ de recherche est vide', 4000)
-                }
-                break;
+    $('#multipleInput').on('keydown', function(event){
+        console.log(event);
+        if(event.keyCode == 13){
+            submitInput(multiple);
         }
     });
 
@@ -125,4 +111,30 @@ function relationTypeAutocompletion(word, value, callback){
             console.log("error");
         }
     });
+}
+
+function submitInput(multiple){
+    var url = window.location.protocol + '//' + window.location.host+ '/';
+    switch(multiple.value.length){
+        case 1:
+            window.location.href = url + multiple.value[0].text;
+            break;
+
+        case 2:
+            window.location.href = url + 'mot/' + multiple.value[0].id + '/relationType/' + multiple.value[1].id;
+            break;
+
+        case 3:
+            break;
+
+        default:
+            var value = $('input#multipleInput').val();
+            if(value){
+                window.location.href = url + value;
+            }
+            else{
+                Materialize.toast('Le champ de recherche est vide', 4000)
+            }
+            break;
+    }
 }
