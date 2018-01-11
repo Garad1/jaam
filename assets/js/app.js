@@ -59,16 +59,16 @@ $(function () {
                         a.href = '/' + element.name;
                         a.textContent = element.name + " ";
                         a.className = "tooltipped";
-                        /*a.setAttribute("data-tooltip", element.node.weight);
-                        a.setAttribute("data-position","top");*/
+                        a.setAttribute("data-tooltip", element.node.weight);
+                        a.setAttribute("data-position","top");
                         readMore.parentNode.insertBefore(a,readMore);
                     } else {
                         var a = document.createElement('a');
                         a.href = '/' + element.name;
                         a.textContent = element.formattedName + " ";
                         a.className = "tooltipped";
-                        /*a.setAttribute("data-tooltip", element.node.weight);
-                        a.setAttribute("data-position","top");*/
+                        a.setAttribute("data-tooltip", element.node.weight);
+                        a.setAttribute("data-position","top");
                         readMore.parentNode.insertBefore(a,readMore);
                     }
                 });
@@ -112,7 +112,7 @@ $(function () {
                       //div.insertBefore(a,'&nbsp;');
                   }
               });
-
+              $('.tooltipped').tooltip({delay: 50});
               if(!json.isMoreToLoad) {
                   $("#readMoreOut").hide();
               }
