@@ -320,24 +320,24 @@ class JdmController extends Controller
      */
     public function getNode($name){
 
-        $request =  [
-            'query' => [
-                'bool' => [
-                    'must' => [
-                        'multi_match' => [
-                            'query' => $name,
-                            'fields' => ['name.autocomplete','formattedName.autocomplete']
-                        ]
-                    ]
-                ]
-            ]
+        dump($name);
+        $request = [
+            "query" => [
+                "simple_query_string" => [
+                    "fields" => ["name.autocomplete", "formattedName.autocomplete"],
+                    "query" => $name,
+                    "flags" => "PREFIX|PHRASE",
+                ],
+            ],
         ];
 
         $hits = [];
 
         $nodesFound = Client::search('nodes','node',$request);
 
-        //dump($nodesFound);
+        dump($nodesFound);
+
+
         if($nodesFound->hits->hits != null){
             //If we found nodes
             $hits = $nodesFound->hits->hits;
