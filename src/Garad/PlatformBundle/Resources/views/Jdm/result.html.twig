@@ -65,7 +65,7 @@
                                     </a>
                                 {% endfor %}
                                 </blockquote>
-                                <blockquote class="blockquote-out hide-on-small-only">
+                                <blockquote class="blockquote-out">
                                 {% for relationOut in relationType.relations.out %}
                                     {% set word = relationOut.node.name|url_encode %}
                                     <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Relation Sortante" href="{{ path('jdm_search', {'word' : word|raw}) }}">
