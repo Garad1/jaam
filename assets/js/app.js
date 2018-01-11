@@ -59,7 +59,7 @@ $(function () {
                         a.href = '/' + element.name;
                         a.textContent = element.name + " ";
                         a.className = "tooltipped";
-                        a.setAttribute("data-tooltip", element.node.weight);
+                        a.setAttribute("data-tooltip", "weight: " + element.weight);
                         a.setAttribute("data-position","top");
                         readMore.parentNode.insertBefore(a,readMore);
                     } else {
@@ -67,7 +67,7 @@ $(function () {
                         a.href = '/' + element.name;
                         a.textContent = element.formattedName + " ";
                         a.className = "tooltipped";
-                        a.setAttribute("data-tooltip", element.node.weight);
+                        a.setAttribute("data-tooltip", "weight: " + element.weight);
                         a.setAttribute("data-position","top");
                         readMore.parentNode.insertBefore(a,readMore);
                     }
@@ -91,6 +91,7 @@ $(function () {
           url : $(location).attr('href') +'/out/' + pagenumberOut,
           dataType : 'json', // On désire recevoir du json
           success : function(json, statut){ // code_html contient le HTML renvoyé
+              console.log(json);
               json.out.forEach(function(element) {
                   if(element.formattedName == "") {
                       var a = document.createElement('a');
@@ -98,7 +99,7 @@ $(function () {
                       a.textContent = element.name + " ";
                       a.className = "relation tooltipped";
                       a.setAttribute("data-position","top");
-                      a.setAttribute("data-tooltip", element.weight);
+                      a.setAttribute("data-tooltip", "weight: " + element.weight);
                       readMore.parentNode.insertBefore(a,readMore);
                       //div.insertBefore(a,'&nbsp;');
                   } else {
@@ -106,7 +107,7 @@ $(function () {
                       a.href = '/' + element.name ;
                       a.textContent = element.formattedName + " ";
                       a.className = "relation tooltipped";
-                      a.setAttribute("data-tooltip", element.weight);
+                      a.setAttribute("data-tooltip", "weight: " + element.weight);
                       a.setAttribute("data-position","top");
                       readMore.parentNode.insertBefore(a,readMore);
                       //div.insertBefore(a,'&nbsp;');
