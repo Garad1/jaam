@@ -10,6 +10,7 @@ Encore
     // will create web/build/app.js and web/build/app.css
     .addEntry('app', ['./assets/js/app.js', './assets/scss/main.scss'])
     .addEntry('index', './assets/js/index.js')
+    .addEntry('relationTypePage', './assets/js/relationTypePage.js')
 
     // allow sass/scss files to be processed
     .enableSassLoader()
