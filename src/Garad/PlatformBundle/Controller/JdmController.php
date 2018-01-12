@@ -47,10 +47,30 @@ class JdmController extends Controller
      */
     public function displayAction($word){
 
-        //If word exists in elastic database
-        /**
-         * Handle creation of elastic request
-         */
+        try {
+            $node_cache = $this->getWord($word);
+        }
+        catch(ErrorException $exception) {
+            //We check the error code
+            $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
+
+            if($exception->getCode() == ErrorException::WARNING){
+                $this->get('session')->getFlashBag()->add('warn', 'Le mot contient trop de relations pour être supporté par rezo-dump (le site où nous récupérons les données)');
+            }
+            if($exception->getCode() == ErrorException::ERROR){
+                $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
+                $this->get('session')->getFlashBag()->add('error', 'Le mot nexiste pas sur la plateforme jdm');
+            }
+            $this->get('logger')->error($errorMessage);
+            return $this->render('GaradPlatformBundle:Jdm:index.html.twig');
+        }
+
+        return $this->render('GaradPlatformBundle:Jdm:result.html.twig',array(
+            'cache' => $node_cache
+        ));
+    }
+
+    public function getWord($word){
 
         $node_cache = null;
 
@@ -62,42 +82,19 @@ class JdmController extends Controller
             ]
         ]);
 
-        //dump($response->hits);
-        //If word exists in elatic search we take source
         if(count($response->hits->hits) !=  0){
 
             dump("from elastic");
             $node_cache = $response->hits->hits[0]->_source;
-            //dump($node_cache->name);
-
-            dump($node_cache);
-
+            return $node_cache;
         }
         else {
-            //If not exist we create the cache from jdm
             $html = FetchWord::fetch($word);
             try{
-                $object = DocumentParser::parse($html);
-            }
-            catch(ErrorException $exception){
-                //We check the error code
-                $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
+                $node_cache = DocumentParser::parse($html);
+                $full_node_cache = ElasticFactory::createCache($node_cache);
 
-                if($exception->getCode() == ErrorException::WARNING){
-                    $this->get('session')->getFlashBag()->add('warn', 'Le mot contient trop de relations pour être supporté par rezo-dump (le site où nous récupérons les données)');
-                }
-                if($exception->getCode() == ErrorException::ERROR){
-                    $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
-                    $this->get('session')->getFlashBag()->add('error', 'Le mot nexiste pas sur la plateforme jdm');
-                }
-                $this->get('logger')->error($errorMessage);
-                return $this->render('GaradPlatformBundle:Jdm:index.html.twig');
-            }
-
-            if ($object != null) {
-
-                $full_node_cache = ElasticFactory::createCache($object);
-                //Save the node
+                //We save in elastic db
 
                 Client::index('nodes', 'node', $full_node_cache->getId(), json_encode($full_node_cache->getNode()));
 
@@ -117,12 +114,14 @@ class JdmController extends Controller
                 Client::index('nodes-cache', 'node-cache', $node_cache->getId(), json_encode($node_cache));
 
             }
+            catch(ErrorException $exception){
+                throw  $exception;
+            }
         }
 
-        return $this->render('GaradPlatformBundle:Jdm:result.html.twig',array(
-            'cache' => $node_cache
-        ));
+        return $full_node_cache;
     }
+
 
     /**
      * @Route("/mot/{idNode}/relationType/{idRelationType}", name="jdm_display_relationtype")

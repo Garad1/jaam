@@ -26,6 +26,7 @@
                         {{ relation.relationType.description }}
                      </div>
                  </div>
+                {% if relation.in is defined %}
                 <div class="card">
                     <div class="accordion">
                         <div class="card-title section">
@@ -36,7 +37,6 @@
                     </div>
                     <div class="card-content">
                         <blockquote id="relationIn" class="blockquote-in">
-                            {% if relation.in is defined %}
                                 {% for wordIn in relation.in %}
                                     {% set word = wordIn.name|url_encode %}
                                     <a class="tooltipped" data-tooltip="weight : {{ wordIn.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
@@ -47,13 +47,16 @@
                                         {% endif %}
                                     </a>
                                 {% endfor %}
-                            {% endif %}
+
                             {% if relation.isMoreToLoadIn %}
                                 <span id="readMoreIn"> [...] </span>
-                            {% endif %}
+                             {% endif %}
                         </blockquote>
                     </div>
                  </div>
+                 {% endif %}
+
+                 {% if relation.out is defined %}
                  <div class="card">
                     <div class="accordion">
                         <div class="card-title section">
@@ -62,9 +65,9 @@
                         </div>
                         <div class="divider"></div>
                     </div>
+
                     <div class="card-content">
                         <blockquote id="relationOut" class="blockquote-out">
-                            {% if relation.out is defined %}
                                 {% for wordOut in relation.out %}
                                     {% set word = wordOut.name|url_encode %}
                                     <a class="tooltipped" data-tooltip="weight : {{ wordOut.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
@@ -75,12 +78,12 @@
                                         {% endif %}
                                     </a>
                                 {% endfor %}
-                            {% endif %}
                             {% if relation.isMoreToLoadOut %}
                                 <span id="readMoreOut"> [...] </span>
                             {% endif %}
                         </blockquote>
                     </div>
+                   {% endif %}
                 </div>
          </div>
     </div>
