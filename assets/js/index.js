@@ -1,6 +1,10 @@
 var $ = require('jquery');
 require('materialize-css');
-require('materialize-autocomplete');
+
+var wordArray;
+var relationArray;
+var wordSelected;
+var relationSelected;
 
 $(function () {
     $('.js-close-toast').each(function (index, object) {
@@ -9,62 +13,94 @@ $(function () {
         });
     });
 
+    $('ul.tabs').tabs({
+        /*onShow: function (tab) {
+            console.log(tab);
+        }*/
+        //swipeable: true
+    });
 
-    var multiple = $('#multipleInput').materialize_autocomplete({
-        limit: 5,
-        multiple: {
-            enable: true,
-            maxSize: 3,
+    $('input.js-autocomplete-word').bind('input', function() {
+        wordSelected = null;
+        var val = $(this).val();// get the current value of the input field.
+        $('input.js-autocomplete-word').val(val);
+        if(val === ''){
+            $('label.js-first-input').removeClass('active');
+        }
+        //Ajax request
+        else{
+            $('label.js-first-input').addClass('active');
+            wordAutocompletion(val, function(value, result){
+                wordArray = result;
+                var elements = [];
+                $(result).each(function(index, object){
+                    elements[object['text']] = null;
+                });
 
-            onAppend: function (item) {
-                console.log('append done');
-                multiple.resultCache = [];
-                $('#multipleInput').focus();
-            },
+                $('input.js-autocomplete-word').autocomplete({
+                    data: elements,
+                    onAutocomplete: function(val) {
 
-            onRemove: function (item) {
-                console.log('remove done');
-                multiple.resultCache = [];
-            }
-        },
-        appender: {
-            el: '.ac-users'
-        },
-        dropdown: {
-            el: '#multipleDropdown'
-        },
-        ignoreCase: false,
+                        $('input.js-autocomplete-word').val(val);
 
-        getData: function (value, callback) {
-            switch(multiple.value.length){
-                case 1:
-                    relationTypeAutocompletion(multiple.value[0], value, callback);
-                    break;
+                        for(var i in wordArray){
+                            if(wordArray[i]['text'] === val){
+                                wordSelected = wordArray[i];
+                                relationTypeAutocompletion(wordArray[i], function(result){
+                                    relationArray = result;
+                                    var elements = [];
+                                    $(result).each(function(index, object){
+                                        elements[object['text']] = null;
+                                    });
+                                    $('input.js-autocomplete-relation').autocomplete({
+                                        data: elements,
+                                        onAutocomplete: function (val) {
+                                            $('input.js-autocomplete-relation').val(val);
 
-                default:
-                    wordAutocompletion(value, callback);
-                    break;
-            }
+                                            for(var i in relationArray){
+                                                if(relationArray[i]['text'] === val){
+                                                    relationSelected = relationArray[i];
+                                                }
+                                            }
+                                        },
+                                        limit: 5
+                                    })
+                                });
+                                break;
+                            }
+                        }
+                    },
+                    limit: 5// The max amount of results that can be shown at once. Default: Infinity.
+                });
+            })
+        }
+    });
+
+    $('input.js-autocomplete-relation').bind('input', function(){
+        relationSelected = null;
+        var val = $(this).val();// get the current value of the input field.
+        $('input.js-autocomplete-relation').val(val);
+        if(val === ''){
+            $('label.js-second-input').removeClass('active');
+        }
+        else{
+            $('label.js-second-input').addClass('active');
         }
     });
 
     $('.js-submit').on('click', function(){
-        submitInput(multiple);
+        submitInput();
     });
 
     $('#multipleInput').on('keydown', function(event){
         console.log(event);
         if(event.keyCode == 13){
-            submitInput(multiple);
+            submitInput();
         }
     });
 
     $('.js-reset').on('click', function () {
-        var tab = multiple.value;
-        for(index in tab){
-            multiple.remove(tab[index]);
-        }
-       $('input#multipleInput').val('');
+        $('input.autocomplete').val('');
     });
 });
 
@@ -74,7 +110,6 @@ function wordAutocompletion(value, callback){
         type:"POST",
         url : "/mot/" + value,
         success : function(data){
-
             var result = new Array();
             for (var i = 0; i < data.length; ++i) {
                 result.push({
@@ -90,22 +125,20 @@ function wordAutocompletion(value, callback){
     });
 }
 
-function relationTypeAutocompletion(word, value, callback){
+function relationTypeAutocompletion(word, callback){
     $.ajax({
         type:"POST",
         url : "/mot/" + word.id + '/relationTypes',
         success : function(data){
-            console.log(data);
             var result = new Array();
             for (var i = 0; i < data.length; ++i) {
-                if(data[i].code.includes(value)){
-                    result.push({
-                        id : data[i].id,
-                        text : data[i].code
-                    });
-                }
+                result.push({
+                    id : data[i].id,
+                    text : data[i].code
+                });
             }
-            callback(value, result);
+
+            callback(result);
         },
         error: function(xhr, status, error) {
             console.log("error");
@@ -113,28 +146,25 @@ function relationTypeAutocompletion(word, value, callback){
     });
 }
 
-function submitInput(multiple){
-    var url = window.location.protocol + '//' + window.location.host+ '/';
-    switch(multiple.value.length){
+function submitInput(){
+    var activeTabId = $('.tab > a.active').attr('href');
+
+    var inputs = $(activeTabId + ' input');
+    switch(inputs.length){
         case 1:
-            window.location.href = url + multiple.value[0].text;
+            window.location.href = '/' + $(inputs[0]).val();
             break;
 
         case 2:
-            window.location.href = url + 'mot/' + multiple.value[0].id + '/relationType/' + multiple.value[1].id;
+            if(!wordSelected || !relationSelected){
+                // On a pas accès à l'id du mot
+            }
+            else{
+                window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id;
+            }
             break;
 
         case 3:
-            break;
-
-        default:
-            var value = $('input#multipleInput').val();
-            if(value){
-                window.location.href = url + value;
-            }
-            else{
-                Materialize.toast('Le champ de recherche est vide', 4000)
-            }
             break;
     }
 }
