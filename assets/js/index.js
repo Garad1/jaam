@@ -153,6 +153,7 @@ function submitInput(){
     switch(inputs.length){
         case 1:
             window.location.href = '/' + $(inputs[0]).val();
+            $('.progress').show();
             break;
 
         case 2:
@@ -161,6 +162,7 @@ function submitInput(){
             }
             else{
                 window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id;
+                $('.progress').show();
             }
             break;
 
