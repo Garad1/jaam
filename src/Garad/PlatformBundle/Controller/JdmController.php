@@ -100,7 +100,7 @@ class JdmController extends Controller
 
                 //Save relations
                 foreach ($full_node_cache->getRelationTypes() as $relationType) {
-                    Client::index('relations-type', 'relationTypes', $relationType->getId(), $relationType->getJsonWithoutRelations());
+                    Client::index('relations-type', 'relation-type', $relationType->getId(), $relationType->getJsonWithoutRelations());
                     ElasticRelation::bulkCreate("relation-in", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationIn());
                     ElasticRelation::bulkCreate("relation-out", $full_node_cache->getId(), $relationType->getId(), $relationType->getRelationOut());
                 }
@@ -159,7 +159,7 @@ class JdmController extends Controller
             ],
         ];
 
-        $relation = Client::search('relations-type','relationTypes',$relationRequest);
+        $relation = Client::search('relations-type','relation-type',$relationRequest);
 
         $relations['relationType'] = $relation->hits->hits[0]->_source;
 
@@ -203,6 +203,58 @@ class JdmController extends Controller
         $relations['isMoreToLoadOut'] = $isMoreToLoadOut;
 
         return new JsonResponse($relations);
+    }
+    /**
+     * @Route("/yolo/{name}/{relationType}", name="yolo")
+     */
+    public function yolo($name,$relationType){
+
+        //Check si la node est dans elastic
+
+        $nodeExist =  [
+            'query' => [
+                'bool' => [
+                    'must' => [
+                        'multi_match' => [
+                            'query' => $name,
+                            'fields' => ['name.autocomplete','formattedName.autocomplete']
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        $nodesFound = Client::search('nodes','node',$nodeExist);
+
+        if(count($nodesFound->hits->hits) > 0){
+            //If node already exist in elastic we try to get the relationType associated
+            dump(($nodesFound->hits->hits));
+            dump("YOLO");
+            dump($relationType);
+            $relationExist =  [
+                'query' => [
+                    'bool' => [
+                        'filter' => [
+                            [ 'term' => [ 'code' => $relationType ] ],
+                        ]
+                    ]
+                ],
+            ];
+            $relationFound = Client::search('relations-type','relation-type',$relationExist);
+            dump($relationFound);
+        }
+        else {
+            //node not exists so get word from jdm
+        }
+
+        return new JsonResponse($nodesFound);
+
+        //Si elle est presente alors recuperer le relationType et /mot/idNode/relationType/idRelationType
+        //Sinon
+        //Get Word from jdm
+        //Recuperer id du relationType
+        //displayRelationType(idNode,idRelationType)
+
     }
 
     /**
