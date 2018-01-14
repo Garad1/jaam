@@ -146,6 +146,32 @@ function relationTypeAutocompletion(word, callback){
     });
 }
 
+function wordRelationExist(word, relation, callback){
+    $.ajax({
+        type:"POST",
+        url : '/exist/' + word + '/' + relation,
+        success : function(data){
+            callback(data);
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    });
+}
+
+function verificationTab(word, relation, endWord, callback){
+    $.ajax({
+        type:"POST",
+        url : '/exist/' + word + '/' + relation + '/' + endWord,
+        success : function(data){
+            callback(data);
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    });
+}
+
 function submitInput(){
     var activeTabId = $('.tab > a.active').attr('href');
 
@@ -158,7 +184,27 @@ function submitInput(){
 
         case 2:
             if(!wordSelected || !relationSelected){
-                // On a pas accès à l'id du mot
+                wordRelationExist($(inputs[0]).val(), $(inputs[1]).val(), function(data){
+                    console.log(data);
+                    if(data.idWord){
+                        wordSelected = {
+                            id: data.isWord,
+                            text: $(inputs[0]).val()
+                        }
+                    }
+                    if(data.existRelation){
+                        relationSelected = {
+                            id: data.idRelation,
+                            text: $(inputs[1]).val()
+                        };
+                        window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id;
+                    }
+                    else{
+                        // Mettre erreur sur le champ relation
+                    }
+                });
+                // Penser au chargement
+                // Penser à modifier l'autocomplete pour les relations
             }
             else{
                 window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id;
@@ -167,6 +213,9 @@ function submitInput(){
             break;
 
         case 3:
+            verificationTab($(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val(), function (data) {
+               console.log(data);
+            });
             break;
     }
 }
