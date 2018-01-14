@@ -11,6 +11,29 @@ $toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
 
 @import '~materialize-css/sass/materialize';
 
+#readMoreIn {
+  position: absolute;
+  font-size: 100%;
+  background-color: white;
+  border: none;
+  color: royalblue;
+  bottom: 2px; right: 10px
+}
+
+#readMoreOut {
+  position: absolute;
+  font-size: 100%;
+  background-color: white;
+  border: none;
+  color: royalblue;
+  bottom: 2px; right: 10px
+}
+
+.descriptif {
+  font-weight: bold; color: #5F9EA0;
+
+}
+
 
 .container-sidenav, header.header-sidenav {
   margin-left: 300px;

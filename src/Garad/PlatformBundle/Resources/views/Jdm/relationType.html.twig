@@ -6,7 +6,7 @@
     <nav>
         <div class="nav-wrapper">
           <div style="margin-left: 20px;">
-            <a href="#!" class="breadcrumb">{{ node.formattedName }}</a>
+            <a href="{{ path('jdm_search', {'word' : node.formattedName}) }}" class="breadcrumb">{{ node.formattedName }}</a>
             <a href="#!" class="breadcrumb">{{ relation.relationType.code }}</a>
           </div>
         </div>
@@ -49,7 +49,7 @@
                                 {% endfor %}
 
                             {% if relation.isMoreToLoadIn %}
-                                <span id="readMoreIn"> [...] </span>
+                                 <button id="readMoreIn">Afficher la suite >></button>
                              {% endif %}
                         </blockquote>
                     </div>
@@ -79,7 +79,8 @@
                                     </a>
                                 {% endfor %}
                             {% if relation.isMoreToLoadOut %}
-                                <span id="readMoreOut"> [...] </span>
+                                <button id="readMoreOut">Afficher la suite >></button>
+
                             {% endif %}
                         </blockquote>
                     </div>
