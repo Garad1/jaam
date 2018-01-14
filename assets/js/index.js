@@ -250,7 +250,7 @@ function submitInput() {
             verificationTab($(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val(),
                 function (data) {
                     // TODO : Ajouter les loaders
-                    if (data) {
+                    if (data.existEndWord) {
                         console.log(data)
                         //TODO : réponse positive
                         alert('c est vrai :D');
