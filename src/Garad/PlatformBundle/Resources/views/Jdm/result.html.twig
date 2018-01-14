@@ -26,9 +26,10 @@
         </li>
     </ul>
     <div class="container-sidenav">
-        <div class="row">
+        <div id="rowRelation" class="row">
             <div class="col s12">
                 <h5 class="wordSearched">Mot recherché : <span id="{{ cache.id }}" class="searched-word"> {{ cache.name }}</span></h5>
+                <button id="changeSort">Changer le tri</button>
                 {% if cache.description != null %}
                 <div class="description">
                     <div class="card">
@@ -121,5 +122,7 @@
 {% endblock %}
 
 {% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
     <script src="{{ asset('build/app.js') }}"></script>
+    <script src="{{ asset('build/result.js') }}"></script>
 {% endblock %}
