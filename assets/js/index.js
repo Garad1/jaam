@@ -201,7 +201,6 @@ function submitInput() {
     switch (inputs.length) {
         case 1:
             window.location.href = '/' + $(inputs[0]).val();
-            $('.progress').show();
             break;
 
         case 2:
@@ -209,10 +208,14 @@ function submitInput() {
                 var inputWord = $(inputs[0]).val();
                 var inputRelation = $(inputs[1]).val();
                 lock();
+
+                showLoader($(inputs[0].parentNode.nextElementSibling));
+                showLoader($(inputs[1].parentNode.nextElementSibling));
+
                 wordRelationExist(inputWord, inputRelation, function (data) {
                     console.log(data);
                     if (data.idWord) {
-                        // TODO : Mettre validation champs word
+                        showLoaderSuccess($(inputs[0].parentNode.nextElementSibling));
                         wordSelected = {
                             id: data.idWord,
                             text: inputWord
@@ -222,10 +225,10 @@ function submitInput() {
                         }
                     }
                     else {
-                        // TODO : Mettre Erreur champs word
+                        showLoaderError($(inputs[0].parentNode.nextElementSibling));
                     }
                     if (data.existRelation) {
-                        // TODO : Mettre validation champ Relation
+                        showLoaderSuccess($(inputs[1].parentNode.nextElementSibling));
                         relationSelected = {
                             id: data.idRelation,
                             text: inputRelation
@@ -234,30 +237,43 @@ function submitInput() {
                     }
                     else {
                         unlock();
-                        // TODO : Mettre erreur sur le champ relation
+                        showLoaderError($(inputs[1].parentNode.nextElementSibling));
                     }
                 });
-                // TODO : Penser au chargement
             }
             else {
                 window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id;
-                $('.progress').show();
             }
             break;
 
         case 3:
             lock();
+
+            showLoader($(inputs[0].parentNode.nextElementSibling));
+            showLoader($(inputs[1].parentNode.nextElementSibling));
+            showLoader($(inputs[2].parentNode.nextElementSibling));
+
             verificationTab($(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val(),
                 function (data) {
-                    // TODO : Ajouter les loaders
-                    if (data.existEndWord) {
-                        console.log(data)
-                        //TODO : réponse positive
-                        alert('c est vrai :D');
+                    if (data.existWord) {
+                        showLoaderSuccess($(inputs[0].parentNode.nextElementSibling));
                     }
                     else {
-                        //TODO : réponse négative
-                        alert('c est faux :(');
+                        showLoaderError($(inputs[0].parentNode.nextElementSibling));
+                    }
+
+                    if (data.existRelation) {
+                        showLoaderSuccess($(inputs[1].parentNode.nextElementSibling));
+                    }
+                    else {
+                        showLoaderError($(inputs[1].parentNode.nextElementSibling));
+                    }
+
+                    if (data.existEndWord) {
+                        showLoaderSuccess($(inputs[2].parentNode.nextElementSibling));
+                    }
+                    else {
+                        showLoaderError($(inputs[2].parentNode.nextElementSibling));
                     }
                     unlock();
                 });
@@ -275,4 +291,24 @@ function isLocked() {
 
 function unlock() {
     verrou = false;
+}
+
+function showLoader(element){
+    $(element[0].children[0].children[1]).fadeOut(0);
+    $(element[0].children[0].children[2]).fadeOut(0);
+    $(element[0].children).addClass('active');
+    $(element[0].children[0].children[0]).fadeIn('slow');
+    $(element).fadeIn();
+}
+
+function showLoaderSuccess(element){
+    $(element[0].children).removeClass('active');
+    $(element[0].children[0].children[0]).fadeOut(0);
+    $(element[0].children[0].children[1]).fadeIn('slow');
+}
+
+function showLoaderError(element){
+    $(element[0].children).removeClass('active');
+    $(element[0].children[0].children[0]).fadeOut(0);
+    $(element[0].children[0].children[2]).fadeIn('slow');
 }
