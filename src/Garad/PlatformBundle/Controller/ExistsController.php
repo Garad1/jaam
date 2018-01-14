@@ -95,6 +95,7 @@ class ExistsController extends Controller
 
         $result = [];
         if(isset($existWord->idWord)){
+            $result['existWord'] = true;
             $result['idWord'] = $existWord->idWord;
         }
 
@@ -136,8 +137,25 @@ class ExistsController extends Controller
      */
     public function existNodeForRelationType($word,$relationType,$endWord){
 
+        $result = [];
+
         $existWordForRelation = json_decode($this->existRelationTypeForWord($word,$relationType)->getContent());
-        dump($existWordForRelation);
+
+        if(isset($existWordForRelation->existWord)){
+            $result['existWord'] = $existWordForRelation->existWord;
+        }
+        else {
+            $result['existWord'] = false;
+            $result['existRelation'] = false;
+        }
+
+
+        if(isset($existWordForRelation->existRelation)){
+            $result['existRelation'] = $existWordForRelation->existRelation;
+        }
+        else {
+            $result['existRelation'] = false;
+        }
 
         if($existWordForRelation->existRelation == true){
 
@@ -161,18 +179,27 @@ class ExistsController extends Controller
             $existRelationOut = Client::search('relations','relation-out',$request);
 
             if(count($existRelationOut->hits->hits) > 0){
-                return new JsonResponse(true);
+                $result['existEndWord'] = true;
+                return new JsonResponse($result);
             }
             else {
                 //We check if word exist in relation in
                 $existRelationIn = Client::search('relations','relation-in',$request);
                 if(count($existRelationIn->hits->hits) > 0){
-                    return new JsonResponse(true);
+                    $result['existEndWord'] = true;
+                    return new JsonResponse($result);
                 }
-                else return new JsonResponse(false);
+                else {
+                    $result['existEndWord'] = false;
+                    return new JsonResponse($result);
+                }
             }
         }
-        else return new JsonResponse(false);
+        else {
+            $result['existRelation'] = false;
+            $result['existEndWord'] = false;
+            return new JsonResponse($result);
+        }
     }
 
 
