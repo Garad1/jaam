@@ -281,7 +281,7 @@ class JdmController extends Controller
             ]
         ];
 
-        $relation = Client::search('relations-type','relationTypes',$relationRequest);
+        $relation = Client::search('relations-type','relation-type',$relationRequest);
 
         $relations['relationType'] = $relation->hits->hits[0]->_source;
 
