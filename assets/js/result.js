@@ -1,81 +1,61 @@
 var $ = require('jquery');
 require('materialize-css');
-
+var sortedByWeigth = true;
 
 $(function () {
 
-
+  function sortNumber(a,b) {
+    return b - a;
+  }
 
   $("#changeSort").click(function(){
 
-    var blockCote = $('.blockquote-in, .blockquote-out');
+    var blockCote = $('.blockquote-in , .blockquote-out');
 
-    $(blockCote).each(function (index, block) {
+    if (sortedByWeigth){
+      $(blockCote).each(function (index, block) {
         var links = block.getElementsByTagName('a');
         var content = [];
         var map = new Map();
 
         $(links).each(function (index, link) {
-            var contentLink = link.innerText || link.textContent;
-            content.push(contentLink);
-            map.set(contentLink, link);
+          var contentLink = link.innerText || link.textContent;
+          content.push(contentLink);
+          map.set(contentLink, link);
         });
 
         var linksSorted = content.sort(function(a, b) { return a.localeCompare(b); });
         block.append('');
 
         $(linksSorted).each(function (index, value) {
-            block.append(map.get(value));
+          block.append(map.get(value));
         });
 
-    });
-
-/*
-    blockCote = $('.blockquote-out');
-
-
-    $(blockCote).each(function (index, block) {
-      var links = block.getElementsByTagName('a');
-
-
-
-      var content = [];
-      var map = new Map();
-      $(links).each(function (index, link) {
-        var contentLink = link.innerText || link.textContent;
-        content.push(contentLink);
-        map.set(contentLink, link);
       });
-      var linksSorted = content.sort(function(a, b) { return a.localeCompare(b); });
-      block.append('');
+      sortedByWeigth = false;
+    }else{
+      $(blockCote).each(function (index, block) {
+        var links = block.getElementsByTagName('a');
+        var map = [];
 
-      $(linksSorted).each(function (index, value) {
-        block.append(map.get(value));
+        $(links).each(function (index, link) {
+          var contentLink = $(link).data("tooltip");
+          contentLink = contentLink.substr('weight : '.length);
+          map.push({weight: contentLink, content: link})
+        });
+
+        var linksSorted = map.sort(function(a, b){ return b.weight - a.weight});
+        block.append('');
+
+        $(linksSorted).each(function (index, value) {
+          block.append(value.content);
+        });
+
       });
+      sortedByWeigth = true;
+    }
 
-    });
 
-/*
-    var rowRelation = $('#rowRelation');
-    var test = rowRelation.getElementsByTagName('card');
-    console.log(test);
-
-    var card = rowRelation('.card');
-
-    $(card).each(function (index, object) {
-        var cardIn = object('.blockquote-in > a')
-    });
-
-    var elements = [];
-    $(a).each(function (index, object) {
-      console.log(object);
-      console.log(index);
-      console.log(a[index]);
-      //var elem = elements.innerText || elements.textContent;
-      //elements.push(a[index].text);
-    });
-    //console.log(elements);
-    //console.log(a); */
 
 
   });
