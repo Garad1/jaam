@@ -3031,10 +3031,6 @@ marked@^0.3.6:
   version "0.3.9"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.9.tgz#54ce6a57e720c3ac6098374ec625fcbcc97ff290"
 
-materialize-autocomplete@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/materialize-autocomplete/-/materialize-autocomplete-1.0.7.tgz#6c5b344e7f9bf2b790b08fefacbac6e2292c89a4"
-
 materialize-css@^0.100.2:
   version "0.100.2"
   resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-0.100.2.tgz#9ca32b24904c9a04491fc7d0a2e9402e7b1dae07"

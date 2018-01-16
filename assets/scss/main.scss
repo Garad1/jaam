@@ -135,42 +135,6 @@ $toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
   text-decoration: underline;
 }
 
-.autocomplete {
-  display: flex;
-
-  @media #{$medium-and-down} {
-    display:block;
-  }
-
-  & .ac-users {
-    padding-top: 10px;
-
-    & .chip {
-      flex: auto;
-      margin-bottom: 10px;
-      margin-right: 10px;
-    }
-
-    & .chip:last-child {
-      margin-right: 5px;
-    }
-  }
-
-  & .ac-dropdown .ac-hover {
-    background: #eee;
-  }
-
-  & .ac-input {
-    flex: 1;
-    min-width: 150px;
-    padding-top: 0.6rem;
-
-    & input {
-      height: 2.4rem;
-    }
-  }
-}
-
 .search-wrapper{
   margin: 0 12px 8px 12px;
   transition: margin 0.25s ease;
@@ -196,11 +160,41 @@ $toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
   }
 }
 
+.progress{
+  display:none;
+}
 
-/*
-.sidebar-search{
-  padding: 10px 20px;
+.tab-input{
+  display: none;
 
+  & .row > div{
+    display: flex;
+    align-items: center;
+  }
+}
+
+/**
+Loader
+ */
+
+.loader{
+  margin-left:8px;
+  display: none;
+}
+
+div.preloader-wrapper > i{
+  display:none;
+  font-size: 30px;
+  border-radius: 100%;
+
+  &.error{
+    color: red;
+    border: 3px solid red;
+  }
+
+  &.check{
+    color: green;
+    border: 3px solid green;
+  }
 
 }
-*/

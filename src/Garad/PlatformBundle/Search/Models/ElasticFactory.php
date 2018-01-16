@@ -86,7 +86,6 @@ class ElasticFactory
                 }
             }
         }
-        dump($allRelationsTypes);
         $nodeCache->setRelationTypes($allRelationsTypes);
 
         return $nodeCache;

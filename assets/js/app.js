@@ -11,7 +11,7 @@ $(function () {
     });
 
     //Recherche d'un autre mot quand on est dejà sur un mot
-    $('i.material-icons').click(function(){
+    $('.search-wrapper i.material-icons').click(function(){
         if($('input#autocomplete-input').val() == "") {
             alert("Vous ne recherchez pas de mots");
         } else {

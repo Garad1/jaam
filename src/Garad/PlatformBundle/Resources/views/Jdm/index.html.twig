@@ -1,6 +1,9 @@
 {% extends 'GaradPlatformBundle::base.html.twig' %}
 
 {% block body %}
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
     <div class="container">
         {% for label, messages in app.flashes %}
             {% for message in messages %}
@@ -13,46 +16,161 @@
 
         <div class="row" style="margin-top: 5px">
             <div class="col s12">
-                <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#test1">Rechercher un mot</a></li>
-                    <li class="tab col s3"><a href="#test2">Rechercher mot & type de relation</a></li>
-                    <li class="tab col s3"><a href="#test3">recherche existance mot pour type relation</a></li>
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab col s3"><a class="active" href="#test1">mot</a></li>
+                    <li class="tab col s3"><a href="#test2">mot & type de relation</a></li>
+                    <li class="tab col s3"><a href="#test3">existance mot pour type relation</a></li>
                 </ul>
             </div>
+            {# ================================== 1 ER FORMULAIRE ================================== #}
             <div id="test1" class="col s12">
-                <form action="{{ path('jdm_index') }}" method="post">
-                    <div class="row">
+                <div class="row">
+                    <div class="col s12 center-align">
                         <div class="input-field col s12">
-                            <div class="autocomplete" id="multiple">
-                                <div class="ac-users"></div>
-                                <div class="ac-input">
-                                    <input type="text" id="multipleInput" placeholder="Entrez le mot à rechercher" data-activates="multipleDropdown" data-beloworigin="true" autocomplete="off">
+                            <label for="search" class="js-first-input">Entrez le mot à rechercher</label>
+                            <input class="autocomplete js-autocomplete-word js-last-input"  autocomplete="off" type="text" name="search"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# ================================== 2 EME FORMULAIRE ================================== #}
+            <div id="test2" class="col s12 tab-input">
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <div class="input-field col s12">
+                            <label for="search" class="js-first-input">Entrez le mot à rechercher</label>
+                            <input class="autocomplete js-autocomplete-word"  autocomplete="off" type="text" name="search"/>
+                        </div>
+                        <div class="loader">
+                            <div class="preloader-wrapper small active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
                                 </div>
-                                <ul id="multipleDropdown" class="dropdown-content ac-dropdown"></ul>
-                                <input type="hidden" name="multipleHidden" />
+                                <i class="material-icons check">check</i>
+                                <i class="material-icons error">close</i>
                             </div>
                         </div>
-                        <!--
-                        <div class="input-field col s12 chips chips-autocomplete">
-                            <label for="search">Entrez le mot à rechercher</label>
-                            <input class="autocomplete"  autocomplete="off" type="text" name="search" id="autocomplete-input"/>
-                        </div>
-                        -->
                     </div>
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <input type="button" class="waves-effect waves-light btn js-submit" value="Rechercher"/>
-                            <input type="reset" class="waves-effect waves-light btn js-reset" value="Reinitialiser"/>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <div class="input-field col s12">
+                            <label for="search" class="js-second-input">Entrez le relation type associé au mot</label>
+                            <input class="autocomplete js-autocomplete-relation js-last-input"  autocomplete="off" type="text" name="search"/>
+                        </div>
+                        <div class="loader">
+                            <div class="preloader-wrapper small active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                                <i class="material-icons check">check</i>
+                                <i class="material-icons error">close</i>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-            <div id="test2" class="col s12">Test 2</div>
-
-            <div id="test3" class="col s12">Test 3</div>
+            {# ================================== 3 EME FORMULAIRE ================================== #}
+            <div id="test3" class="col s12 tab-input">
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <div class="input-field col s12">
+                            <label for="search" class="js-first-input">Entrez le mot à rechercher</label>
+                            <input class="autocomplete js-autocomplete-word"  autocomplete="off" type="text" name="search"/>
+                        </div>
+                        <div class="loader">
+                            <div class="preloader-wrapper small active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                                <i class="material-icons check">check</i>
+                                <i class="material-icons error">close</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <div class="input-field col s12">
+                            <label for="search" class="js-second-input">Entrez le relation type associé au mot</label>
+                            <input class="autocomplete js-autocomplete-relation"  autocomplete="off" type="text" name="search"/>
+                        </div>
+                        <div class="loader">
+                            <div class="preloader-wrapper small active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                                <i class="material-icons check">check</i>
+                                <i class="material-icons error">close</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <div class="input-field col s12">
+                            <label for="search">Entrez le mot à rechercher</label>
+                            <input class="autocomplete js-autocomplete-wordRelation js-last-input"  autocomplete="off" type="text" name="search"/>
+                        </div>
+                        <div class="loader">
+                            <div class="preloader-wrapper small active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                                <i class="material-icons check">check</i>
+                                <i class="material-icons error">close</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <input type="button" class="waves-effect waves-light btn js-submit" value="Rechercher"/>
+                    <input type="reset" class="waves-effect waves-light btn js-reset" value="Reinitialiser"/>
+                </div>
+            </div>
         </div>
-
-
     </div>
 {% endblock %}
 
