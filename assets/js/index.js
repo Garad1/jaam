@@ -27,18 +27,28 @@ $(function () {
         wordSelected = null;
         var val = $(this).val();// get the current value of the input field.
         $('input.js-autocomplete-word').val(val);
+        console.log(val);
         if (val === '') {
             $('label.js-first-input').removeClass('active');
+            wordArray = null;
         }
         //Ajax request
         else {
             $('label.js-first-input').addClass('active');
+
+            if(val.length > 1){
+                return;
+            }
             wordAutocompletion(val, function (value, result) {
                 wordArray = result;
                 var elements = [];
                 $(result).each(function (index, object) {
                     elements[object['text']] = null;
                 });
+                console.log();
+                if(result.length === 0){
+                    return;
+                }
 
                 $('input.js-autocomplete-word').autocomplete({
                     data: elements,
