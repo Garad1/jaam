@@ -11,7 +11,6 @@ Encore
     .addEntry('app', ['./assets/js/app.js', './assets/scss/main.scss'])
     .addEntry('index', './assets/js/index.js')
     .addEntry('relationTypePage', './assets/js/relationTypePage.js')
-    .addEntry('result', './assets/js/result.js')
 
     // allow sass/scss files to be processed
     .enableSassLoader()
