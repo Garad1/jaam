@@ -198,3 +198,15 @@ div.preloader-wrapper > i{
   }
 
 }
+
+div.sort{
+
+  & a{
+    cursor: pointer;
+
+    &.active{
+      font-weight: bold;
+    }
+  }
+
+}
