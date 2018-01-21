@@ -34,6 +34,15 @@ $toast-error-bgcolor : color('red', 'accent-2') /*color('red', 'accent-2') */;
 
 }
 
+.side-nav{
+  height: 100%;
+  padding-bottom: 0;
+
+  @media #{$medium-and-down} {
+    height: calc(100% + 60px);
+    padding-bottom: 60px;
+  }
+}
 
 .container-sidenav, header.header-sidenav {
   margin-left: 300px;
