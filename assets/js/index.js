@@ -248,7 +248,7 @@ function submitInput() {
                             id: data.idRelation,
                             text: inputRelation
                         };
-                        window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id;
+                        window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id + '/weight';
                     }
                     else {
                         unlock();
@@ -257,7 +257,7 @@ function submitInput() {
                 });
             }
             else {
-                window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id;
+                window.location.href = '/mot/' + wordSelected.id + "/relationType/" + relationSelected.id + '/weight';
             }
             break;
 
