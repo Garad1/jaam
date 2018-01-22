@@ -6,8 +6,8 @@
     <nav>
         <div class="nav-wrapper">
           <div style="margin-left: 20px;">
-            <a href="{{ path('jdm_search', {'word' : node.formattedName}) }}" class="breadcrumb">{{ node.formattedName }}</a>
-            <a href="#!" class="breadcrumb">{{ relation.relationType.code }}</a>
+                <a href="{{ path('jdm_search', {'word' : node.name}) }}" class="breadcrumb"> {% if node.formattedName != "" %} {{ node.formattedName }} {% else %} {{ node.name }} {% endif %}</a>
+                <a href="#" class="breadcrumb">{{ relation.relationType.code }}</a>
           </div>
         </div>
     </nav>
