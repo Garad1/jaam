@@ -51,13 +51,14 @@ class Client
         return self::getInstance()->search($params);
     }
 
-    public static function searchWithSource($index,$type,$body,$fields){
+    public static function searchWithSource($index,$type,$body,$fields,$size = 10){
 
         $params = [
             'index' => $index,
             'type' => $type,
             'body' => $body,
-            '_source' => $fields
+            '_source' => $fields,
+            'size' => $size
         ];
 
         return self::getInstance()->search($params);

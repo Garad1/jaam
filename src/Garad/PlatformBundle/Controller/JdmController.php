@@ -59,7 +59,7 @@ class JdmController extends Controller
             }
             if($exception->getCode() == ErrorException::ERROR){
                 $errorMessage = 'Mot ' . $word . ' : ' . $exception->getMessage();
-                $this->get('session')->getFlashBag()->add('error', 'Le mot nexiste pas sur la plateforme jdm');
+                $this->get('session')->getFlashBag()->add('error', 'Le mot n\'existe pas sur la plateforme jdm');
             }
             $this->get('logger')->error($errorMessage);
             return $this->render('GaradPlatformBundle:Jdm:index.html.twig');
@@ -429,8 +429,9 @@ class JdmController extends Controller
         ];
 
         $hits = [];
+        $fields = ['id','name','formattedName'];
 
-        $nodesFound = Client::search('nodes','node',$request);
+        $nodesFound = Client::searchWithSource('nodes','node',$request,$fields,1000);
 
         if($nodesFound->hits->hits != null){
             //If we found nodes
