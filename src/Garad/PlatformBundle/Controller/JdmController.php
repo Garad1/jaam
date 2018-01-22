@@ -74,10 +74,11 @@ class JdmController extends Controller
 
         $node_cache = null;
 
+
         $response = Client::search('nodes-cache','node-cache', [
             'query' => [
                 'match' => [
-                    'name' => $word
+                    'name' => urldecode($word)
                 ]
             ]
         ]);
@@ -228,9 +229,7 @@ class JdmController extends Controller
 
         if(count($nodesFound->hits->hits) > 0){
             //If node already exist in elastic we try to get the relationType associated
-            dump(($nodesFound->hits->hits));
-            dump("YOLO");
-            dump($relationType);
+
             $relationExist =  [
                 'query' => [
                     'bool' => [
@@ -241,7 +240,6 @@ class JdmController extends Controller
                 ],
             ];
             $relationFound = Client::search('relations-type','relation-type',$relationExist);
-            dump($relationFound);
         }
         else {
             //node not exists so get word from jdm
@@ -397,9 +395,6 @@ class JdmController extends Controller
         $hits = [];
 
         $nodesFound = Client::search('nodes','node',$request);
-
-        dump($nodesFound);
-
 
         if($nodesFound->hits->hits != null){
             //If we found nodes

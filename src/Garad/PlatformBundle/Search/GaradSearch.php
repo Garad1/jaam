@@ -59,7 +59,6 @@ class GaradSearch
         curl_setopt( $curl_handle, CURLOPT_URL, GaradSearch::$url . $query);
         $result = curl_exec( $curl_handle ); // Execute the request
         curl_close($curl_handle);
-        dump($result);
         die;
         return $this->getCode($result);
     }

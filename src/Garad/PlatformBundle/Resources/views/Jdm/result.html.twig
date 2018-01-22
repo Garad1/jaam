@@ -1,6 +1,6 @@
 {% extends 'GaradPlatformBundle::base.html.twig' %}
 
-{% block title %}{{ cache.name }}{% endblock %}
+{% block title %}{{ cache.formattedName }}{% endblock %}
 
 {% block body %}
     <ul class="side-nav fixed" id="nav-mobile" xmlns="http://www.w3.org/1999/html">
@@ -28,7 +28,7 @@
     <div class="container-sidenav">
         <div class="row">
             <div class="col s12">
-                <h5 class="wordSearched">Mot recherché : <span id="{{ cache.id }}" class="searched-word"> {{ cache.name }}</span></h5>
+                <h5 class="wordSearched">Mot recherché : <span id="{{ cache.id }}" class="searched-word"> {{ cache.formattedName }}</span></h5>
                 {% if cache.description != null %}
                 <div class="description">
                     <div class="card">
