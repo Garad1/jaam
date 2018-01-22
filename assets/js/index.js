@@ -108,9 +108,13 @@ function wordAutocompletion(value, callback) {
         success: function (data) {
             var result = new Array();
             for (var i = 0; i < data.length; ++i) {
+                var name = data[i]._source.formattedName;
+                if( name === "" || !name){
+                    name = data[i]._source.name
+                }
                 result.push({
                     id: data[i]._source.id,
-                    text: data[i]._source.formattedName
+                    text: name
                 });
             }
             callback(value, result);

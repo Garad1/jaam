@@ -138,10 +138,15 @@ class JdmController extends Controller
 
         $nodeResponse = $this->getNodeFromId($idNode);
         $node = json_decode($nodeResponse->getContent());
-
+        $urlElements = array(
+            'idNode' => $idNode,
+            'idRelation' => $idRelationType,
+            'sort' => $sort,
+        );
         return $this->render('GaradPlatformBundle:Jdm:relationType.html.twig',array(
             'relation' => $test,
-            'node' => $node
+            'node' => $node,
+            'urlElements' => $urlElements,
         ));
     }
 
@@ -151,13 +156,10 @@ class JdmController extends Controller
      */
     public function getAllRelations($idNode,$idRelationType,$idPage,$sort){
 
-        $request = $this->container->get('request');
-        $sort = $request->query->get('sort');
-
         if(isset($sort)){
-            switch (sort){
+            switch ($sort){
                 case "lexico":
-                    $sort = array('node.name:desc');
+                    $sort = array('node.name:asc');
                     break;
                 case "weight":
                     $sort = array('node.weight:desc');
@@ -272,9 +274,20 @@ class JdmController extends Controller
     }
 
     /**
-     * @Route("/mot/{idNode}/relationType/{idRelationType}/in/{idPage}", name="jdm_get_relationsIn")
+     * @Route("/mot/{idNode}/relationType/{idRelationType}/{sort}/in/{idPage}", name="jdm_get_relationsIn")
      */
-    public function getRelationsIn($idNode,$idRelationType,$idPage){
+    public function getRelationsIn($idNode,$idRelationType,$idPage, $sort){
+
+        if(isset($sort)){
+            switch ($sort){
+                case "lexico":
+                    $sort = array('node.name:asc');
+                    break;
+                case "weight":
+                    $sort = array('node.weight:desc');
+                    break;
+            }
+        }
 
         $relations = [];
 
@@ -312,8 +325,6 @@ class JdmController extends Controller
                 ]
             ]
         ];
-
-        $sort = array('node.weight:desc');
 
         $maxRelationIn = Client::count('relations','relation-in',$request);
 
@@ -331,9 +342,20 @@ class JdmController extends Controller
     }
 
     /**
-     * @Route("/mot/{idNode}/relationType/{idRelationType}/out/{idPage}", name="jdm_get_relationsOut")
+     * @Route("/mot/{idNode}/relationType/{idRelationType}/{sort}/out/{idPage}", name="jdm_get_relationsOut")
      */
-    public function getRelationsOut($idNode,$idRelationType,$idPage){
+    public function getRelationsOut($idNode,$idRelationType,$idPage, $sort){
+
+        if(isset($sort)){
+            switch ($sort){
+                case "lexico":
+                    $sort = array('node.name:asc');
+                    break;
+                case "weight":
+                    $sort = array('node.weight:desc');
+                    break;
+            }
+        }
 
         $relations = [];
 
@@ -371,8 +393,6 @@ class JdmController extends Controller
                 ]
             ]
         ];
-
-        $sort = array('node.weight:desc');
 
         $maxRelationIn = Client::count('relations','relation-out',$request);
 

@@ -34,6 +34,7 @@ $(function () {
                         a.href = '/' + element.name;
                         a.textContent = element.name + " ";
                         a.className = "tooltipped";
+                        a.className += " relation";
                         a.setAttribute("data-tooltip", "weight: " + element.weight);
                         a.setAttribute("data-position","top");
                         readMore.parentNode.insertBefore(a,readMore);
@@ -42,6 +43,7 @@ $(function () {
                         a.href = '/' + element.name;
                         a.textContent = element.formattedName + " ";
                         a.className = "tooltipped";
+                        a.className += " relation";
                         a.setAttribute("data-tooltip", "weight: " + element.weight);
                         a.setAttribute("data-position","top");
                         readMore.parentNode.insertBefore(a,readMore);
@@ -73,7 +75,8 @@ $(function () {
                         var a = document.createElement('a');
                         a.href = '/' + element.name;
                         a.textContent = element.name + " ";
-                        a.className = "relation tooltipped";
+                        a.className = "tooltipped";
+                        a.className += " relation";
                         a.setAttribute("data-position","top");
                         a.setAttribute("data-tooltip", "weight: " + element.weight);
                         readMore.parentNode.insertBefore(a,readMore);
@@ -82,13 +85,15 @@ $(function () {
                         var a = document.createElement('a');
                         a.href = '/' + element.name ;
                         a.textContent = element.formattedName + " ";
-                        a.className = "relation tooltipped";
+                        a.className = "tooltipped";
+                        a.className += " relation";
                         a.setAttribute("data-tooltip", "weight: " + element.weight);
                         a.setAttribute("data-position","top");
                         readMore.parentNode.insertBefore(a,readMore);
                         //div.insertBefore(a,'&nbsp;');
                     }
                 });
+
                 $('.tooltipped').tooltip({delay: 50});
                 if(!json.isMoreToLoad) {
                     $("#readMoreOut").hide();

@@ -4,6 +4,21 @@ require('lodash');
 
 $(function () {
 
+    $('.js-link-relation-type').click(function(){
+        var idMot = $('.searched-word').attr('id');
+        var idRelation = $(this)[0].parentNode.parentNode.parentNode.parentNode.id;
+        var sort;
+        switch ($('.sort .active').attr('id')){
+            case 'js-sort-lexico':
+                sort = 'lexico';
+                break;
+            default:
+                sort = 'weight';
+                break;
+        }
+        window.location.href = '/mot/' + idMot + '/relationType/' + idRelation + '/' + sort;
+    });
+
     $('.button-collapse').sideNav({
         closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
         draggable: true, // Choose whether you can drag to open on touch screens,

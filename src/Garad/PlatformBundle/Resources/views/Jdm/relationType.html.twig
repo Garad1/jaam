@@ -12,6 +12,11 @@
         </div>
     </nav>
     <div class="container">
+        <div class="sort right-align">Ordre de tri :
+            <a {%  if urlElements.sort == 'weight' %}class="active"{% endif %} href="{{ path('jdm_display_relationtype', { 'idNode': urlElements.idNode ,'idRelationType': urlElements.idRelation , 'sort': 'weight'}) }}" id="js-sort-weight">Poids</a>
+            <span class="separator">|</span>
+            <a {%  if urlElements.sort != 'weight' %}class="active"{% endif %} href="{{ path('jdm_display_relationtype', { 'idNode': urlElements.idNode ,'idRelationType': urlElements.idRelation , 'sort': 'lexico'}) }}" id="js-sort-lexico">Lexicographique</a>
+        </div>
         <div class="row">
             <div>
                  <div class="card">
@@ -39,7 +44,7 @@
                         <blockquote id="relationIn" class="blockquote-in">
                                 {% for wordIn in relation.in %}
                                     {% set word = wordIn.name|url_encode %}
-                                    <a class="tooltipped" data-tooltip="weight : {{ wordIn.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="relation tooltipped" data-tooltip="weight : {{ wordIn.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if wordIn.formattedName is empty %}
                                             {{ wordIn.name }}
                                         {% else %}
@@ -70,7 +75,7 @@
                         <blockquote id="relationOut" class="blockquote-out">
                                 {% for wordOut in relation.out %}
                                     {% set word = wordOut.name|url_encode %}
-                                    <a class="tooltipped" data-tooltip="weight : {{ wordOut.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
+                                    <a class="relation tooltipped" data-tooltip="weight : {{ wordOut.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
                                         {% if wordOut.formattedName is empty %}
                                             {{ wordOut.name }}
                                         {% else %}
@@ -92,6 +97,5 @@
 {% endblock %}
 
 {% block javascript %}
-
     <script src="{{ asset('build/relationTypePage.js') }}"></script>
 {% endblock %}
