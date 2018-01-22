@@ -169,7 +169,7 @@ class ExistsController extends Controller
                         'must' => [
                             'multi_match' => [
                                 'query' => $endWord,
-                                'fields' => ['node.formattedName','node.name.autocomplete']
+                                'fields' => ['node.formattedName','node.name']
                             ]
                         ]
                     ]

@@ -163,6 +163,7 @@ function wordRelationExist(word, relation, callback) {
         type: "POST",
         url: '/exist/' + word + '/' + relation,
         success: function (data) {
+            console.log(data);
             callback(data);
         },
         error: function (xhr, status, error) {
