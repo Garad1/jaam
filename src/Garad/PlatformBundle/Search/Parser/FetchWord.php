@@ -15,7 +15,6 @@ class FetchWord
 
     static function fetch($word)
     {
-        dump(self::$url . utf8_decode($word));
         $word = urldecode($word);
         $curl_handle = curl_init();
         curl_setopt($curl_handle, CURLOPT_ENCODING, '');

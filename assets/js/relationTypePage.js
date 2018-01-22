@@ -27,7 +27,6 @@ $(function () {
             url : myUrl,
             dataType : 'json', // On désire recevoir du json
             success : function(json, statut){ // code_html contient le HTML renvoyé
-                console.log(json); //Manipule ton objet comme ca :D
                 json.in.forEach(function(element) {
                     if(element.node.formattedName == "" && element.node.formattedName == false) {
                         var a = document.createElement('a');
@@ -69,7 +68,6 @@ $(function () {
             url : $(location).attr('href') +'/out/' + pagenumberOut,
             dataType : 'json', // On désire recevoir du json
             success : function(json, statut){ // code_html contient le HTML renvoyé
-                console.log(json);
                 json.out.forEach(function(element) {
                     if(element.node.formattedName == "" && element.node.formattedName == false) {
                         var a = document.createElement('a');

@@ -27,7 +27,6 @@ $(function () {
         wordSelected = null;
         var val = $(this).val();// get the current value of the input field.
         $('input.js-autocomplete-word').val(val);
-        console.log(val);
         if (val === '') {
             $('label.js-first-input').removeClass('active');
             wordArray = null;
@@ -45,7 +44,6 @@ $(function () {
                 $(result).each(function (index, object) {
                     elements[object['text']] = null;
                 });
-                console.log();
                 if(result.length === 0){
                     return;
                 }
@@ -167,7 +165,6 @@ function wordRelationExist(word, relation, callback) {
         type: "POST",
         url: '/exist/' + word + '/' + relation,
         success: function (data) {
-            console.log(data);
             callback(data);
         },
         error: function (xhr, status, error) {
@@ -177,12 +174,10 @@ function wordRelationExist(word, relation, callback) {
 }
 
 function verificationTab(word, relation, endWord, callback) {
-    console.log(word, relation, endWord)
     $.ajax({
         type: "POST",
         url: '/exist/' + word + '/' + relation + '/' + endWord,
         success: function (data) {
-            console.log(data);
             callback(data);
         },
         error: function (xhr, status, error) {
@@ -196,7 +191,6 @@ function submitInput() {
     if (isLocked()) {
         return;
     }
-    console.log('je passe');
     var activeTabId = $('.tab > a.active').attr('href');
 
     var inputs = $(activeTabId + ' input');
@@ -228,7 +222,6 @@ function submitInput() {
                 showLoader($(inputs[1].parentNode.nextElementSibling));
 
                 wordRelationExist(inputWord, inputRelation, function (data) {
-                    console.log(data);
                     if (data.idWord) {
                         showLoaderSuccess($(inputs[0].parentNode.nextElementSibling));
                         wordSelected = {

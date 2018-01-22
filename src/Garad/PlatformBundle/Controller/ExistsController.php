@@ -43,7 +43,7 @@ class ExistsController extends Controller
 
         if(count($response->hits->hits) !=  0){
 
-            dump("from elastic");
+            //dump("from elastic");
             $node_cache = $response->hits->hits[0]->_source;
             $result['exist'] = true;
             $result['idWord'] = $response->hits->hits[0]->_source->id;
@@ -69,7 +69,7 @@ class ExistsController extends Controller
                 $node_cache = clone $full_node_cache;
                 $node_cache->trimRelations(30);
 
-                dump("from jdm");
+                //dump("from jdm");
 
                 //Save the trimmed cache into elastic
                 Client::index('nodes-cache', 'node-cache', $node_cache->getId(), json_encode($node_cache));
@@ -113,7 +113,6 @@ class ExistsController extends Controller
             ];
             $relationFound = Client::search('relations-type','relation-type',$relationExist);
 
-            dump($relationFound->hits->hits);
             if(count($relationFound->hits->hits) > 0){
                 //The relation exist
                 $result['existRelation'] = true;

@@ -100,7 +100,6 @@ class DocumentParser
                 $line = strtok(self::$separator);
             }
             strtok('', '');
-            dump($nodeType);
             return $object;
         }
     }

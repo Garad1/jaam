@@ -83,13 +83,11 @@ class JdmController extends Controller
             ]
         ]);
 
-        dump($response);
 
         if(count($response->hits->hits) !=  0){
 
-            dump("from elastic");
+            //dump("from elastic");
             $node_cache = $response->hits->hits[0]->_source;
-            dump($node_cache);
             return $node_cache;
         }
         else {
@@ -112,11 +110,9 @@ class JdmController extends Controller
                 $node_cache = clone $full_node_cache;
                 $node_cache->trimRelations(30);
 
-                dump("from jdm");
-                dump($node_cache);
+                //dump("from jdm");
                 //Save the trimmed cache into elastic
                 $response = Client::index('nodes-cache', 'node-cache', $node_cache->getId(), json_encode($node_cache));
-                dump($response);
 
             }
             catch(ErrorException $exception){
@@ -338,7 +334,6 @@ class JdmController extends Controller
 
         $relations['isMoreToLoad'] = $isMoreToLoad;
 
-        dump($relations);
 
         return new JsonResponse($relations);
     }
