@@ -43,12 +43,12 @@
                     <div class="card-content">
                         <blockquote id="relationIn" class="blockquote-in">
                                 {% for wordIn in relation.in %}
-                                    {% set word = wordIn.name|url_encode %}
+                                    {% set word = wordIn.node.name|url_encode %}
                                     <a class="relation tooltipped" data-tooltip="weight : {{ wordIn.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
-                                        {% if wordIn.formattedName is empty %}
-                                            {{ wordIn.name }}
+                                        {% if wordIn.node.formattedName is empty %}
+                                            {{ wordIn.node.name }}
                                         {% else %}
-                                            {{ wordIn.formattedName }}
+                                            {{ wordIn.node.formattedName }}
                                         {% endif %}
                                     </a>
                                 {% endfor %}
@@ -74,12 +74,12 @@
                     <div class="card-content">
                         <blockquote id="relationOut" class="blockquote-out">
                                 {% for wordOut in relation.out %}
-                                    {% set word = wordOut.name|url_encode %}
+                                    {% set word = wordOut.node.name|url_encode %}
                                     <a class="relation tooltipped" data-tooltip="weight : {{ wordOut.weight }}" href="{{ path('jdm_search', {'word' : word|raw}) }}">
-                                        {% if wordOut.formattedName is empty %}
-                                            {{ wordOut.name }}
+                                        {% if wordOut.node.formattedName is empty %}
+                                            {{ wordOut.node.name }}
                                         {% else %}
-                                            {{ wordOut.formattedName }}
+                                            {{ wordOut.node.formattedName }}
                                         {% endif %}
                                     </a>
                                 {% endfor %}

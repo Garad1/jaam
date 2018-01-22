@@ -162,7 +162,7 @@ class JdmController extends Controller
                     $sort = array('node.name:asc');
                     break;
                 case "weight":
-                    $sort = array('node.weight:desc');
+                    $sort = array('weight:desc');
                     break;
             }
         }
@@ -206,13 +206,13 @@ class JdmController extends Controller
         $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
-            $relations['in'][] = $hits->_source->node;
+            $relations['in'][] = $hits->_source;
         }
 
         $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
-            $relations['out'][] = $hits->_source->node;
+            $relations['out'][] = $hits->_source;
         }
 
         $isMoreToLoadIn =   (($from+$size) < $maxRelationIn->count);
@@ -284,7 +284,7 @@ class JdmController extends Controller
                     $sort = array('node.name:asc');
                     break;
                 case "weight":
-                    $sort = array('node.weight:desc');
+                    $sort = array('weight:desc');
                     break;
             }
         }
@@ -331,12 +331,14 @@ class JdmController extends Controller
         $responseIn = Client::paginate('relations', 'relation-in',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
-            $relations['in'][] = $hits->_source->node;
+            $relations['in'][] = $hits->_source;
         }
 
         $isMoreToLoad = (($from+$size) < $maxRelationIn->count);
 
         $relations['isMoreToLoad'] = $isMoreToLoad;
+
+        dump($relations);
 
         return new JsonResponse($relations);
     }
@@ -399,7 +401,7 @@ class JdmController extends Controller
         $responseIn = Client::paginate('relations', 'relation-out',$from,$size,$request,$sort);
         foreach ($responseIn->hits->hits as $hits){
             //we get source
-            $relations['out'][] = $hits->_source->node;
+            $relations['out'][] = $hits->_source;
         }
 
         $isMoreToLoad = (($from+$size) < $maxRelationIn->count);

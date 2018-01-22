@@ -29,10 +29,10 @@ $(function () {
             success : function(json, statut){ // code_html contient le HTML renvoyé
                 console.log(json); //Manipule ton objet comme ca :D
                 json.in.forEach(function(element) {
-                    if(element.formattedName == "") {
+                    if(element.node.formattedName == "" && element.node.formattedName == false) {
                         var a = document.createElement('a');
-                        a.href = '/' + element.name;
-                        a.textContent = element.name + " ";
+                        a.href = '/' + element.node.name;
+                        a.textContent = element.node.name + " ";
                         a.className = "tooltipped";
                         a.className += " relation";
                         a.setAttribute("data-tooltip", "weight: " + element.weight);
@@ -40,8 +40,8 @@ $(function () {
                         readMore.parentNode.insertBefore(a,readMore);
                     } else {
                         var a = document.createElement('a');
-                        a.href = '/' + element.name;
-                        a.textContent = element.formattedName + " ";
+                        a.href = '/' + element.node.name;
+                        a.textContent = element.node.formattedName + " ";
                         a.className = "tooltipped";
                         a.className += " relation";
                         a.setAttribute("data-tooltip", "weight: " + element.weight);
@@ -71,10 +71,10 @@ $(function () {
             success : function(json, statut){ // code_html contient le HTML renvoyé
                 console.log(json);
                 json.out.forEach(function(element) {
-                    if(element.formattedName == "") {
+                    if(element.node.formattedName == "" && element.node.formattedName == false) {
                         var a = document.createElement('a');
-                        a.href = '/' + element.name;
-                        a.textContent = element.name + " ";
+                        a.href = '/' + element.node.name;
+                        a.textContent = element.node.name + " ";
                         a.className = "tooltipped";
                         a.className += " relation";
                         a.setAttribute("data-position","top");
