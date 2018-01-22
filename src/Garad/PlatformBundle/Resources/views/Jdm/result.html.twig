@@ -7,9 +7,9 @@
         <div class="descriptif">
             <p> Mot Recherché : {{ cache.name }} </p>
             <p> Id : {{ cache.id }}
-                {% for i in cache.nodeTypes|length %}
-                    {% if cache.nodeTypes[i].id == cache.nodeType %}
-                        <p> Type de node : {{ cache.nodeTypes[i].name }}
+                {% for nodeType in cache.nodeTypes %}
+                    {% if nodeType.id == cache.nodeType %}
+                        <p> Type de node : {{ nodeType.name }}
                     {% endif %}
                 {% endfor %}
             <p> Nombre de relation types : {{ cache.relationTypes|length }} </p>

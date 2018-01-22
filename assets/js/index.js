@@ -110,7 +110,7 @@ function wordAutocompletion(value, callback) {
             for (var i = 0; i < data.length; ++i) {
                 result.push({
                     id: data[i]._source.id,
-                    text: data[i]._source.name
+                    text: data[i]._source.formattedName
                 });
             }
             callback(value, result);

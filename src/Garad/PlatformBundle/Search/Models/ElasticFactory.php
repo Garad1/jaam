@@ -67,9 +67,11 @@ class ElasticFactory
                     }
                 }
                 else {
-                    $elasticType = new RelationType($relationTypes[$relationType]);
-                    $elasticType->addRelationIn(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
-                    $allRelationsTypes[$relationType] = $elasticType;
+                    if(isset($relationTypes[$relationType])){
+                        $elasticType = new RelationType($relationTypes[$relationType]);
+                        $elasticType->addRelationIn(new Relation($relation->getId(),$relation->getWeight(),$nodes[$idFrom]));
+                        $allRelationsTypes[$relationType] = $elasticType;
+                    }
                 }
             }
             //In Out Relation Me -> Me
